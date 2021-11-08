@@ -1,4 +1,5 @@
 package Moteurs.physic;
 
-public class physic {
+public class Physic {
+
 }
