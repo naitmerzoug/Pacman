@@ -15,6 +15,7 @@ public class Entity {
         this.posY = posY;
         this.length = length;
         this.width = width;
+
     }
 
     public double getPosX(){
