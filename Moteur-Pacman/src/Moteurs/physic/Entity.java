@@ -4,17 +4,18 @@ import java.util.Vector;
 
 public class Entity {
 
+    private int id;
     private double posX;
     private double posY;
-
     private double length;
     private double width;
 
-    public Entity(double posX, double posY,double length, double width){
+    public Entity(int id,double posX, double posY,double length, double width){
         this.posX = posX;
         this.posY = posY;
         this.length = length;
         this.width = width;
+        this.id= id;
 
     }
 
