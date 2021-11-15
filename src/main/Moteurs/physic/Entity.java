@@ -11,18 +11,23 @@ public class Entity {
     private double length;
     private double width;
     private int speed;
-    private boolean collided;
-    private Set<Entity> collisions;
+    private Type type;
+    private Set<Entity> collisions; // mur, fantome, fruit
 
 
-    public Entity(int id,double posX, double posY,double length, double width){
+    public Entity(int id,Type type,double posX, double posY,double length, double width, int speed){
+        this.type = type;
         this.posX = posX;
         this.posY = posY;
         this.length = length;
         this.width = width;
         this.id= id;
         this.collisions = new HashSet<>();
+        this.speed = speed;
+    }
 
+    public Type getType() {
+        return type;
     }
 
     public double getPosX(){
@@ -52,5 +57,9 @@ public class Entity {
     public Set<Entity> getCollisions(){
         return collisions;
     }
+
+    public void addCollisions(Entity entity){collisions.add(entity);}
+
+
 
 }
