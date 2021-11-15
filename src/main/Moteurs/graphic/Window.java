@@ -7,6 +7,8 @@ public class Window {
 
     private final JFrame window = new JFrame();
 
+    private static Scene actualScene;
+
     public void initWindow(String title){
         window.setTitle(title);
         Dimension windowSize = window.getSize();
