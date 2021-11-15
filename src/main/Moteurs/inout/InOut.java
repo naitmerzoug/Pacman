@@ -1,9 +1,10 @@
 package Moteurs.inout;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 
 public class InOut {
+
     public void keyPressed(KeyEvent evt) {
         int code = evt.getKeyCode();
 
@@ -15,5 +16,6 @@ public class InOut {
 
     public static void main (String args[])
     {
+
     }
 }
