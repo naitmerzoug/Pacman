@@ -1,7 +1,5 @@
 package Moteurs.graphic;
 
-import Moteurs.graphic.Element;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
