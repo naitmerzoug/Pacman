@@ -3,7 +3,7 @@ package Moteurs.physic;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Entity {
+public class Pentity {
 
     private int id;
     private double posX;
@@ -12,10 +12,10 @@ public class Entity {
     private double width;
     private int speed;
     private Type type;
-    private Set<Entity> collisions; // mur, fantome, fruit
+    private Set<Pentity> collisions; // mur, fantome, fruit
 
 
-    public Entity(int id,Type type,double posX, double posY,double length, double width, int speed){
+    public Pentity(int id, Type type, double posX, double posY, double length, double width, int speed){
         this.type = type;
         this.posX = posX;
         this.posY = posY;
@@ -54,11 +54,11 @@ public class Entity {
         return speed;
     }
 
-    public Set<Entity> getCollisions(){
+    public Set<Pentity> getCollisions(){
         return collisions;
     }
 
-    public void addCollisions(Entity entity){collisions.add(entity);}
+    public void addCollisions(Pentity pentity){collisions.add(pentity);}
 
 
 
