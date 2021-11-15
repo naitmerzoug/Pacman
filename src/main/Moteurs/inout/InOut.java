@@ -14,8 +14,4 @@ public class InOut {
         else if (code == KeyEvent.VK_LEFT) System.out.println("Gauche");
     }
 
-    public static void main (String args[])
-    {
-
-    }
 }
