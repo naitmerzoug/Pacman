@@ -1,10 +1,22 @@
 package Moteurs.inout;
 
-import java.awt.event.KeyEvent;
 
+public class IOEngine implements IOEvent{
 
-public class InOut {
+    private final KeyboardIO keyboardIO = new KeyboardIO(this);
 
+    public IOEngine() {};
+
+    @Override
+    public void notifyInput(String event){
+
+    }
+
+    @Override
+    public void notifyClick(){
+
+    }
+    /*
     public void keyPressed(KeyEvent evt) {
         int code = evt.getKeyCode();
 
@@ -13,5 +25,7 @@ public class InOut {
         else if (code == KeyEvent.VK_RIGHT) System.out.println("Droite");
         else if (code == KeyEvent.VK_LEFT) System.out.println("Gauche");
     }
+
+     */
 
 }

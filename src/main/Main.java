@@ -1,9 +1,9 @@
-package Moteurs.graphic;
+import Moteurs.graphic.Scene;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Window {
+public class Main {
 
     private final JFrame window = new JFrame();
 
@@ -28,10 +28,7 @@ public class Window {
     }
 
     public static void main(String[] args){
-        Window window = new Window();
-        window.initWindow("Pacman");
-
-        Scene scene = new Scene(800, 800);
-
+        Main main = new Main();
+        main.initWindow("Pacman");
     }
 }

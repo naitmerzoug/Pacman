@@ -1,8 +1,14 @@
 package Moteurs.graphic;
 
+import Moteurs.core.EngineEntity;
+import Moteurs.core.Entity;
+
 import java.awt.*;
 
-public class GraphicEntity {
+/**
+ * Entité graphique
+ */
+public class GraphicEntity extends EngineEntity {
 
     private int x; // Position x
     private int y; // Position y
@@ -13,6 +19,8 @@ public class GraphicEntity {
 
 
     protected Scene scene;
+
+    protected GraphicEntity(Entity parent){ super(parent); }
 
     // Getters
 
@@ -42,10 +50,7 @@ public class GraphicEntity {
 
     // Setters
 
-
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setX(int x) { this.x = x; }
 
     public void setY(int y) {
         this.y = y;
@@ -63,7 +68,5 @@ public class GraphicEntity {
         this.color = color;
     }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
+    public void setScene(Scene scene) { this.scene = scene; }
 }
