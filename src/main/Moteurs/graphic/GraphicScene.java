@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Scene extends JPanel {
+public class GraphicScene extends JPanel {
 
     protected int height;
     protected int width;
@@ -13,16 +13,10 @@ public class Scene extends JPanel {
 
     private final ArrayList<GraphicEntity> entityArrayList = new ArrayList<>();
 
-    protected Scene(int width, int height){
+    protected GraphicScene(int width, int height){
         this.width = width;
         this.height = height;
         setBackground(Color.BLACK);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        graphics2D = (Graphics2D) g;
     }
 
     protected void addEntity(GraphicEntity entity){

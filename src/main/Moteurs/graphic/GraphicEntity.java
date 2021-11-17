@@ -18,7 +18,7 @@ public class GraphicEntity extends EngineEntity {
     private Color color;
 
 
-    protected Scene scene;
+    protected GraphicScene scene;
 
     protected GraphicEntity(Entity parent){ super(parent); }
 
@@ -44,7 +44,7 @@ public class GraphicEntity extends EngineEntity {
         return color;
     }
 
-    public Scene getScene() {
+    public GraphicScene getScene() {
         return scene;
     }
 
@@ -68,5 +68,5 @@ public class GraphicEntity extends EngineEntity {
         this.color = color;
     }
 
-    public void setScene(Scene scene) { this.scene = scene; }
+    public void setScene(GraphicScene scene) { this.scene = scene; }
 }
