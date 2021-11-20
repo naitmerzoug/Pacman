@@ -13,7 +13,7 @@ public class Entity extends EngineEntity{
 
     protected Entity(CoreEngine coreEngine){
         // Il faut ajouter une entité pour chaque moteur
-        this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
+        //this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
     }
 
 }
