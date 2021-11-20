@@ -127,6 +127,13 @@ public class Physic extends CollisionManage{
         return null;
     }
 
+    public boolean remove(int id){
+        for(Pentity pentity: getAllWorld())
+            if(pentity.getId() == id)
+                return world.get(pentity.getType()).remove(pentity);
+        return false;
+    }
+
     public boolean add(Pentity pentity) {
         if(null == get(pentity.getId())) {
             if( ! world.containsKey(pentity.getType()))
