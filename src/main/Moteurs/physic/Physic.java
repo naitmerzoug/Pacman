@@ -3,7 +3,7 @@ package Moteurs.physic;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Physic extends CollisionManage{
+public class Physic {
 
     //On créé un monde constitué d'entité
     private HashMap<Type, ArrayList<Pentity>> world= new HashMap<>();
@@ -35,7 +35,6 @@ public class Physic extends CollisionManage{
      */
     public boolean positionIsReachable(Pentity pentity,DIRECTION direction){
         return null == getObjectCollision(pentity,direction) ;
-
     }
 
     /**
@@ -52,19 +51,19 @@ public class Physic extends CollisionManage{
             for(Pentity pentity1 : world.get(Type.SOLID)) {
                 switch (direction){
                     case UP -> {
-                        if (!detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
                     }
                     case DOWN -> {
-                        if (!detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
                     }
                     case LEFT ->{
-                        if (!detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
                             return pentity1;
                     }
                     case RIGHT -> {
-                        if (!detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
                             return pentity1;
                     }
                 }
@@ -75,19 +74,19 @@ public class Physic extends CollisionManage{
             for(Pentity pentity1 : getAllWorld()) {
                 switch (direction){
                     case UP -> {
-                        if (!detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
                     }
                     case DOWN -> {
-                        if (!detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
                     }
                     case LEFT ->{
-                        if (!detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
                             return pentity1;
                     }
                     case RIGHT -> {
-                        if (!detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
+                        if (!CollisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
                             return pentity1;
                     }
                 }
