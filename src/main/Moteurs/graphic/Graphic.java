@@ -7,14 +7,14 @@ import java.util.ArrayList;
 /**
  * Moteur graphique
  */
-public class GraphicEngine {
+public class Graphic {
 
-    private final ArrayList<GraphicEntity> entities = new ArrayList<>();
+    private final ArrayList<Gentity> entities = new ArrayList<>();
 
-    public GraphicEngine(){}
+    public Graphic(){}
 
-    public GraphicEntity createEntity(Entity parent){
-        GraphicEntity entity = new GraphicEntity(parent);
+    public Gentity createEntity(Entity parent){
+        Gentity entity = new Gentity(parent);
         entities.add(entity);
         return entity;
     }
@@ -25,7 +25,7 @@ public class GraphicEngine {
 
     // Getter //
 
-    public ArrayList<GraphicEntity> getEntities() {
+    public ArrayList<Gentity> getEntities() {
         return entities;
     }
 

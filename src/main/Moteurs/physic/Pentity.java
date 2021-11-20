@@ -1,8 +1,5 @@
 package Moteurs.physic;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Pentity {
 
     private int id;
@@ -12,7 +9,6 @@ public class Pentity {
     private double width;
     private int speed;
     private Type type;
-    private Set<Pentity> collisions; // mur, fantome, fruit
 
     /**
      *
@@ -31,7 +27,6 @@ public class Pentity {
         this.length = length;
         this.width = width;
         this.id= id;
-        this.collisions = new HashSet<>(); // inutilisé, à supr ?
         this.speed = speed;
     }
 
@@ -62,14 +57,6 @@ public class Pentity {
     public int getSpeed() {
         return speed;
     }
-
-    // inutilisé, à supr ?
-    public Set<Pentity> getCollisions(){
-        return collisions;
-    }
-
-    // inutilisé, à supr ?
-    public void addCollisions(Pentity pentity){collisions.add(pentity);}
 
     public void setPositionPoints(int x, int y){
         posY = y;
