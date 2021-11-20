@@ -48,7 +48,6 @@ public class PhysicsTest {
         /* PacMan  */physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
         Pentity pentity = new Pentity(1, Type.SOLID, 2, 2, 3, 3, 1);
         Pentity test = physic.get(1);
-        assertEquals(pentity.getCollisions(),test.getCollisions());
         assertEquals(pentity.getPosX(),test.getPosX());
         assertEquals(pentity.getPosY(),test.getPosY());
         assertEquals(pentity.getId(),test.getId());
