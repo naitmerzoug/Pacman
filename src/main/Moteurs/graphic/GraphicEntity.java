@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * Entité graphique
  */
-public class GraphicEntity extends EngineEntity {
+public class Gentity extends EngineEntity {
 
     private int x; // Position x
     private int y; // Position y
@@ -20,7 +20,7 @@ public class GraphicEntity extends EngineEntity {
 
     protected GraphicScene scene;
 
-    protected GraphicEntity(Entity parent){ super(parent); }
+    protected Gentity(Entity parent){ super(parent); }
 
     // Getters
 
