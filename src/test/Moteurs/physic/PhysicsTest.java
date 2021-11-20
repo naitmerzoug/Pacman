@@ -12,21 +12,21 @@ public class PhysicsTest {
      * Required:
      * CollissionManage Valide (tested)
      */
-    public Physic physic = new Physic();
+    public PhysicEngine physic = new PhysicEngine();
     /* Objet Solide 1  */
-    private static Pentity solid_1_1 = new Pentity(1, Type.SOLID, 0, 0, 1, 1, 1);
+    private static PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
     /* Objet Solide 2 */
-    private static Pentity solid_1_2  = new Pentity(2, Type.SOLID, 1, 1, 1, 1, 1);
+    private static PhysicEntity solid_1_2  = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
     /* Objet Mou    3 */
-    private static Pentity soft_1_3  = new Pentity(3, Type.SOFT, -1, 1, 1, 1, 1);
+    private static PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, -1, 1, 1, 1, 1);
 
 
     /* Objet Mou    1 */
-    private static Pentity soft_2_1  = new Pentity(1, Type.SOFT, 10, 0, 1, 1, 1);
+    private static PhysicEntity soft_2_1  = new PhysicEntity(1, Type.SOFT, 10, 0, 1, 1, 1);
     /* Objet Mou    2 */
-    private static Pentity soft_2_2  = new Pentity(1, Type.SOFT, 11, 1, 1, 1, 1);
+    private static PhysicEntity soft_2_2  = new PhysicEntity(1, Type.SOFT, 11, 1, 1, 1, 1);
     /* Objet Solide 4 */
-    private static Pentity solid_2_3  = new Pentity(2, Type.SOLID, 9, 1, 1, 1, 1);
+    private static PhysicEntity solid_2_3  = new PhysicEntity(2, Type.SOLID, 9, 1, 1, 1, 1);
 
     public static void main(String[] args) {
 //        Physic physic = new Physic();
@@ -44,10 +44,10 @@ public class PhysicsTest {
 
     @Test
     public void createEntityTest() {
-        Physic physic = new Physic();
+        PhysicEngine physic = new PhysicEngine();
         /* PacMan  */physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
-        Pentity pentity = new Pentity(1, Type.SOLID, 2, 2, 3, 3, 1);
-        Pentity test = physic.get(1);
+        PhysicEntity pentity = new PhysicEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
+        PhysicEntity test = physic.get(1);
         assertEquals(pentity.getPosX(),test.getPosX());
         assertEquals(pentity.getPosY(),test.getPosY());
         assertEquals(pentity.getId(),test.getId());
@@ -58,7 +58,7 @@ public class PhysicsTest {
 
     @Test
     public void addTest(){
-        Physic physic2 = new Physic();
+        PhysicEngine physic2 = new PhysicEngine();
         /* PacMan  */physic2.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
         assertFalse(physic2.add(solid_1_1));
         assertTrue(physic2.add(solid_1_2));
@@ -106,4 +106,13 @@ public class PhysicsTest {
         assertEquals(2,physic.get(2).getId());
         physic.printWord();
     }
+    @Test
+    public void distanceBetweenTowPointsTest(){
+        assertEquals(physic.distanceBetweenTowPoints(solid_1_1,solid_1_2),Math.sqrt(2));
+        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_2),Math.sqrt(12));
+        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_1),Math.sqrt(10));
+    }
+
+
+
 }

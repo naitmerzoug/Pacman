@@ -7,11 +7,11 @@ import java.util.ArrayList;
 /**
  * Moteur graphique
  */
-public class Graphic {
+public class GraphicEngine {
 
     private final ArrayList<Gentity> entities = new ArrayList<>();
 
-    public Graphic(){}
+    public GraphicEngine(){}
 
     public Gentity createEntity(Entity parent){
         Gentity entity = new Gentity(parent);

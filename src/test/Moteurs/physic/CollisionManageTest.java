@@ -4,10 +4,11 @@ import static junit.framework.TestCase.*;
 import org.junit.Test;
 
 public class CollisionManageTest{
-    Pentity e1 = new Pentity(1, Type.SOLID,1,2,2,2,1);
-    Pentity e2 = new Pentity(2,Type.SOLID, 0,1,2,2,1);
-    Pentity e3 = new Pentity(3,Type.SOLID,3,4,2,2,1);
-    Pentity e4 = new Pentity(4,Type.SOLID,4,2,2,2,1);
+    PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
+    PhysicEntity e2 = new PhysicEntity(2,Type.SOLID, 0,1,2,2,1);
+    PhysicEntity e3 = new PhysicEntity(3,Type.SOLID,3,4,2,2,1);
+    PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
+    PhysicEngine physicEngine = new PhysicEngine();
 
     /**
      * On test la détection de collision qu'importe le type de l'objet
@@ -33,8 +34,8 @@ public class CollisionManageTest{
      */
     @Test
     public void detectCollisionTest(){
-        Pentity e5 = new Pentity(1, Type.SOFT,1,2,2,2,1);
-        Pentity e6 = new Pentity(1, Type.SOFT,1,2,2,2,1);
+        PhysicEntity e5 = new PhysicEntity(1, Type.SOFT,1,2,2,2,1);
+        PhysicEntity e6 = new PhysicEntity(1, Type.SOFT,1,2,2,2,1);
 
         assertFalse(CollisionManage.detectCollision(1,2,  e5,  e6));
         assertTrue(CollisionManage.detectCollision(1,2,  e1,  e6));
@@ -42,5 +43,7 @@ public class CollisionManageTest{
         assertTrue(CollisionManage.detectCollision(1,2,  e1,  e1));
 
     }
+
+
   
 }

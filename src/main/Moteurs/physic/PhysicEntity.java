@@ -1,6 +1,6 @@
 package Moteurs.physic;
 
-public class Pentity {
+public class PhysicEntity {
 
     private int id;
     private double posX;
@@ -20,7 +20,7 @@ public class Pentity {
      * @param width double
      * @param speed int
      */
-    public Pentity(int id, Type type, double posX, double posY, double length, double width, int speed){
+    public PhysicEntity(int id, Type type, double posX, double posY, double length, double width, int speed){
         this.type = type;
         this.posX = posX;
         this.posY = posY;
