@@ -29,7 +29,7 @@ public class Window {
         Window window = new Window();
         window.initWindow("Pacman");
 
-        Scene scene = new Scene(800, 800);
+     //   Scene scene = new Scene(800, 800);
 
     }
 }

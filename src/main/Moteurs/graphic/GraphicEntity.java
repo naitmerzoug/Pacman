@@ -8,5 +8,5 @@ public class GraphicEntity {
     private int height;
     private int width;
 
-    protected Scene scene;
+//    protected Scene scene;
 }
