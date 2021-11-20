@@ -109,8 +109,8 @@ public class PhysicsTest {
     @Test
     public void distanceBetweenTowPointsTest(){
         assertEquals(physic.distanceBetweenTowPoints(solid_1_1,solid_1_2),Math.sqrt(2));
-        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_2),Math.sqrt(12));
-        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_1),Math.sqrt(10));
+        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_2),Math.sqrt(144));
+        assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_1_3),Math.sqrt(0));
     }
 
 

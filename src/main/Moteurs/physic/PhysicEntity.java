@@ -58,6 +58,14 @@ public class PhysicEntity {
         return speed;
     }
 
+    public void setPosX(double posX) {
+        this.posX = posX;
+    }
+
+    public void setPosY(double posY) {
+        this.posY = posY;
+    }
+
     public void setPositionPoints(int x, int y){
         posY = y;
         posX = x;

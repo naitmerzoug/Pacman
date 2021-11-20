@@ -111,12 +111,6 @@ public class PhysicEngine {
         }
         return arrayList;
     }
-
-    /**
-     * Fixe la position d'un objet en fonction de sa direction
-     * @param direction
-     * @param pentity
-     */
     public void setPosition(PhysicEntity pentity, DIRECTION direction){
         switch (direction){
             case UP    -> pentity.setPositionPoints ((int) pentity.getPosY() + 1, (int) pentity.getPosX());
@@ -125,6 +119,9 @@ public class PhysicEngine {
             case RIGHT -> pentity.setPositionPoints ((int) pentity.getPosY(), (int) pentity.getPosX() + 1);
         }
     }
+
+
+
 
     public PhysicEntity get(int id){
         for(PhysicEntity pentity: getAllWorld())
@@ -155,11 +152,25 @@ public class PhysicEngine {
             entity.print();
     }
 
+
+    public double sqr(double a){
+        return a*a;
+    }
+
+    /**
+     * Calcule de la ditance entre deux points d'un referentiel orthonormé
+     * @param e1 Entité avec deux coordonées; x,y
+     * @param e2 Entité avec deux coordonées; x,y
+     * @return La distance entre les deux entitées
+     */
+
     public double distanceBetweenTowPoints(PhysicEntity e1, PhysicEntity e2){
-        double part1 = e2.getPosY()-e1.getPosY();
-        double part2 = e2.getPosX()-e1.getPosX();
+        double part1 = sqr(e2.getPosY()-e1.getPosY());
+        double part2 = sqr(e2.getPosX()-e1.getPosX());
         return Math.sqrt(part1+part2);
     }
+
+
 
 
 }
