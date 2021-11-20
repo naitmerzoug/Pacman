@@ -4,7 +4,7 @@ import Moteurs.graphic.GraphicEntity;
 
 public class Entity extends EngineEntity{
 
-    protected GraphicEntity graphicEntity;
+    protected Gentity graphicEntity;
     protected CoreEngine coreEngine;
 
     /**
