@@ -1,6 +1,6 @@
 package Moteurs.core;
 
-import Moteurs.graphic.GraphicEntity;
+import Moteurs.graphic.Gentity;
 
 public class Entity extends EngineEntity{
 
