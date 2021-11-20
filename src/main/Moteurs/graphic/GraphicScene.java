@@ -11,7 +11,7 @@ public class GraphicScene extends JPanel {
 
     protected Graphics2D graphics2D;
 
-    private final ArrayList<GraphicEntity> entityArrayList = new ArrayList<>();
+    private final ArrayList<Gentity> entityArrayList = new ArrayList<>();
 
     protected GraphicScene(int width, int height){
         this.width = width;
@@ -19,13 +19,13 @@ public class GraphicScene extends JPanel {
         setBackground(Color.BLACK);
     }
 
-    protected void addEntity(GraphicEntity entity){
+    protected void addEntity(Gentity entity){
         if (!entityArrayList.contains(entity)){
             entityArrayList.add(entity);
         }
     }
 
-    protected void removeEntity(GraphicEntity entity){
+    protected void removeEntity(Gentity entity){
         entityArrayList.remove(entity);
     }
 }
