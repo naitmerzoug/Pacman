@@ -24,7 +24,7 @@ public class GraphicEngine {
         entity.getGraphicEntity().setY(y);
     }
 
-    public void removeEntity(Entity entity){
+    public void removeEntity(Gentity entity){
         entities.remove(entity);
     }
 
