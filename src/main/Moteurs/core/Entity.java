@@ -16,4 +16,11 @@ public class Entity extends EngineEntity{
         //this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
     }
 
+    public Gentity getGraphicEntity() {
+        return graphicEntity;
+    }
+
+    public CoreEngine getCoreEngine() {
+        return coreEngine;
+    }
 }

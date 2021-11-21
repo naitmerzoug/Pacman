@@ -19,6 +19,11 @@ public class GraphicEngine {
         return entity;
     }
 
+    public void move(Entity entity, int x, int y){
+        entity.getGraphicEntity().setX(x);
+        entity.getGraphicEntity().setY(y);
+    }
+
     public void removeEntity(Entity entity){
         entities.remove(entity);
     }
