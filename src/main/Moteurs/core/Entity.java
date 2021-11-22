@@ -11,9 +11,16 @@ public class Entity extends EngineEntity{
      * Il faut un attribut aussi pour le moteur physique + moteur IA
      */
 
-    protected Entity(CoreEngine coreEngine){
+    public Entity(CoreEngine coreEngine){
         // Il faut ajouter une entité pour chaque moteur
-        //this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
+        this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
     }
 
+    public Gentity getGraphicEntity() {
+        return graphicEntity;
+    }
+
+    public CoreEngine getCoreEngine() {
+        return coreEngine;
+    }
 }
