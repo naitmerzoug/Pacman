@@ -1,14 +1,11 @@
 package Moteurs.graphic;
 
-import Moteurs.core.EngineEntity;
-import Moteurs.core.Entity;
-
 import java.awt.*;
 
 /**
  * Entité graphique
  */
-public class Gentity extends EngineEntity {
+public class GraphicEntity {
 
     private int x; // Position x
     private int y; // Position y
@@ -16,7 +13,6 @@ public class Gentity extends EngineEntity {
     private int width;
 
     private Color color;
-
 
     protected GraphicScene scene;
 
@@ -50,7 +46,9 @@ public class Gentity extends EngineEntity {
 
     // Setters
 
-    public void setX(int x) { this.x = x; }
+    public void setX(int x) { 
+        this.x = x; 
+    }
 
     public void setY(int y) {
         this.y = y;
