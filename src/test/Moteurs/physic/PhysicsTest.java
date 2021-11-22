@@ -6,8 +6,8 @@ import static junit.framework.TestCase.*;
 
 public class PhysicsTest {
     /**
-     * Ici nous ne testerons pas les si les collisions sont valide mais uniquement si les methodes de Physic retourne
-     * des réponses exact en fonction des informations obtenus
+     * Ici nous ne testerons pas les si les collisions sont valides mais uniquement si les methodes de Physic retourne
+     * des réponses exacts en fonction des informations obtenus
      * Pas de test sur les tailles des objets, leurs vitesses ou leurs créations.
      * Required:
      * CollissionManage Valide (tested)

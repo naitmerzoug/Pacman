@@ -1,4 +1,4 @@
-package Moteurs.graphic;
+package Moteurs.graphicm;
 
 import java.awt.*;
 
@@ -13,10 +13,9 @@ public class GraphicEntity {
     private int width;
 
     private Color color;
-
     protected GraphicScene scene;
 
-    protected GraphicEntity(int id, int x, int y, int height, int width){ 
+    protected GraphicEntity(int x, int y, int height, int width){
         this.x = x;
         this.y = y;
         this.height = height;
@@ -51,8 +50,8 @@ public class GraphicEntity {
 
     // Setters
 
-    public void setX(int x) { 
-        this.x = x; 
+    public void setX(int x) {
+        this.x = x;
     }
 
     public void setY(int y) {
@@ -73,3 +72,4 @@ public class GraphicEntity {
 
     public void setScene(GraphicScene scene) { this.scene = scene; }
 }
+
