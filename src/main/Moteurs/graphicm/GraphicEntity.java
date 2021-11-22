@@ -13,7 +13,6 @@ public class GraphicEntity {
     private int width;
 
     private Color color;
-    protected GraphicScene scene;
 
     protected GraphicEntity(int x, int y, int height, int width){
         this.x = x;
@@ -44,10 +43,6 @@ public class GraphicEntity {
         return color;
     }
 
-    public GraphicScene getScene() {
-        return scene;
-    }
-
     // Setters
 
     public void setX(int x) {
@@ -70,6 +65,5 @@ public class GraphicEntity {
         this.color = color;
     }
 
-    public void setScene(GraphicScene scene) { this.scene = scene; }
 }
 
