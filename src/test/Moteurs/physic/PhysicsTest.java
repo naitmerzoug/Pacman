@@ -12,35 +12,7 @@ public class PhysicsTest {
      * Required:
      * CollissionManage Valide (tested)
      */
-    public PhysicEngine physic = new PhysicEngine();
-    /* Objet Solide 1  */
-    private static PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
-    /* Objet Solide 2 */
-    private static PhysicEntity solid_1_2  = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
-    /* Objet Mou    3 */
-    private static PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, -1, 1, 1, 1, 1);
 
-
-    /* Objet Mou    1 */
-    private static PhysicEntity soft_2_1  = new PhysicEntity(1, Type.SOFT, 10, 0, 1, 1, 1);
-    /* Objet Mou    2 */
-    private static PhysicEntity soft_2_2  = new PhysicEntity(1, Type.SOFT, 11, 1, 1, 1, 1);
-    /* Objet Solide 4 */
-    private static PhysicEntity solid_2_3  = new PhysicEntity(2, Type.SOLID, 9, 1, 1, 1, 1);
-
-    public static void main(String[] args) {
-//        Physic physic = new Physic();
-//        /* PacMan  */physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
-//        /* Ghots_1 */physic.createEntity(2, Type.SOFT, 2, 3, 3, 3, 1);
-//        /* Ghots_2 */physic.createEntity(3, Type.SOFT, 15, 15, 3, 3, 1);
-//        /* Wall_0  */physic.createEntity(4, Type.SOLID, 15, 15, 3, 3, 0);
-//
-//        for(Pentity entity : physic.getAllWorld())
-//            entity.print();
-//        e1.setPositionPoints(0, 0);
-//
-//        assertEquals(2,2);
-    }
 
     @Test
     public void createEntityTest() {
@@ -58,6 +30,11 @@ public class PhysicsTest {
 
     @Test
     public void addTest(){
+        /* Objet Solide 1  */
+        PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
+        /* Objet Solide 2 */
+        PhysicEntity solid_1_2  = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
+
         PhysicEngine physic2 = new PhysicEngine();
         /* PacMan  */physic2.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
         assertFalse(physic2.add(solid_1_1));
@@ -66,6 +43,21 @@ public class PhysicsTest {
 
     @Test
     public void positionIsReachableTest() {
+        PhysicEngine physic = new PhysicEngine();
+        /* Objet Solide 1  */
+        PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
+        /* Objet Solide 2 */
+        PhysicEntity solid_1_2  = new PhysicEntity(2, Type.SOLID, 1, 0, 1, 1, 1);
+        /* Objet Mou    3 */
+        PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, -1, 0, 1, 1, 1);
+
+        /* Objet Mou    1 */
+        PhysicEntity soft_2_1  = new PhysicEntity(1, Type.SOFT, 10, 0, 1, 1, 1);
+        /* Objet Mou    2 */
+        PhysicEntity soft_2_2  = new PhysicEntity(1, Type.SOFT, 11, 1, 1, 1, 1);
+        /* Objet Solide 4 */
+        PhysicEntity solid_2_3  = new PhysicEntity(2, Type.SOLID, 9, 1, 1, 1, 1);
+
         physic.add(solid_1_1);
         physic.add(solid_1_2);
         physic.add(soft_1_3);
@@ -77,28 +69,57 @@ public class PhysicsTest {
         physic.add(soft_2_1);
         physic.add(soft_2_2);
         physic.add(solid_2_3);
+
+        soft_2_1.print();
+        soft_2_2.print();
+        solid_2_3.print();
+
         assertTrue(physic.positionIsReachable(soft_2_1, DIRECTION.RIGHT));
         physic.setPosition(soft_2_1, DIRECTION.RIGHT);
+
+
         assertFalse(physic.positionIsReachable(soft_2_1, DIRECTION.UP));
         assertFalse(physic.positionIsReachable(soft_2_1, DIRECTION.DOWN));
+
 
     }
 
     @Test
     public void getObjectCollisionTest(){
+        PhysicEngine physic = new PhysicEngine();
+        /* Objet Solide 1  */
+        PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
+        /* Objet Solide 2 */
+        PhysicEntity solid_1_2  = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
+        /* Objet Mou    3 */
+        PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, 1, -1, 1, 1, 1);
+
         physic.add(solid_1_1);
         physic.add(solid_1_2);
         physic.add(soft_1_3);
+
+        physic.getObjectCollision(solid_1_1, DIRECTION.RIGHT).print();
         physic.setPosition(solid_1_1, DIRECTION.RIGHT);
-        assertFalse(physic.positionIsReachable(solid_1_1, DIRECTION.UP));
+
+        physic.getObjectCollision(solid_1_1, DIRECTION.RIGHT).print();
+        //assertFalse(,physic.getObjectCollision(solid_1_1, DIRECTION.UP));
+        solid_1_1.print();
+
+        physic.getObjectCollision(solid_1_1, DIRECTION.UP).print();
+        physic.get(2).print();
+
         assertEquals(physic.get(2),physic.getObjectCollision(solid_1_1, DIRECTION.UP));
         physic.getObjectCollision(solid_1_1, DIRECTION.UP).print();
-        
+
         assertFalse(physic.positionIsReachable(solid_1_1, DIRECTION.DOWN));
     }
 
     @Test
     public void createEntityV2(){
+        PhysicEngine physic = new PhysicEngine();
+        /* Objet Solide 1  */
+        PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
+
         assertTrue(physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1));
         assertFalse(physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1));
         assertFalse( physic.add(solid_1_1));
@@ -108,6 +129,8 @@ public class PhysicsTest {
     }
     @Test
     public void distanceBetweenTowPointsTest(){
+        PhysicEngine physic = new PhysicEngine();
+
         PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
         PhysicEntity solid_1_2 = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
         PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, -1, 1, 1, 1, 1);

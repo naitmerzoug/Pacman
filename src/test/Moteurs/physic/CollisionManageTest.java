@@ -4,17 +4,17 @@ import static junit.framework.TestCase.*;
 import org.junit.Test;
 
 public class CollisionManageTest{
-    PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
-    PhysicEntity e2 = new PhysicEntity(2,Type.SOLID, 0,1,2,2,1);
-    PhysicEntity e3 = new PhysicEntity(3,Type.SOLID,3,4,2,2,1);
-    PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
-    PhysicEngine physicEngine = new PhysicEngine();
 
     /**
      * On test la détection de collision qu'importe le type de l'objet
      */
     @Test
     public void detectContactTestV1(){
+        PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
+        PhysicEntity e2 = new PhysicEntity(2,Type.SOLID, 0,1,2,2,1);
+        PhysicEntity e3 = new PhysicEntity(3,Type.SOLID,3,4,2,2,1);
+        PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
+
         assertTrue(CollisionManage.detectContact( e1,  e2));
         assertTrue(CollisionManage.detectContact( e1,  e3));
         assertFalse(CollisionManage.detectContact( e1,  e4));
@@ -25,6 +25,9 @@ public class CollisionManageTest{
      */
     @Test
     public void detectContactTestV2(){
+        PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
+        PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
+
         assertTrue(CollisionManage.detectContact( 3,2, e4,  e1));
         assertFalse(CollisionManage.detectContact( 5,2, e4,  e1));
     }
@@ -34,8 +37,10 @@ public class CollisionManageTest{
      */
     @Test
     public void detectCollisionTest(){
+        PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
         PhysicEntity e5 = new PhysicEntity(1, Type.SOFT,1,2,2,2,1);
         PhysicEntity e6 = new PhysicEntity(1, Type.SOFT,1,2,2,2,1);
+
 
         assertFalse(CollisionManage.detectCollision(1,2,  e5,  e6));
         assertTrue(CollisionManage.detectCollision(1,2,  e1,  e6));
