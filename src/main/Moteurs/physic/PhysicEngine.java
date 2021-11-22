@@ -59,19 +59,19 @@ public class PhysicEngine {
             for(PhysicEntity pentity1 : world.get(Type.SOLID)) {
                 switch (direction){
                     case UP -> {
-                        if (!collisionManage.detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
+                        if (!collisionManage.detectCollision(pentity.getPosX(),pentity.getPosY() + 1,  pentity, pentity1))
                             return pentity1;
                     }
                     case DOWN -> {
-                        if (!collisionManage.detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
+                        if (!collisionManage.detectCollision(pentity.getPosX(),pentity.getPosY() - 1,  pentity, pentity1))
                             return pentity1;
                     }
                     case LEFT ->{
-                        if (!collisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
+                        if (!collisionManage.detectCollision(pentity.getPosX() - 1,pentity.getPosY(),  pentity, pentity1))
                             return pentity1;
                     }
                     case RIGHT -> {
-                        if (!collisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
+                        if (!collisionManage.detectCollision( pentity.getPosX() + 1,pentity.getPosY(), pentity, pentity1))
                             return pentity1;
                     }
                 }
@@ -111,17 +111,15 @@ public class PhysicEngine {
         }
         return arrayList;
     }
+
     public void setPosition(PhysicEntity pentity, DIRECTION direction){
         switch (direction){
-            case UP    -> pentity.setPositionPoints ((int) pentity.getPosY() + 1, (int) pentity.getPosX());
-            case DOWN  -> pentity.setPositionPoints ((int) pentity.getPosY() - 1, (int) pentity.getPosX());
-            case LEFT  -> pentity.setPositionPoints ((int) pentity.getPosY(), (int) pentity.getPosX() - 1);
-            case RIGHT -> pentity.setPositionPoints ((int) pentity.getPosY(), (int) pentity.getPosX() + 1);
+            case UP    -> pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() + 1);
+            case DOWN  -> pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() - 1);
+            case LEFT  -> pentity.setPositionPoints ((int) pentity.getPosX() - 1,(int) pentity.getPosY());
+            case RIGHT -> pentity.setPositionPoints ((int) pentity.getPosX() + 1,(int) pentity.getPosY());
         }
     }
-
-
-
 
     public PhysicEntity get(int id){
         for(PhysicEntity pentity: getAllWorld())
@@ -152,7 +150,6 @@ public class PhysicEngine {
             entity.print();
     }
 
-
     public double sqr(double a){
         return a*a;
     }
@@ -163,7 +160,6 @@ public class PhysicEngine {
      * @param e2 Entité avec deux coordonées; x,y
      * @return La distance entre les deux entitées
      */
-
     public double distanceBetweenTowPoints(PhysicEntity e1, PhysicEntity e2){
         double part1 = sqr(e2.getPosY()-e1.getPosY());
         double part2 = sqr(e2.getPosX()-e1.getPosX());
