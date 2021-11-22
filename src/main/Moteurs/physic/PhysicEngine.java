@@ -168,6 +168,7 @@ public class PhysicEngine {
         double part1 = sqr(e2.getPosY()-e1.getPosY());
         double part2 = sqr(e2.getPosX()-e1.getPosX());
         return Math.sqrt(part1+part2);
+
     }
 
 
