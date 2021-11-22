@@ -108,11 +108,14 @@ public class PhysicsTest {
     }
     @Test
     public void distanceBetweenTowPointsTest(){
+        PhysicEntity solid_1_1 = new PhysicEntity(1, Type.SOLID, 0, 0, 1, 1, 1);
+        PhysicEntity solid_1_2 = new PhysicEntity(2, Type.SOLID, 1, 1, 1, 1, 1);
+        PhysicEntity soft_1_3  = new PhysicEntity(3, Type.SOFT, -1, 1, 1, 1, 1);
+        PhysicEntity soft_2_2  = new PhysicEntity(1, Type.SOFT, 11, 1, 1, 1, 1);
         assertEquals(physic.distanceBetweenTowPoints(solid_1_1,solid_1_2),Math.sqrt(2));
         assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_2_2),Math.sqrt(144));
         assertEquals(physic.distanceBetweenTowPoints(soft_1_3,soft_1_3),Math.sqrt(0));
     }
-
 
 
 }

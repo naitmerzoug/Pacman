@@ -3,13 +3,13 @@ package Moteurs.core;
 /**
  * Classe mère des entités
  */
-public abstract class EngineEntity {
+public abstract class CoreEntity {
 
     protected Entity parent;
 
-    protected EngineEntity(){}
+    protected CoreEntity(){}
 
-    protected EngineEntity(Entity parent){
+    protected CoreEntity(Entity parent){
         this.parent = parent;
     }
 
