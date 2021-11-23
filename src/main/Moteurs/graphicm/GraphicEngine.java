@@ -21,7 +21,17 @@ public class GraphicEngine {
         entities.remove(g);
     }
 
+    // Initialiser une entité
+        //initialiser une map de list d'image
+        //initialiser un etat de l'objet
 
+    //fixer un etat à l'objet (changer de liste de diffusion)
+
+    //afficher tout les objets
+
+    //initialiser la scene
+
+    //actualiser
 
 
 

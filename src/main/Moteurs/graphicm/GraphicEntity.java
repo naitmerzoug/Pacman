@@ -1,6 +1,9 @@
 package Moteurs.graphicm;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Entité graphique
@@ -11,6 +14,9 @@ public class GraphicEntity {
     private int y; // Position y
     private int height;
     private int width;
+    private Etat etat;
+    //list image
+    public HashMap<Etat, Set<BufferedImage>> images;
 
     private Color color;
 
