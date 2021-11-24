@@ -1,5 +1,6 @@
 package Moteurs.graphicm;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  */
 public class GraphicEngine {
     private final ArrayList<GraphicEntity> entities = new ArrayList<>();  // liste des entites graphiques
-    private final GraphicScene scene = new GraphicScene(750, 750);
+    private final GraphicScene scene = new GraphicScene(750, 750, Color.BLACK);
 
     /**
      * Constructeur
@@ -19,6 +20,11 @@ public class GraphicEngine {
     public void remove_entity(GraphicEntity g)
     {
         entities.remove(g);
+    }
+
+    public static void main(String[] args) {
+       // GraphicEngine graphicEngine = new GraphicEngine();
+        System.out.println("Salut");
     }
 
     // Initialiser une entité
