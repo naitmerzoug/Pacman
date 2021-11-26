@@ -58,22 +58,21 @@ public class PhysicEngine {
             // Test collison
             for(PhysicEntity pentity1 : world.get(Type.SOLID)) {
                 switch (direction){
-                    case UP -> {
+                    case UP:
                         if (!collisionManage.detectCollision(pentity.getPosX(),pentity.getPosY() + 1,  pentity, pentity1))
                             return pentity1;
-                    }
-                    case DOWN -> {
+
+                    case DOWN:
                         if (!collisionManage.detectCollision(pentity.getPosX(),pentity.getPosY() - 1,  pentity, pentity1))
                             return pentity1;
-                    }
-                    case LEFT ->{
+
+                    case LEFT:
                         if (!collisionManage.detectCollision(pentity.getPosX() - 1,pentity.getPosY(),  pentity, pentity1))
                             return pentity1;
-                    }
-                    case RIGHT -> {
+
+                    case RIGHT:
                         if (!collisionManage.detectCollision( pentity.getPosX() + 1,pentity.getPosY(), pentity, pentity1))
                             return pentity1;
-                    }
                 }
             }
 
@@ -81,22 +80,21 @@ public class PhysicEngine {
         if(pentity.getType()==Type.SOLID)
             for(PhysicEntity pentity1 : getAllWorld()) {
                 switch (direction){
-                    case UP -> {
+                    case UP:
                         if (!collisionManage.detectCollision(pentity.getPosY() + 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
-                    }
-                    case DOWN -> {
+
+                    case DOWN:
                         if (!collisionManage.detectCollision(pentity.getPosY() - 1, pentity.getPosX(), pentity, pentity1))
                             return pentity1;
-                    }
-                    case LEFT ->{
+
+                    case LEFT:
                         if (!collisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() - 1, pentity, pentity1))
                             return pentity1;
-                    }
-                    case RIGHT -> {
+
+                    case RIGHT:
                         if (!collisionManage.detectCollision(pentity.getPosY(), pentity.getPosX() + 1, pentity, pentity1))
                             return pentity1;
-                    }
                 }
             }
 
@@ -114,10 +112,10 @@ public class PhysicEngine {
 
     public void setPosition(PhysicEntity pentity, DIRECTION direction){
         switch (direction){
-            case UP    -> pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() + 1);
-            case DOWN  -> pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() - 1);
-            case LEFT  -> pentity.setPositionPoints ((int) pentity.getPosX() - 1,(int) pentity.getPosY());
-            case RIGHT -> pentity.setPositionPoints ((int) pentity.getPosX() + 1,(int) pentity.getPosY());
+            case UP: pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() + 1);
+            case DOWN: pentity.setPositionPoints ((int) pentity.getPosX(),(int) pentity.getPosY() - 1);
+            case LEFT: pentity.setPositionPoints ((int) pentity.getPosX() - 1,(int) pentity.getPosY());
+            case RIGHT: pentity.setPositionPoints ((int) pentity.getPosX() + 1,(int) pentity.getPosY());
         }
     }
 

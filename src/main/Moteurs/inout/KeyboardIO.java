@@ -1,39 +1,33 @@
 package Moteurs.inout;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.security.Key;
+
 import java.util.ArrayList;
 
-public class KeyboardIO implements KeyListener {
+public class KeyboardIO {
 
-    private final IOEngine ioEngine;
 
     private final ArrayList<Integer> pressedKeys = new ArrayList<>();
 
-    public KeyboardIO(IOEngine ioEngine){
-        this.ioEngine = ioEngine;
+    public final int keyCode;
+    public final Status status;
+
+    public KeyboardIO(int pKeyCode, Status pStatus){
+        this.keyCode = pKeyCode;
+        this.status = pStatus;
+        pressedKeys.add(keyCode);
     }
 
-    @Override
-    public void keyTyped(KeyEvent e){}
+    public ArrayList<Integer> getPressedKeys() { return pressedKeys; }
 
-    @Override
-    public void keyPressed(KeyEvent e){
-        int key = e.getKeyCode();
-        if (!pressedKeys.contains(key)){
-            pressedKeys.add(key);
-        }
+    public void setPressedKeys(int keyCode){
+        pressedKeys.add(keyCode);
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
-        if (pressedKeys.contains(key))
-            pressedKeys.remove((Integer) key);
+    public int getKeyCode() {
+        return keyCode;
     }
 
-    public ArrayList<Integer> getPressedKeys() {
-        return pressedKeys;
+    public Status getStatus() {
+        return status;
     }
 }

@@ -1,31 +1,35 @@
 package Moteurs.inout;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 
-public class IOEngine implements IOEvent{
+import java.util.ArrayList;
 
-    private final KeyboardIO keyboardIO = new KeyboardIO(this);
+public class IOEngine{
+
+    private final ArrayList<KeyboardIO> eventsListeners = new ArrayList<>();
 
     public IOEngine() {};
 
-    @Override
-    public void notifyInput(String event){
-
+    public void notifyInput(KeyEvent event){
+        int keyCode = event.getKeyCode();
+        Status status = null;
+        if (keyCode == KeyEvent.VK_UP){
+            status = Status.UP;
+        } else if (keyCode == KeyEvent.VK_DOWN) {
+            status = Status.DOWN;
+        } else if (keyCode == KeyEvent.VK_RIGHT) {
+            status = Status.RIGHT;
+        } else if (keyCode == KeyEvent.VK_LEFT) {
+            status = Status.LEFT;
+        } else if (keyCode == KeyEvent.VK_P){
+            status = Status.PAUSE;
+        }
+        eventsListeners.add(new KeyboardIO(keyCode, status));
     }
 
-    @Override
-    public void notifyClick(){
-
+    public ArrayList<KeyboardIO> getEventsListeners() {
+        return eventsListeners;
     }
-    /*
-    public void keyPressed(KeyEvent evt) {
-        int code = evt.getKeyCode();
-
-        if (code == KeyEvent.VK_UP) System.out.println("Haut");
-        else if (code == KeyEvent.VK_DOWN) System.out.println("Bas");
-        else if (code == KeyEvent.VK_RIGHT) System.out.println("Droite");
-        else if (code == KeyEvent.VK_LEFT) System.out.println("Gauche");
-    }
-
-     */
-
 }
