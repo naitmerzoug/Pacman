@@ -63,7 +63,7 @@ public class GraphicTempAll extends JFrame {
             e.printStackTrace();
             System.exit(1);
         }
-        image2 = (BufferedImage) resizeToBig(image2, 10,10);
+        image2 = (BufferedImage) resizeToBig(image2, 100,10);
         ImageIcon imageIcon2 = new ImageIcon(image2);
 
         jLabel2.setIcon(imageIcon2);
@@ -77,7 +77,7 @@ public class GraphicTempAll extends JFrame {
         System.out.println("test");
 
         frame.setVisible(true);  // affichage
-        jLabel2.setBounds(100, 250, size2.width, size2.height);
+        jLabel2.setBounds(300, 150, size2.width, size2.height);
 
     }
 
@@ -110,7 +110,8 @@ public class GraphicTempAll extends JFrame {
 
     public static void main(String[] args) throws InterruptedException {
         GraphicTempAll g = new GraphicTempAll(750, 750);
-        JLabel jLabel2 = new JLabel();JLabel jLabel1 = new JLabel();
+        JLabel jLabel2 = new JLabel();
+        JLabel jLabel1 = new JLabel();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

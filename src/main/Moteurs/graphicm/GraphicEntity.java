@@ -39,7 +39,7 @@ public class GraphicEntity {
         this.height = height;
         this.width = width;
 
-        this.jLabel = new JLabel();
+        JLabel jLabel = new JLabel();
 
         //chargement d'une image
         BufferedImage image = null;
@@ -59,9 +59,7 @@ public class GraphicEntity {
 
         jLabel.setIcon(imageIcon);
 
-        //Positionement entité
-        Dimension size = jLabel.getPreferredSize();
-        jLabel.setBounds(x, y, size.width, size.height);
+        this.jLabel = jLabel;
     }
 
     // Getters

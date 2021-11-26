@@ -19,9 +19,18 @@ public class GraphicEngineTest{
         graphicScene.addEntity(entity);
 //        graphicScene.printEntities();
         graphicScene.run();
-//        entity.setPosition(80,100);
-//        graphicScene.printEntities();
-//        graphicScene.run();
+        for(Component i : graphicScene.getComponents())
+            System.out.println(i.getX() + " " + i.getY());
+        entity.setPosition(80,100);
+        for(Component i : graphicScene.getComponents())
+            System.out.println(i.getX() + " " + i.getY());
+        for(Component i : graphicScene.getComponents())
+            i.setLocation(100,150);
+        for(Component i : graphicScene.getComponents())
+            System.out.println(i.getX() + " " + i.getY());
+        //System.out.println(entity.getX() + " "+entity.getY());
+//      graphicScene.printEntities();
+         graphicScene.run();
 //        graphicScene.afficherScene();
     }
 
