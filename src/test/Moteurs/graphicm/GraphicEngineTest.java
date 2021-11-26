@@ -17,12 +17,12 @@ public class GraphicEngineTest{
         GraphicScene graphicScene = new GraphicScene(750, 750, Color.BLACK);
         GraphicEntity entity = new GraphicEntity(150,100,10,10,new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
         graphicScene.addEntity(entity);
-        graphicScene.printEntities();
+//        graphicScene.printEntities();
         graphicScene.run();
-        entity.setPosition(100,100);
-        graphicScene.printEntities();
-        graphicScene.run();
-        graphicScene.afficherScene();
+//        entity.setPosition(80,100);
+//        graphicScene.printEntities();
+//        graphicScene.run();
+//        graphicScene.afficherScene();
     }
 
     @Test
