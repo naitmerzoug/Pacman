@@ -103,6 +103,7 @@ public class GraphicEntity {
         this.y = y;
         //Positionement entité
         jLabel.setBounds(x, y, jLabel.getWidth(), jLabel.getHeight());
+        System.out.println("setpos x:"+jLabel.getX()+" y:"+jLabel.getY());
     }
 
     public void setHeight(int height) {

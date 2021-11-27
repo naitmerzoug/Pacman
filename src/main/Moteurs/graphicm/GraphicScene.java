@@ -43,6 +43,7 @@ public class GraphicScene extends JFrame {
      */
     public void addEntity(GraphicEntity graphicEntity){
         frame.getContentPane().add(graphicEntity.getJlabel());
+        run();
     }
 
     /**

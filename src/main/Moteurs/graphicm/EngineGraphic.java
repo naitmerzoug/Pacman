@@ -78,6 +78,12 @@ public class EngineGraphic{
             System.out.println(test.getX()+" "+test.getY());
     }
 
+    public void mooveEntity(Component jLabel, int x, int y){
+        //Debug affiche les coordonées du composant pour tester si coordonées de l'objet / Jlabel == coordonées composant
+        System.out.println(frame.getContentPane().getComponent(0).getY()+ ":" + frame.getContentPane().getComponent(0).getX());
+        jLabel.setBounds(x, y, jLabel.getWidth(), jLabel.getHeight());
+    }
+
     //======================================
     //           GETTER - SETTER
     //======================================
