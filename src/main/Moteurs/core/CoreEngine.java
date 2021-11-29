@@ -27,10 +27,6 @@ public class CoreEngine {
         this.entities = new ConcurrentHashMap<>();
     }
 
-    public static void main(String args[]){
-        System.out.println("test");
-    }
-
     public void addEntity(CoreEntity e){
         if(e.getId()==0 || entities.containsKey(e.getId())){
             nbEntities++;
