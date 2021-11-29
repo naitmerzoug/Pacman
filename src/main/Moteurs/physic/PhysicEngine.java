@@ -15,7 +15,6 @@ public class PhysicEngine {
     public static int nbEntities = 0;
 
 
-
     public PhysicEngine(){
         entities = new ConcurrentHashMap<>();
         collisionManage = new CollisionManage();
