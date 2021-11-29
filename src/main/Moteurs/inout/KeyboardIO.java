@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class KeyboardIO {
 
-
     private final ArrayList<Integer> pressedKeys = new ArrayList<>();
 
     public final int keyCode;

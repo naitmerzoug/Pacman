@@ -3,6 +3,7 @@ package Moteurs.inout;
 import static junit.framework.TestCase.*;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -12,7 +13,7 @@ public class InoutTest {
 
     private Status status;
     private int keyCode;
-    private static KeyEvent keyEvent;
+   private static KeyEvent keyEvent;
 
     private Robot robot = new Robot();
     public InoutTest() throws AWTException {
@@ -68,5 +69,16 @@ public class InoutTest {
         robot.keyPress(KeyEvent.VK_LEFT);
         assertTrue(new KeyboardIO(38, Status.UP).getPressedKeys().size()==1);
         robot.keyRelease(KeyEvent.VK_LEFT);
+    }
+
+    @Test
+    public void notifyInputTest() {
+        IOEngine ioEngine = new IOEngine();
+        JFrame jFrame = new JFrame("test");
+        KeyEvent keyEvent1 = new KeyEvent(jFrame, 1,1,1,36, 'p');
+
+        ioEngine.notifyInput(keyEvent1);
+        System.out.println(ioEngine.getKeyCode());
+        System.out.println(ioEngine.getDate());
     }
 }

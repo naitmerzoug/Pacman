@@ -1,35 +1,30 @@
 package Moteurs.inout;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.security.Key;
 
-import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
-public class IOEngine{
+public class IOEngine {
 
-    private final ArrayList<KeyboardIO> eventsListeners = new ArrayList<>();
+    private int keyCode;
+    private Date date = null;
 
-    public IOEngine() {};
-
-    public void notifyInput(KeyEvent event){
-        int keyCode = event.getKeyCode();
-        Status status = null;
-        if (keyCode == KeyEvent.VK_UP){
-            status = Status.UP;
-        } else if (keyCode == KeyEvent.VK_DOWN) {
-            status = Status.DOWN;
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            status = Status.RIGHT;
-        } else if (keyCode == KeyEvent.VK_LEFT) {
-            status = Status.LEFT;
-        } else if (keyCode == KeyEvent.VK_P){
-            status = Status.PAUSE;
-        }
-        eventsListeners.add(new KeyboardIO(keyCode, status));
+    public IOEngine() {
     }
 
-    public ArrayList<KeyboardIO> getEventsListeners() {
-        return eventsListeners;
+    public IOEngine notifyInput(KeyEvent event) {
+        date = Calendar.getInstance().getTime();
+        keyCode = event.getKeyCode();
+
+        return this;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getKeyCode() {
+        return keyCode;
     }
 }
