@@ -4,7 +4,7 @@ import Moteurs.core.CoreEngine;
 
 public class Coin {
     private int x, y;
-    boolean canEat = true;
+    //boolean canEat = true;
     public CoreEngine coreEngine;
 
     public Coin(int x, int y, CoreEngine coreEngine)
@@ -25,14 +25,6 @@ public class Coin {
 
 
     // Setters
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public void setCoreEngine(CoreEngine coreEngine) {
         this.coreEngine = coreEngine;
