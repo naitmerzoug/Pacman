@@ -7,7 +7,10 @@ import Moteurs.inout.IOEngine;
  * Noyau du jeu
  * Doit contenir un accès à tous les autres moteurs
  */
-public class CoreEngine {
+public class
+
+
+CoreEngine {
 
     private IOEngine ioEngine;
     private GraphicEngine graphicEngine;

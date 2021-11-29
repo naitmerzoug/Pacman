@@ -27,9 +27,12 @@ public class EngineGraphicTest {
         System.out.println("wake up 1");
 
         //Création et ajout de l'objet
-        JLabel pacman1 = engineGraphic.createEntity(10,10,new File("C:\\Users\\flo-t\\IdeaProjects\\Pacman\\src\\main\\Moteurs\\graphicm\\pacman.png"));
+        JLabel pacman1 = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
         engineGraphic.addEntity(pacman1,500,100);
         engineGraphic.printEntities(); // debug affiche les objets présents et leurs coordonées
+        engineGraphic.run();
+        JLabel pacman2 = engineGraphic.createEntity(15,15,new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
+        engineGraphic.addEntity(pacman2,500,100);
         engineGraphic.run();
 //        //Pause
 //        System.out.println("sleep 2");
@@ -48,21 +51,42 @@ public class EngineGraphicTest {
 //            System.out.println(components.getX() + " " + components.getY());// debug affiche coordonées
 //        }
 
-        //Pause
-        for(int i =0; i<10; i++){
+//        //Pause
+//        for(int i =0; i<10; i++){
+//            System.out.println("sleep 3");
+//            Thread.sleep(1000);
+//            System.out.println("wake up 3");
+//
+//            //Test de bouger l'objet diretement
+//            pacman1.setBounds(100,10, pacman1.getWidth(), pacman1.getHeight());
+//
+//            System.out.println("sleep 4");
+//            Thread.sleep(1000);
+//            System.out.println("wake up 4");
+//
+//            //Test de bouger l'objet diretement
+//            pacman1.setBounds(100,100, pacman1.getWidth(), pacman1.getHeight());
+//
+//        }
+
+        while (true){
             System.out.println("sleep 3");
             Thread.sleep(1000);
             System.out.println("wake up 3");
 
             //Test de bouger l'objet diretement
-            pacman1.setBounds(100,10, pacman1.getWidth(), pacman1.getHeight());
+            //pacman1.setBounds(100,10, pacman1.getWidth(), pacman1.getHeight());
+            engineGraphic.mooveEntity(pacman1,100,10);
+            engineGraphic.mooveEntity(pacman2,80,20);
 
             System.out.println("sleep 4");
             Thread.sleep(1000);
             System.out.println("wake up 4");
 
             //Test de bouger l'objet diretement
-            pacman1.setBounds(100,100, pacman1.getWidth(), pacman1.getHeight());
+            //pacman1.setBounds(100,100, pacman1.getWidth(), pacman1.getHeight());
+            engineGraphic.mooveEntity(pacman1,100,100);
+            engineGraphic.mooveEntity(pacman2,20,20);
 
         }
 

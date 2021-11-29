@@ -17,10 +17,15 @@ public class GraphicEngine {
 
     // Entités
     public void add_entity(GraphicEntity g) { entities.add(g); }
+
     public void remove_entity(GraphicEntity g)
     {
         entities.remove(g);
     }
+
+    public void setPosition(GraphicEntity g, int x, int y){
+        System.out.println("déplacement à faire");
+    };
 
     public static void main(String[] args) {
        // GraphicEngine graphicEngine = new GraphicEngine();

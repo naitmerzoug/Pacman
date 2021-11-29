@@ -127,12 +127,12 @@ public class GraphicTempAll extends JFrame {
             for( Component test : frame.getContentPane().getComponents())
                 System.out.println(test.getX()+" "+test.getY());//Thread.currentThread().sleep(300);
 //            Dimension size = jLabel1.getPreferredSize(); // Définition taille 1
-//            Dimension size2 = jLabel2.getPreferredSize(); // Définition taille 2
+            Dimension size2 = jLabel2.getPreferredSize(); // Définition taille 2
             System.out.println("des tests");
-//            Component[] x = frame.getContentPane().getComponents();
+            Component[] x = frame.getContentPane().getComponents();
 //            if(i==1)
 //                jLabel2.setBounds(100, 125, jLabel2.getWidth(), jLabel2.getHeight());
-//            jLabel2.setBounds(x[1].getX()+1, x[1].getY(), size2.width, size2.height);
+            jLabel2.setBounds(x[1].getX()+1, x[1].getY(), size2.width, size2.height);
 //            if (x[0].getY()-5>=0)
 //                jLabel1.setBounds(x[0].getX(), x[0].getY()-5, size.width, size.height);
         }
