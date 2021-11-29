@@ -2,12 +2,6 @@ package Moteurs.physic;
 
 public class CollisionManage {
 
-    PhysicEntity physicEntity;
-
-
-    public CollisionManage() {
-    }
-
     /**
      * Si deux objets partagent un point (x,y) en commun
      * Si deux objets se "touchent", son en "contact"
