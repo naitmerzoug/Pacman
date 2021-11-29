@@ -1,6 +1,5 @@
 package Moteurs.graphic;
 
-import Moteurs.core.EngineEntity;
 import Moteurs.core.Entity;
 
 import java.awt.*;
