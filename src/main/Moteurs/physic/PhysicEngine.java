@@ -26,8 +26,8 @@ public class PhysicEngine {
         if(e.getId()==0 || entities.containsKey(e.getId())){
             nbEntities++;
             e.setId(nbEntities);
-            entities.put(e.getId(),e);
         }
+        entities.put(e.getId(),e);
     }
 
     public void removeEntity(PhysicEntity e){

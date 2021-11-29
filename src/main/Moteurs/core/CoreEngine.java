@@ -1,6 +1,7 @@
 package Moteurs.core;
 
 import Moteurs.graphicm.GraphicEngine;
+import Moteurs.graphicm.GraphicEntity;
 import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
 
@@ -23,15 +24,20 @@ public class CoreEngine {
         this.ioEngine = new IOEngine();
         this.graphicEngine = new GraphicEngine();
         this.physicEngine = new PhysicEngine();
-        entities = new ConcurrentHashMap<>();
+        this.entities = new ConcurrentHashMap<>();
     }
 
-    public void createEntity(CoreEntity e){
+    public static void main(String args[]){
+        System.out.println("test");
+    }
+
+    public void addEntity(CoreEntity e){
         if(e.getId()==0 || entities.containsKey(e.getId())){
             nbEntities++;
             e.setId(nbEntities);
-            entities.put(e.getId(),e);
         }
+        entities.put(e.getId(),e);
+        this.getPhysicEngine().createEntity(e.getPhysicEntity());
     }
 
     public void removeEntity(CoreEntity e){
