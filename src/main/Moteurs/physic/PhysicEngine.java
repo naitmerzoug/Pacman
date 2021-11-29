@@ -15,22 +15,28 @@ public class PhysicEngine {
     public static int nbEntities = 0;
 
 
-
     public PhysicEngine(){
         entities = new ConcurrentHashMap<>();
         collisionManage = new CollisionManage();
     }
 
 
-
+    /**
+     * Donner un id à l'entitée si elle n'en a pas et l'ajouter à entities;
+      * @param e Entité physique.
+     */
     public void createEntity(PhysicEntity e){
         if(e.getId()==0 || entities.containsKey(e.getId())){
             nbEntities++;
             e.setId(nbEntities);
-            entities.put(e.getId(),e);
         }
+        entities.put(e.getId(),e);
     }
 
+    /**
+     * Supprime l'entité des listes de collision de chauque entitée et la supprime de entities.
+     * @param e Entité physique.
+     */
     public void removeEntity(PhysicEntity e){
         for(PhysicEntity e1 : entities.values()){
             e1.getCollisions().remove(e);
@@ -39,7 +45,12 @@ public class PhysicEngine {
     }
 
 
-
+    /**
+     * Permet de savoir si'il ya une entitée à un un pas dépendant de la direction.
+      * @param physicEntity Entité physique.
+     * @param direction direction de l'Entité physique.
+     * @return True si il y'a bien une entitée, false sinon.
+     */
     public boolean isSomething(PhysicEntity physicEntity, DIRECTION direction){
         switch (direction){
             case UP -> {
@@ -72,6 +83,13 @@ public class PhysicEngine {
         }
     }
 
+    /**
+     *
+     * @param x position x
+     * @param y position y
+     * @return Liste des entitées ayant comme cooordonées : x et y
+     */
+
     public ArrayList<PhysicEntity> entitiesAtPosition(double x, double y){
         ArrayList<PhysicEntity> entitiesAt = new ArrayList<>();
         for (PhysicEntity entity : entities.values()){
@@ -81,9 +99,16 @@ public class PhysicEngine {
         }
         return entitiesAt;
 
-
-
     }
+
+    /**
+     *
+     * @param x position x
+     * @param y position y
+     * @param length hauteur
+     * @param width largeur
+     * @return  Liste des entitées ayant comme cooordonées : se trouvant dans le perimetre ayant comme centre x,y et une hauteur ainsi qu'une largeur.
+     */
     public ArrayList<PhysicEntity> entitiesAtPosition(double x, double y, double length, double width) {
         ArrayList<PhysicEntity> entitiesAt = new ArrayList<>();
         for (PhysicEntity entity : entities.values()) {
@@ -96,7 +121,6 @@ public class PhysicEngine {
     }
 
 
-
     public void moving(PhysicEntity e, double stepX, double stepY){
         for (int i = 0; i < e.getSpeed();i++){
             e.setOldX(e.getPosX());
@@ -105,6 +129,12 @@ public class PhysicEngine {
             e.setPosY(e.getPosY() + stepY);
         }
     }
+
+    /**
+     * Deplacer une entité dans une direction;
+     * @param e Entité physique.
+     * @param direction Direction de l'entitée.
+     */
     public void move(PhysicEntity e, DIRECTION direction){
         switch (direction){
             case UP -> {
@@ -131,9 +161,7 @@ public class PhysicEngine {
                 e.setStepY(0);
                 moving(e,e.getStepX(),e.getStepY());
             }
-            case NULL -> {
-                e.setDirection(direction);
-            }
+            case NULL -> e.setDirection(direction);
         }
     }
 

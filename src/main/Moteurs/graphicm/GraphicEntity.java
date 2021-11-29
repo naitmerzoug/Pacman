@@ -14,7 +14,7 @@ public class GraphicEntity {
 
     private Color color;
 
-    protected GraphicEntity(int x, int y, int height, int width){
+    public GraphicEntity(int x, int y, int height, int width){
         this.x = x;
         this.y = y;
         this.height = height;
