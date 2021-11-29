@@ -21,6 +21,7 @@ public class CoreEntity {
     {
         return (int) (nb*10);
     }
+
     // Getters
 
     public PhysicEntity getPhysicEntity() {

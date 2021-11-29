@@ -182,6 +182,7 @@ public class PhysicEngine {
 
     }
 
+    // Getters
 
     public ConcurrentMap<Integer, PhysicEntity> getEntities() {
         return entities;
@@ -190,6 +191,12 @@ public class PhysicEngine {
     public CollisionManage getCollisionManage() {
         return collisionManage;
     }
+
+    public static int getNbEntities() {
+        return nbEntities;
+    }
+
+    // Setters
 
     public void setEntities(ConcurrentMap<Integer, PhysicEntity> entities) {
         this.entities = entities;
