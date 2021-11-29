@@ -27,7 +27,7 @@ public class Window {
 
     public static void main(String[] args){
         Window window = new Window();
-        window.initWindow("Pacman");
+        window.initWindow("PacmanGame");
 
      //   Scene scene = new Scene(800, 800);
 

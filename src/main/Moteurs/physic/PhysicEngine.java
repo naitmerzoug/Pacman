@@ -8,9 +8,6 @@ import java.util.concurrent.ConcurrentMap;
 public class PhysicEngine {
 
 
-
-
-
     private ConcurrentMap<Integer,PhysicEntity> entities;
 
     private final CollisionManage collisionManage;

@@ -1,4 +1,4 @@
-package Pacman;
+package PacmanGame;
 
 import Moteurs.core.CoreEngine;
 
@@ -16,6 +16,7 @@ public class Pacman {
         this.isDead = false;
         this.isInvincible = false;
         this.coreEngine = coreEngine;
+        //this.coreEngine.createEntity(x, y);
     }
 
     // Setters

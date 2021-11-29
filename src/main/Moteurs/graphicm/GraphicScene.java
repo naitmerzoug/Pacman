@@ -8,7 +8,7 @@ public class GraphicScene extends JFrame {
 
     protected static int width;  // largeur de la scene
     protected static int height; // hauteur de la scene
-    protected static JFrame frame = new JFrame("Pacman");  // creation de la fenetre
+    protected static JFrame frame = new JFrame("PacmanGame");  // creation de la fenetre
 
     private final ArrayList<GraphicEntity> entityArrayList = new ArrayList<>();  // liste des entites graphiques
 
