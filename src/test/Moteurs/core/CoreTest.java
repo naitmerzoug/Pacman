@@ -12,7 +12,7 @@ public class CoreTest {
      */
     @Test
     public void TestAddEntity(){
-        CoreEngine c1 = new CoreEngine();
+        CoreEngine c1 = new CoreEngine(2,2,200,200);
         CoreEntity e1 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
         CoreEntity e2 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
         CoreEntity e3 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
@@ -27,12 +27,32 @@ public class CoreTest {
      */
     @Test
     public void TestEntityId(){
-        CoreEngine coreEngine = new CoreEngine();
+        CoreEngine coreEngine = new CoreEngine(2,2,200,200);
         CoreEntity e1 = new CoreEntity(Type.SOFT, 2,1,10,10, 1);
         CoreEntity e2 = new CoreEntity(Type.SOFT, 2,1,10,10, 1);
         coreEngine.addEntity(e1);
         coreEngine.addEntity(e2);
         assertEquals(2, e2.getId());
+
+    }
+
+    /**
+     * Test si la conversion de l'espace physique à l'espace graphique est correct (axe des abscisses)
+     */
+    @Test
+    public void TestConvertCoord(){
+        CoreEngine coreEngine = new CoreEngine(5,5,500,500);
+        assertEquals(200, coreEngine.ConvertPhysictoGraphic(2));
+
+    }
+
+    /**
+     * Test si la conversion de l'espace physique à l'espace graphique est correct (axe des ordonnées)
+     */
+    @Test
+    public void TestConvertCoordOrd(){
+        CoreEngine coreEngine = new CoreEngine(5,5,500,500);
+        assertEquals(100, coreEngine.ConvertPhysictoGraphicOrd(-1));
 
     }
 }

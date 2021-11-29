@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentMap;
 
 public class PhysicEngine {
 
-
     private ConcurrentMap<Integer,PhysicEntity> entities;
 
     private final CollisionManage collisionManage;
@@ -19,7 +18,6 @@ public class PhysicEngine {
         entities = new ConcurrentHashMap<>();
         collisionManage = new CollisionManage();
     }
-
 
     /**
      * Donner un id à l'entitée si elle n'en a pas et l'ajouter à entities;

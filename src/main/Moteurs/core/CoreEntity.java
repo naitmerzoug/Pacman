@@ -14,12 +14,7 @@ public class CoreEntity {
     {
         this.physicEntity = new PhysicEntity(id, type, x, y, height, width, speed);
         // conversion dans l'espace de coordonnées graphiques
-        this.graphicEntity = new GraphicEntity(convertPhysictoGraphic(x), convertPhysictoGraphic(y),convertPhysictoGraphic(height), convertPhysictoGraphic(width));
-    }
-
-    public int convertPhysictoGraphic(double nb)
-    {
-        return (int) (nb*10);
+        //this.graphicEntity = new GraphicEntity(convertPhysictoGraphic(x), convertPhysictoGraphic(y),convertPhysictoGraphic(height), convertPhysictoGraphic(width));
     }
 
     // Getters
