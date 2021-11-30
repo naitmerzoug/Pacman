@@ -46,6 +46,10 @@ public class Play {
 
     private void movePacmanTo(DIRECTION direction){
         pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
+        /*/
+        To DO:
+        Faire la liaison entre le graphic et la physic quand on bouge
+         */
     }
 
 }
