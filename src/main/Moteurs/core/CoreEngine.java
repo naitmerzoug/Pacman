@@ -5,6 +5,8 @@ import Moteurs.graphicm.GraphicEntity;
 import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -18,6 +20,8 @@ public class CoreEngine {
      * Hauteur et largeur de l'espace graphique
      */
     private int GraphicHeight, GraphicWidth;
+
+    private final Map<String, Runnable> events = new HashMap<>();
 
     /**
      * Hauteur et largeur de l'espace physique
@@ -88,6 +92,10 @@ public class CoreEngine {
         double physicHeight = this.getPhysicHeight();
         return (int) (-(graphicHeight * y) / physicHeight);
 
+    }
+
+    public void addEvent(String name, Runnable event){
+        events.put(name, event);
     }
 
 
