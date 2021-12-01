@@ -1,7 +1,6 @@
 package PacmanGame;
 
 import Moteurs.core.CoreEngine;
-import Moteurs.sound.SoundEngine;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -12,8 +11,6 @@ public class Play {
     private CoreEngine coreEngine;
 
     private Pacman pacman;
-
-    public enum DIRECTION {UP, RIGHT, LEFT, DOWN}
     public enum GHOSTS {RED, BLUE, ORANGE, PINK}
     private Map<GHOSTS, Ghost> ghosts;
 
@@ -35,10 +32,10 @@ public class Play {
     Fonction qui crée et lie les événements d'entrée/sorties au clavier
      */
     private void initEvents(){
-        coreEngine.addEvent("pacmanGoUp", () -> movePacmanTo(DIRECTION.UP));
-        coreEngine.addEvent("pacmanGoDown", () ->movePacmanTo(DIRECTION.DOWN));
-        coreEngine.addEvent("pacmanGoLeft", () -> movePacmanTo(DIRECTION.LEFT));
-        coreEngine.addEvent("pacmanGoRight", () -> movePacmanTo(DIRECTION.RIGHT));
+        coreEngine.addEvent("pacmanGoUp", () -> movePacmanTo(Direction.UP));
+        coreEngine.addEvent("pacmanGoDown", () ->movePacmanTo(Direction.DOWN));
+        coreEngine.addEvent("pacmanGoLeft", () -> movePacmanTo(Direction.LEFT));
+        coreEngine.addEvent("pacmanGoRight", () -> movePacmanTo(Direction.RIGHT));
 
         coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
         coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
@@ -62,8 +59,8 @@ public class Play {
     /*
     Fonction qui sert à dire à pacman de bouger dans une direction
      */
-    private void movePacmanTo(DIRECTION direction){
-        //pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
+    private void movePacmanTo(Direction direction){
+        pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
         /*/
         To DO:
         Faire la liaison entre le graphic et la physic quand on bouge

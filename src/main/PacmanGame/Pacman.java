@@ -10,8 +10,7 @@ public class Pacman {
     private boolean isInvincible;
     private CoreEngine coreEngine;
 
-    public enum DIRECTION {UP, RIGHT, LEFT, DOWN}
-    private DIRECTION currentDirections;
+    private Direction currentDirection;
 
     public Pacman(int x, int y, CoreEngine coreEngine)
     {
@@ -20,8 +19,7 @@ public class Pacman {
         this.isDead = false;
         this.isInvincible = false;
         this.coreEngine = coreEngine;
-        this.currentDirections = null; // Par défaut quand on crée Pacman il va à droite. Bonne idée?
-        //this.coreEngine.createEntity(x, y);
+        this.currentDirection = null;
     }
 
     // Setters
@@ -50,8 +48,8 @@ public class Pacman {
         this.coreEngine = coreEngine;
     }
 
-    public void setCurrentDirections(DIRECTION direction) {
-        this.currentDirections = direction;
+    public void setCurrentDirections(Direction direction) {
+        this.currentDirection = direction;
     }
 
     //Getters
@@ -68,9 +66,7 @@ public class Pacman {
         return speed;
     }
 
-    public boolean getDead() {
-        return isDead;
-    }
+    public boolean getDead() { return isDead; }
 
     public boolean getInvincible() {
         return isInvincible;
@@ -80,7 +76,5 @@ public class Pacman {
         return coreEngine;
     }
 
-    public DIRECTION getCurrentDirections() {
-        return currentDirections;
-    }
+    public Direction getCurrentDirections() { return currentDirection; }
 }
