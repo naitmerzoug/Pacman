@@ -1,9 +1,6 @@
 package PacmanGame;
 
 import Moteurs.core.CoreEngine;
-import Moteurs.inout.IOEngine;
-import PacmanGame.Ghost;
-import PacmanGame.Pacman;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -25,12 +22,16 @@ public class Play {
         initPlayers();
         initEvents();
     }
-
+    /*
+    Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
+     */
     private void initPlayers(){
         pacman = new Pacman(100, 100, coreEngine);
         ghosts = new HashMap<>();
     }
-
+    /*
+    Fonction qui crée et lie les événements d'entrée/sorties au clavier
+     */
     private void initEvents(){
         coreEngine.addEvent("pacmanGoUp", () -> movePacmanTo(DIRECTION.UP));
         coreEngine.addEvent("pacmanGoDown", () ->movePacmanTo(DIRECTION.DOWN));
@@ -43,7 +44,9 @@ public class Play {
         coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
 
     }
-
+    /*
+    Fonction qui sert à dire à pacman de bouger dans une direction
+     */
     private void movePacmanTo(DIRECTION direction){
         pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
         /*/

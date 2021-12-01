@@ -24,10 +24,16 @@ public class IOEngine {
         return this;
     }
 
+    /*
+    Fonction qui lie les événements d'entrée au clavier
+     */
     public void bindEventKeyPressed(int keyCode, String eventName){
         bindedEventstKeyPressed.put(keyCode, eventName);
     }
 
+    /*
+    Fonction qui supprime le lien des événements d'entrée au clavier
+     */
     public void unbindKeyPressed(int keyCode){
         bindedEventstKeyPressed.remove(keyCode);
     }
