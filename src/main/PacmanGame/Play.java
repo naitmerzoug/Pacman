@@ -37,10 +37,11 @@ public class Play {
         coreEngine.addEvent("pacmanGoLeft", () -> movePacmanTo(Direction.LEFT));
         coreEngine.addEvent("pacmanGoRight", () -> movePacmanTo(Direction.RIGHT));
 
-        coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
-        coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
-        coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
-        coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
+        // TODO: 01/12/2021
+        //coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
+        //.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
+       // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
+       // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
 
     }
 

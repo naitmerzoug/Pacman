@@ -1,11 +1,11 @@
 package Moteurs.core;
 
-import Moteurs.graphicm.GraphicEngine;
-import Moteurs.graphicm.GraphicEntity;
+import Moteurs.graphic.GraphicEngine;
 import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
 import Moteurs.sound.SoundEngine;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -48,7 +48,7 @@ public class CoreEngine {
 
         // Moteurs
         this.ioEngine = new IOEngine();
-        this.graphicEngine = new GraphicEngine();
+        this.graphicEngine = new GraphicEngine(750,500, Color.BLACK,"name");
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();

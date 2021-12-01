@@ -1,15 +1,19 @@
 package Moteurs.physic;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import static junit.framework.TestCase.*;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class PhysicEngineTest {
+import org.junit.Test;
 
 
-   @org.junit.jupiter.api.Test
+class PhysicEngineTest  {
+
+
+   @Test
    void TESTcreateEntity() {
        PhysicEngine physicEngine = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
@@ -70,7 +74,7 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTentitiesAtPosition() {
         PhysicEngine physicEngine3 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
@@ -89,7 +93,7 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTtestEntitiesAtPosition() {
         PhysicEngine physicEngine4 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 1);
@@ -107,7 +111,7 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTmoving() {
         PhysicEngine physicEngine4 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
@@ -116,7 +120,7 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTmove() {
        PhysicEngine physicEngine5 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
@@ -125,14 +129,14 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTsqr() {
         double a = 2;
         assertEquals(4, PhysicEngine.sqr(a));
    }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTdistanceBetweenTowPoints() {
         PhysicEngine physicEngine6 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);

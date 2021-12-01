@@ -1,6 +1,5 @@
 package Moteurs.core;
 
-import Moteurs.graphicm.GraphicEntity;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
 
@@ -8,7 +7,7 @@ public class CoreEntity {
 
     private int id = 0;
     private PhysicEntity physicEntity;
-    private GraphicEntity graphicEntity;
+    //private GraphicEntity graphicEntity;
 
     public CoreEntity(Type type, double x, double y, double height, double width, int speed)
     {
@@ -23,9 +22,9 @@ public class CoreEntity {
         return physicEntity;
     }
 
-    public GraphicEntity getGraphicEntity() {
-        return graphicEntity;
-    }
+    //public GraphicEntity getGraphicEntity() {
+   //     return graphicEntity;
+   // }
 
     public int getId() {
         return id;

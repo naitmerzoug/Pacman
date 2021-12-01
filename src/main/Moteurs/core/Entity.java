@@ -1,10 +1,7 @@
 package Moteurs.core;
 
-import Moteurs.graphic.Gentity;
-
 public class Entity extends EngineEntity{
 
-    protected Gentity graphicEntity;
     protected CoreEngine coreEngine;
 
     /**
@@ -15,8 +12,8 @@ public class Entity extends EngineEntity{
         // Il faut ajouter une entité pour chaque moteur
         //this.graphicEntity = coreEngine.getGraphicEngine().createEntity(this);
     }
-
-    public Gentity getGraphicEntity() {
-        return graphicEntity;
-    }
+//
+//    public Gentity getGraphicEntity() {
+//        return graphicEntity;
+//    }
 }
