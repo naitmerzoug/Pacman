@@ -14,7 +14,7 @@ public class EngineGraphicTest {
     public void creationScene() throws InterruptedException {
         GraphicEngine engineGraphic = new GraphicEngine(750, 500, Color.BLACK, "PacmanTest");
         engineGraphic.run();
-        Thread.currentThread().sleep(100);
+        Thread.sleep(100);
         JLabel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(pacman1, 100, 100);
     }
@@ -24,8 +24,8 @@ public class EngineGraphicTest {
         GraphicEngine engineGraphic = new GraphicEngine(50,40, Color.WHITE,"teste");
         JLabel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(jLabel, 5, 10);
-        assertTrue(engineGraphic.getAll()[0].getX()==5);
-        assertTrue(engineGraphic.getAll()[0].getY()==10);
+        assertEquals(5, engineGraphic.getAll()[0].getX());
+        assertEquals(10, engineGraphic.getAll()[0].getY());
 
     }
 
@@ -34,11 +34,11 @@ public class EngineGraphicTest {
         GraphicEngine engineGraphic = new GraphicEngine(50,40, Color.WHITE,"teste");
         JLabel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(jLabel, 5, 10);
-        assertTrue(engineGraphic.getAll()[0].getX()==5);
-        assertTrue(engineGraphic.getAll()[0].getY()==10);
+        assertEquals(5, engineGraphic.getAll()[0].getX());
+        assertEquals(10, engineGraphic.getAll()[0].getY());
         engineGraphic.mooveEntity(jLabel, 50,80);
-        assertTrue(engineGraphic.getAll()[0].getX()==50);
-        assertTrue(engineGraphic.getAll()[0].getY()==80);
+        assertEquals(50, engineGraphic.getAll()[0].getX());
+        assertEquals(80, engineGraphic.getAll()[0].getY());
     }
 
 
@@ -58,16 +58,17 @@ public class EngineGraphicTest {
         System.out.println("wake up 1");
 
         //Création et ajout de l'objet
-        JLabel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
+        JLabel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(pacman1, 500, 100);
         engineGraphic.printEntities(); // debug affiche les objets présents et leurs coordonées
 
-        JLabel pacman2 = engineGraphic.createEntity(15, 15, new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
+        JLabel pacman2 = engineGraphic.createEntity(15, 15, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(pacman2, 500, 100);
 
         engineGraphic.run();
 
-        JLabel pacman3 = engineGraphic.createEntity(25, 25, new File("src\\main\\Moteurs\\graphicm\\pacman.png"));
+        JLabel pacman3 = engineGraphic.createEntity(25, 25, new File("src\\main\\Moteurs\\graphic" +
+                "\\pacman.png"));
         engineGraphic.addEntity(pacman3, 100, 100);
 
 

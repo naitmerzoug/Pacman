@@ -1,7 +1,6 @@
 package Moteurs.graphic;
 
 import Moteurs.core.CoreEngine;
-import kotlin.collections.ArraysKt;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
