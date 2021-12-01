@@ -124,6 +124,7 @@ public class PhysicEngine {
             e.setOldY(e.getPosY());
             e.setPosX(e.getPosX() + stepX);
             e.setPosY(e.getPosY() + stepY);
+            System.out.println(e.getPosY()+"test");
         }
     }
 
