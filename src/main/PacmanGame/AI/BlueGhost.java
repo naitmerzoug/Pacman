@@ -3,7 +3,11 @@ package PacmanGame.AI;
 import Moteurs.core.CoreEngine;
 
 public class BlueGhost extends Ghost {
-    public BlueGhost(int x, int y, CoreEngine coreEngine) {
-        super(x, y, coreEngine);
+
+    public BlueGhost() {
+        this.initialX = 0; // La position x initial du phantom bleu.
+        this.initialY = 0; // La position y initial du phantom bleu.
     }
+
+
 }
