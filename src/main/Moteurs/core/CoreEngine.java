@@ -3,6 +3,8 @@ package Moteurs.core;
 import Moteurs.graphic.GraphicEngine;
 import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
+import Moteurs.physic.PhysicEntity;
+import Moteurs.physic.Type;
 import Moteurs.sound.SoundEngine;
 
 import java.awt.*;
@@ -57,14 +59,27 @@ public class CoreEngine {
     /**
      * Ajoute une entité noyau
      */
-    public void addEntity(CoreEntity e){
+    public CoreEntity addEntity(Type type, double x, double y, double length, double width, int speed){
+
+        CoreEntity e = new CoreEntity();
         if(e.getId()==0 || entities.containsKey(e.getId())){
             nbEntities++;
             e.setId(nbEntities);
         }
-        entities.put(e.getId(),e);
+
+        // Création côté physique
+        PhysicEntity p = new PhysicEntity(e.getId(), type, x, y, length, width, speed);
+        e.setPhysicEntity(p);
         this.getPhysicEngine().createEntity(e.getPhysicEntity());
-        //penser a ajouter graphique aussi
+
+        // Création côté graphique
+        //GraphicEntity g = new GraphicEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y),ConvertPhysictoGraphic(length),ConvertPhysictoGraphic(width));
+        //e.setGraphicEntity(g);
+        //this.getGraphicEngine().add_entity();
+
+        entities.put(e.getId(),e);
+
+        return e;
     }
 
     /**

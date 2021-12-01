@@ -12,13 +12,10 @@ public class CoreTest {
      */
     @Test
     public void TestAddEntity(){
-        CoreEngine c1 = new CoreEngine(2,2,200,200);
-        CoreEntity e1 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
-        CoreEntity e2 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
-        CoreEntity e3 = new CoreEntity(Type.SOFT, 1,1,10,10, 1);
-        c1.addEntity(e1);
-        c1.addEntity(e2);
-        c1.addEntity(e3);
+        Moteurs.core.CoreEngine c1 = new Moteurs.core.CoreEngine(2,2,200,200);
+        CoreEntity e1 = c1.addEntity(Type.SOFT, 1,1,10,10, 1);
+        CoreEntity e2 = c1.addEntity(Type.SOFT, 1,1,10,10, 1);
+        CoreEntity e3 = c1.addEntity(Type.SOFT, 1,1,10,10, 1);
         assertEquals(3, c1.getNbEntities());
     }
 
@@ -27,11 +24,11 @@ public class CoreTest {
      */
     @Test
     public void TestEntityId(){
-        CoreEngine coreEngine = new CoreEngine(2,2,200,200);
-        CoreEntity e1 = new CoreEntity(Type.SOFT, 2,1,10,10, 1);
-        CoreEntity e2 = new CoreEntity(Type.SOFT, 2,1,10,10, 1);
-        coreEngine.addEntity(e1);
-        coreEngine.addEntity(e2);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(2,2,200,200);
+        CoreEntity e1 = new CoreEntity();
+        CoreEntity e2 = new CoreEntity();
+        coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
+        coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
         assertEquals(2, e2.getId());
 
     }
@@ -41,7 +38,7 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoord(){
-        CoreEngine coreEngine = new CoreEngine(5,5,500,500);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
         assertEquals(200, coreEngine.ConvertPhysictoGraphic(2));
 
     }
@@ -51,7 +48,7 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoordOrd(){
-        CoreEngine coreEngine = new CoreEngine(5,5,500,500);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
         assertEquals(100, coreEngine.ConvertPhysictoGraphicOrd(-1));
 
     }
