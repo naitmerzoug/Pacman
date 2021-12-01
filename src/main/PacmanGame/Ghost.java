@@ -2,7 +2,7 @@ package PacmanGame;
 
 import Moteurs.core.CoreEngine;
 
-public class Ghost {
+public abstract class Ghost {
     private int x, y, speed;
     private boolean isVulnerable;
     private CoreEngine coreEngine;

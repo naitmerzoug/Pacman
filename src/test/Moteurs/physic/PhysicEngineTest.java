@@ -120,10 +120,9 @@ class PhysicEngineTest {
     @org.junit.jupiter.api.Test
     void TESTmove() {
         PhysicEngine physicEngine5 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
+        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 6);
         physicEngine5.move(e1, DIRECTION.UP);
-
-        assertEquals(7, e1.getPosY());
+        assertEquals(8, e1.getPosY());
 
     }
 

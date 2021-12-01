@@ -119,7 +119,8 @@ public class PhysicEngine {
 
 
     public void moving(PhysicEntity e, double stepX, double stepY){
-        for (int i = 0; i < e.getSpeed();i++){
+        for (int i = 0; i < e.getSpeed() ; i++){
+            System.out.println(e.getSpeed());
             e.setOldX(e.getPosX());
             e.setOldY(e.getPosY());
             e.setPosX(e.getPosX() + stepX);
