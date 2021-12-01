@@ -74,10 +74,10 @@ public class CoreEngine {
         e.setPhysicEntity(p);
         this.getPhysicEngine().createEntity(e.getPhysicEntity());
 
-
         // Création côté graphique
         JLabel g = this.getGraphicEngine().createEntity(ConvertPhysictoGraphic(length), ConvertPhysictoGraphic(width), file);
         this.getGraphicEngine().addEntity(g, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
+        e.setGraphicEntity(g);
 
         entities.put(e.getId(),e);
 
