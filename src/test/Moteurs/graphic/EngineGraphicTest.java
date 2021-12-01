@@ -71,6 +71,8 @@ public class EngineGraphicTest {
                 "\\pacman.png"));
         engineGraphic.addEntity(pacman3, 100, 100);
 
+        System.out.println("p1:"+pacman1.getWidth()+":"+pacman1.getHeight()+" p2:"+pacman2.getWidth()+":"+pacman2.getHeight()+" p3:"+pacman3.getWidth()+":"+pacman3.getHeight());
+
 
         while (true) {
             System.out.println("sleep 3");
