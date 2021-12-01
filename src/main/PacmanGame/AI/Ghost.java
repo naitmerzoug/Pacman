@@ -1,4 +1,4 @@
-package PacmanGame;
+package PacmanGame.AI;
 
 import Moteurs.core.CoreEngine;
 
