@@ -63,7 +63,7 @@ public class Play {
     Fonction qui sert à dire à pacman de bouger dans une direction
      */
     private void movePacmanTo(DIRECTION direction){
-        pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
+        //pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
         /*/
         To DO:
         Faire la liaison entre le graphic et la physic quand on bouge

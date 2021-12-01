@@ -1,5 +1,6 @@
 package Moteurs.physic;
 
+
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -28,19 +29,6 @@ public class PhysicsTest {
     /* Objet Solide 4 */
     private static PhysicEntity solid_2_3  = new PhysicEntity(2, Type.SOLID, 9, 1, 1, 1, 1);
 
-    public static void main(String[] args) {
-//        Physic physic = new Physic();
-//        /* PacMan  */physic.createEntity(1, Type.SOLID, 2, 2, 3, 3, 1);
-//        /* Ghots_1 */physic.createEntity(2, Type.SOFT, 2, 3, 3, 3, 1);
-//        /* Ghots_2 */physic.createEntity(3, Type.SOFT, 15, 15, 3, 3, 1);
-//        /* Wall_0  */physic.createEntity(4, Type.SOLID, 15, 15, 3, 3, 0);
-//
-//        for(Pentity entity : physic.getAllWorld())
-//            entity.print();
-//        e1.setPositionPoints(0, 0);
-//
-//        assertEquals(2,2);
-    }
 
     @Test
     public void createEntityTest() {

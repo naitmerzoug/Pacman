@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class PhysicEngineTest {
 
