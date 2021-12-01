@@ -25,10 +25,8 @@ public class CoreTest {
     @Test
     public void TestEntityId(){
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(2,2,200,200);
-        CoreEntity e1 = new CoreEntity();
-        CoreEntity e2 = new CoreEntity();
-        coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
-        coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
+        CoreEntity e1 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
+        CoreEntity e2 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1);
         assertEquals(2, e2.getId());
 
     }
