@@ -4,6 +4,7 @@ import Moteurs.graphicm.GraphicEngine;
 import Moteurs.graphicm.GraphicEntity;
 import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
+import Moteurs.sound.SoundEngine;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +31,7 @@ public class CoreEngine {
     private IOEngine ioEngine;
     private GraphicEngine graphicEngine;
     private PhysicEngine physicEngine;
+    private SoundEngine soundEngine;
     private ConcurrentMap<Integer,CoreEntity> entities;
     public static int nbEntities;
 
@@ -48,6 +50,7 @@ public class CoreEngine {
         this.ioEngine = new IOEngine();
         this.graphicEngine = new GraphicEngine();
         this.physicEngine = new PhysicEngine();
+        this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
     }
 
@@ -111,6 +114,10 @@ public class CoreEngine {
 
     public PhysicEngine getPhysicEngine() {
         return physicEngine;
+    }
+
+    public SoundEngine getSoundEngine() {
+        return soundEngine;
     }
 
     public static int getNbEntities() {

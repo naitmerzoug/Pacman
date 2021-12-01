@@ -1,6 +1,7 @@
 package PacmanGame;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.sound.SoundEngine;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class Play {
         //coreEngine = new CoreEngine()
         initPlayers();
         initEvents();
+        initSounds();
     }
     /*
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
@@ -43,6 +45,19 @@ public class Play {
         coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
         coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
 
+    }
+
+    /*
+    Fonction qui se charge de charger les sons
+     */
+    private void initSounds(){
+        coreEngine.getSoundEngine().loadSound("pacman_beginning.wav", "PacmanStart");
+        coreEngine.getSoundEngine().loadSound("pacman_chomp.wav", "PacmanEatChomp");
+        coreEngine.getSoundEngine().loadSound("pacman_death.wav", "PacmanDeath");
+        coreEngine.getSoundEngine().loadSound("pacman_eatfruit.wav", "PacmanEatFruit");
+        coreEngine.getSoundEngine().loadSound("pacman_eatghost.wav", "PacmanEatGhost");
+        coreEngine.getSoundEngine().loadSound("pacman_extrapac.wav", "PacmanExtra");
+        coreEngine.getSoundEngine().loadSound("pacman_intermission.wav", "PacmanGeneral");
     }
     /*
     Fonction qui sert à dire à pacman de bouger dans une direction
