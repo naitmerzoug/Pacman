@@ -47,6 +47,7 @@ class PhysicEngineTest {
 
         physicEngine1.removeEntity(e2);
 
+
         assertFalse(physicEngine1.getEntities().containsKey(2));
     }
 
