@@ -57,7 +57,7 @@ public class CoreEngine {
     }
 
     /**
-     * Ajoute une entité noyau
+     * Création d'une entité noyau
      */
     public CoreEntity addEntity(Type type, double x, double y, double length, double width, int speed){
 
@@ -72,8 +72,9 @@ public class CoreEngine {
         e.setPhysicEntity(p);
         this.getPhysicEngine().createEntity(e.getPhysicEntity());
 
+
         // Création côté graphique
-        //GraphicEntity g = new GraphicEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y),ConvertPhysictoGraphic(length),ConvertPhysictoGraphic(width));
+        //JLabel g = new GraphicEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y),ConvertPhysictoGraphic(length),ConvertPhysictoGraphic(width));
         //e.setGraphicEntity(g);
         //this.getGraphicEngine().add_entity();
 
