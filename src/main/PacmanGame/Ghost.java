@@ -3,26 +3,29 @@ package PacmanGame;
 import Moteurs.core.CoreEngine;
 
 public abstract class Ghost {
-    private int x, y, speed;
+    private double initialX;
+    private double initialY;
+    private double speed;
     private boolean isVulnerable;
     private CoreEngine coreEngine;
 
-    public Ghost(int x, int y, CoreEngine coreEngine)
+    public Ghost(int initialX, int initialY, CoreEngine coreEngine)
     {
-        this.x = x;
-        this.y = y;
+        this.initialX = initialX;
+        this.initialY = initialY;
         this.isVulnerable = false;
         this.coreEngine = coreEngine;
     }
 
     //Getters
 
-    public int getX() {
-        return x;
+
+    public double getInitialX() {
+        return initialX;
     }
 
-    public int getY() {
-        return y;
+    public double getInitialY() {
+        return initialY;
     }
 
     public boolean isVulnerable() {
@@ -35,12 +38,13 @@ public abstract class Ghost {
 
     // Setters
 
-    public void setX(int x) {
-        this.x = x;
+
+    public void setInitialX(double initialX) {
+        this.initialX = initialX;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setInitialY(double initialY) {
+        this.initialY = initialY;
     }
 
     public void setVulnerable(boolean vulnerable) {
