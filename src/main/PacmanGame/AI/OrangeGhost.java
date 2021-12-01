@@ -1,8 +1,9 @@
-package PacmanGame;
+package PacmanGame.AI;
 
 import Moteurs.core.CoreEngine;
+import PacmanGame.AI.Ghost;
 
-public class OrangeGhost extends Ghost{
+public class OrangeGhost extends Ghost {
 
 
     private double initialX;

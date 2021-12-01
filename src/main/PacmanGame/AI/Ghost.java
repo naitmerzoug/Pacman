@@ -1,13 +1,26 @@
-package PacmanGame;
+package PacmanGame.AI;
 
 import Moteurs.core.CoreEngine;
 
 public abstract class Ghost {
-    private double initialX;
-    private double initialY;
-    private double speed;
+
+
+    public static final double basicSpeed = 1;
+    public static final double scaredSpeed = 1.5;
+    public static final double speed= 1.7;
+
+    protected double initialX;
+    protected double initialY;
     private boolean isVulnerable;
     private CoreEngine coreEngine;
+
+    public enum State{
+        TRACK,
+        SCARED,
+        DEAD,
+        NULL
+    }
+    protected State state = State.NULL;
 
     public Ghost(int initialX, int initialY, CoreEngine coreEngine)
     {
@@ -16,6 +29,8 @@ public abstract class Ghost {
         this.isVulnerable = false;
         this.coreEngine = coreEngine;
     }
+
+
 
     //Getters
 

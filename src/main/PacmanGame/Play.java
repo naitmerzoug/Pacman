@@ -1,8 +1,8 @@
 package PacmanGame;
 
 import Moteurs.core.CoreEngine;
+import PacmanGame.AI.Ghost;
 
-import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 
