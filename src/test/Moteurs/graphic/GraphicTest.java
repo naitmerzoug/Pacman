@@ -5,9 +5,11 @@ import static junit.framework.TestCase.*;
 import Moteurs.core.Entity;
 import org.junit.Test;
 
+import java.awt.*;
+
 public class GraphicTest {
 
-    GraphicEngine graphicEngine = new GraphicEngine();
+    GraphicEngine graphicEngine = new GraphicEngine(750,500, Color.BLACK,"PacmanTest");
 
 
     @Test

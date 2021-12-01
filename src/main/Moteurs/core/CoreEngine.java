@@ -3,6 +3,8 @@ package Moteurs.core;
 import Moteurs.graphic.GraphicEngine;
 import Moteurs.inout.IOEngine;
 
+import java.awt.*;
+
 /**
  * Noyau du jeu
  * Doit contenir un accès à tous les autres moteurs
@@ -17,7 +19,7 @@ CoreEngine {
 
     public CoreEngine(){
         this.ioEngine = new IOEngine();
-        this.graphicEngine = new GraphicEngine();
+        this.graphicEngine = new GraphicEngine(750,500, Color.BLACK,"Pacman");
     }
 
     // Getter //

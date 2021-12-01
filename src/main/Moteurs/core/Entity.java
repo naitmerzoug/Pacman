@@ -1,10 +1,7 @@
 package Moteurs.core;
 
-import Moteurs.graphic.Gentity;
-
 public class Entity extends EngineEntity{
 
-    protected Gentity graphicEntity;
     protected CoreEngine coreEngine;
 
     /**

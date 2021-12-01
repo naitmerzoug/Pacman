@@ -1,31 +1,32 @@
 package Moteurs.inout;
 
 
-public class IOEngine implements IOEvent{
+import java.awt.event.KeyEvent;
+import java.util.Calendar;
+import java.util.Date;
 
-    private final KeyboardIO keyboardIO = new KeyboardIO(this);
+public class IOEngine {
 
-    public IOEngine() {};
+    private int keyCode;
+    private Date date = null;
 
-    @Override
-    public void notifyInput(String event){
-
+    public IOEngine() {
     }
 
-    @Override
-    public void notifyClick(){
+    public IOEngine notifyInput(KeyEvent event) {
+        date = Calendar.getInstance().getTime();
+        keyCode = event.getKeyCode();
 
-    }
-    /*
-    public void keyPressed(KeyEvent evt) {
-        int code = evt.getKeyCode();
-
-        if (code == KeyEvent.VK_UP) System.out.println("Haut");
-        else if (code == KeyEvent.VK_DOWN) System.out.println("Bas");
-        else if (code == KeyEvent.VK_RIGHT) System.out.println("Droite");
-        else if (code == KeyEvent.VK_LEFT) System.out.println("Gauche");
+        return this;
     }
 
-     */
+    public Date getDate() {
+        return date;
+    }
+
+    public int getKeyCode() {
+        return keyCode;
+    }
+
 
 }
