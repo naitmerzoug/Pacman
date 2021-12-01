@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentMap;
 import static junit.framework.TestCase.*;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 class PhysicEngineTest  {
@@ -34,7 +34,7 @@ class PhysicEngineTest  {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTremoveEntity() {
         PhysicEngine physicEngine1 = new PhysicEngine();
 
@@ -54,7 +54,7 @@ class PhysicEngineTest  {
         assertFalse(physicEngine1.getEntities().containsKey(2));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void TESTisSomething() {
        PhysicEngine physicEngine2 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
@@ -125,14 +125,14 @@ class PhysicEngineTest  {
        PhysicEngine physicEngine5 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
         physicEngine5.move(e1, DIRECTION.UP);
-        assertEquals(7, e1.getPosY());
+        assertEquals(7.0, e1.getPosY());
 
     }
 
     @Test
     void TESTsqr() {
         double a = 2;
-        assertEquals(4, PhysicEngine.sqr(a));
+        assertEquals(4.0, PhysicEngine.sqr(a));
    }
 
 
