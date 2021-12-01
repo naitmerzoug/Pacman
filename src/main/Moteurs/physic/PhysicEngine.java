@@ -51,33 +51,32 @@ public class PhysicEngine {
      */
     public boolean isSomething(PhysicEntity physicEntity, DIRECTION direction){
         switch (direction){
-            case UP -> {
+            case UP:
                 return entitiesAtPosition(physicEntity.getPosX(), physicEntity.getPosY() + 1,
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
-            }
-            case DOWN -> {
+
+            case DOWN:
                 return entitiesAtPosition(physicEntity.getPosX(), physicEntity.getPosY() - 1,
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
-            }
-            case RIGHT -> {
+
+        case RIGHT:
                 return entitiesAtPosition(physicEntity.getPosX() + 1, physicEntity.getPosY() + 1,
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
-            }
-            case LEFT -> {
+
+            case LEFT:
                 return entitiesAtPosition(physicEntity.getPosX() - 1, physicEntity.getPosY(),
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
-            }
-            case NULL -> {
+
+            case NULL:
                 return entitiesAtPosition(physicEntity.getPosX(), physicEntity.getPosY(),
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
-            }
-            default -> {
+
+            default:
                 return true;
-            }
         }
     }
 
@@ -135,31 +134,31 @@ public class PhysicEngine {
      */
     public void move(PhysicEntity e, DIRECTION direction){
         switch (direction){
-            case UP -> {
+            case UP :
                 e.setDirection(direction);
                 e.setStepX(0);
                 e.setStepY(1);
                 moving(e,e.getStepX(),e.getStepY());
-            }
-            case DOWN -> {
+
+            case DOWN :
                 e.setDirection(direction);
                 e.setStepX(0);
                 e.setStepY(-1);
                 moving(e,e.getStepX(),e.getStepY());
-            }
-            case RIGHT -> {
+
+            case RIGHT:
                 e.setDirection(direction);
                 e.setStepX(1);
                 e.setStepY(0);
                 moving(e,e.getStepX(),e.getStepY());
-            }
-            case LEFT -> {
+
+            case LEFT:
                 e.setDirection(direction);
                 e.setStepX(-1);
                 e.setStepY(0);
                 moving(e,e.getStepX(),e.getStepY());
-            }
-            case NULL -> e.setDirection(direction);
+
+            case NULL: e.setDirection(direction);
         }
     }
 
