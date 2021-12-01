@@ -7,7 +7,9 @@ import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
 import Moteurs.sound.SoundEngine;
 
+import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -57,9 +59,9 @@ public class CoreEngine {
     }
 
     /**
-     * Ajoute une entité noyau
+     * Création d'une entité noyau
      */
-    public CoreEntity addEntity(Type type, double x, double y, double length, double width, int speed){
+    public CoreEntity addEntity(Type type, double x, double y, double length, double width, int speed, File file){
 
         CoreEntity e = new CoreEntity();
         if(e.getId()==0 || entities.containsKey(e.getId())){
@@ -73,9 +75,9 @@ public class CoreEngine {
         this.getPhysicEngine().createEntity(e.getPhysicEntity());
 
         // Création côté graphique
-        //GraphicEntity g = new GraphicEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y),ConvertPhysictoGraphic(length),ConvertPhysictoGraphic(width));
-        //e.setGraphicEntity(g);
-        //this.getGraphicEngine().add_entity();
+        JLabel g = this.getGraphicEngine().createEntity(ConvertPhysictoGraphic(length), ConvertPhysictoGraphic(width), file);
+        this.getGraphicEngine().addEntity(g, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
+        e.setGraphicEntity(g);
 
         entities.put(e.getId(),e);
 

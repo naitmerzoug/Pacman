@@ -3,11 +3,13 @@ package Moteurs.core;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
 
+import javax.swing.*;
+
 public class CoreEntity {
 
     private int id = 0;
     private PhysicEntity physicEntity;
-    //private GraphicEntity graphicEntity;
+    private JLabel graphicEntity;
 
     // Getters
 
@@ -15,13 +17,9 @@ public class CoreEntity {
         return physicEntity;
     }
 
-    //public GraphicEntity getGraphicEntity() {
-   //     return graphicEntity;
-   // }
+    public JLabel getGraphicEntity() { return graphicEntity; }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     // Setters
 
@@ -31,5 +29,9 @@ public class CoreEntity {
 
     public void setPhysicEntity(PhysicEntity physicEntity) {
         this.physicEntity = physicEntity;
+    }
+
+    public void setGraphicEntity(JLabel graphicEntity) {
+        this.graphicEntity = graphicEntity;
     }
 }

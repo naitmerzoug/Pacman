@@ -80,6 +80,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
     }
 
     public JLabel createEntity(int height, int width, File file) {
+
         JLabel jLabel = new JLabel();
         jLabel.setSize(width,height);
 
