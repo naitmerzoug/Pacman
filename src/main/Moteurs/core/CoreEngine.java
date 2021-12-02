@@ -79,7 +79,7 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Création d'une entité noyau
      */
-    public CoreEntity createAndAddEntity(Type type, double x, double y, int height, int width, int speed, File file){
+    public CoreEntity createAndAddEntity(Type type, double x, double y, double height, double width, int speed, File file){
 
         CoreEntity coreEntity = new CoreEntity();
         if(coreEntity.getId()==0 || entities.containsKey(coreEntity.getId())){
@@ -94,7 +94,7 @@ public class CoreEngine implements CoreEngineEvent {
 
         // Création côté graphique
 
-        JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), height, width, file);
+        JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), ConvertPhysictoGraphic(height), ConvertPhysictoGraphic(width), file);
         //graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
         System.out.println("new entity add");
         coreEntity.setGraphicEntity(entity);

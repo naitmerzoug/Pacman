@@ -39,7 +39,7 @@ public class PacmanGame implements Game {
     private void initMap() {
       //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
         // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
-        Wall wall1 = new Wall(36.5,-7.6,15,49*5*3, coreEngine);
+        Wall wall1 = new Wall(0,0,5,73.5, coreEngine);
     }
 
     @Override
