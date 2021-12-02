@@ -17,55 +17,55 @@ public class SoundTest {
     @Test
     public void assertEmptySoundsMap(){
         SoundEngine soundEngine = new SoundEngine();
-        assertTrue(soundEngine.getSoundsMap().isEmpty());
+        assertTrue(soundEngine.getClipConcurrentHashMap().isEmpty());
     }
 
     @Test
     public void assertSound1Loaded(){
         SoundEngine soundEngine = new SoundEngine();
         soundEngine.loadSound("src/assets/sound/pacman_beginning.wav", "PacmanStart");
-        assertTrue(soundEngine.getSoundsMap().containsKey("PacmanStart"));
+        assertTrue(soundEngine.getClipConcurrentHashMap().containsKey("PacmanStart"));
     }
 
     @Test
     public void TestSound1Played(){
         SoundEngine soundEngine = new SoundEngine();
         soundEngine.loadSound("src/assets/sound/pacman_beginning.wav", "PacmanMusique");
-        int frames = soundEngine.getSoundsMap().get("PacmanMusique").getFrameLength();
-        assertEquals(0, soundEngine.getSoundsMap().get("PacmanMusique").getFramePosition());
+        int frames = soundEngine.getClipConcurrentHashMap().get("PacmanMusique").getFrameLength();
+        assertEquals(0, soundEngine.getClipConcurrentHashMap().get("PacmanMusique").getFramePosition());
         soundEngine.playSound("PacmanMusique");
         try{
             Thread.sleep(5000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        assertEquals(frames, soundEngine.getSoundsMap().get("PacmanMusique").getFramePosition());
+        assertEquals(frames, soundEngine.getClipConcurrentHashMap().get("PacmanMusique").getFramePosition());
     }
 
     @Test
     public void TestSound2Stopped(){
         SoundEngine soundEngine = new SoundEngine();
         soundEngine.loadSound("src/assets/sound/pacman_chomp.wav", "PacmanEatCoin");
-        int frames = soundEngine.getSoundsMap().get("PacmanEatCoin").getFrameLength();
-        assertEquals(0, soundEngine.getSoundsMap().get("PacmanEatCoin").getFramePosition());
+        int frames = soundEngine.getClipConcurrentHashMap().get("PacmanEatCoin").getFrameLength();
+        assertEquals(0, soundEngine.getClipConcurrentHashMap().get("PacmanEatCoin").getFramePosition());
         soundEngine.playSound("PacmanEatCoin");
         soundEngine.stopSound("PacmanEatCoin");
-        assertEquals(0, soundEngine.getSoundsMap().get("PacmanEatCoin").getMicrosecondPosition());
+        assertEquals(0, soundEngine.getClipConcurrentHashMap().get("PacmanEatCoin").getMicrosecondPosition());
     }
 
     @Test
     public void TestSound3Loop(){
         SoundEngine soundEngine = new SoundEngine();
         soundEngine.loadSound("src/assets/sound/pacman_death.wav", "PacmanDeath");
-        int frames = soundEngine.getSoundsMap().get("PacmanDeath").getFrameLength();
-        assertEquals(0, soundEngine.getSoundsMap().get("PacmanDeath").getFramePosition());
+        int frames = soundEngine.getClipConcurrentHashMap().get("PacmanDeath").getFrameLength();
+        assertEquals(0, soundEngine.getClipConcurrentHashMap().get("PacmanDeath").getFramePosition());
         soundEngine.loopSound("PacmanDeath");
         try{
             Thread.sleep(2000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        Assert.assertNotEquals(0, soundEngine.getSoundsMap().get("PacmanDeath").getMicrosecondLength());
+        Assert.assertNotEquals(0, soundEngine.getClipConcurrentHashMap().get("PacmanDeath").getMicrosecondLength());
     }
 
     // Lancer un son

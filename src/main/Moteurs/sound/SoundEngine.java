@@ -10,7 +10,7 @@ public class SoundEngine {
 
     public SoundEngine(){}
 
-    private final ConcurrentMap<String, Clip> soundsMap = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, Clip> clipConcurrentHashMap = new ConcurrentHashMap<>();
 
     public void loadSound(String path, String name){
         Clip clip = null;
@@ -20,34 +20,36 @@ public class SoundEngine {
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e){
-            System.err.println(e.getMessage());
-            System.exit(1);
+            e.printStackTrace();
         }
-        soundsMap.put(name, clip);
+        clipConcurrentHashMap.put(name, clip);
     }
 
+    /*
+    Joue un son
+     */
     public void playSound(String name){
-        Clip soundToPlay = soundsMap.get(name);
+        Clip soundToPlay = clipConcurrentHashMap.get(name);
         soundToPlay.start();
     }
 
+    /*
+    Stop un son
+     */
     public void stopSound(String name){
-        Clip soundToStop = soundsMap.get(name);
+        Clip soundToStop = clipConcurrentHashMap.get(name);
         soundToStop.stop();
     }
 
+    /*
+    Joue un son en continue (notammement pour la musique du jeu)
+     */
     public void loopSound(String name){
-        Clip soundToLoop = soundsMap.get(name);
+        Clip soundToLoop = clipConcurrentHashMap.get(name);
         soundToLoop.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
-    public void stopAllSound(){
-        for (String sound: soundsMap.keySet()){
-            stopSound(sound);
-        }
-    }
-
-    public ConcurrentMap<String, Clip> getSoundsMap() {
-        return soundsMap;
+    public ConcurrentMap<String, Clip> getClipConcurrentHashMap() {
+        return clipConcurrentHashMap;
     }
 }
