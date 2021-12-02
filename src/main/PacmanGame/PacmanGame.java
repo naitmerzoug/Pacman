@@ -24,7 +24,7 @@ public class PacmanGame implements Game {
         coreEngine = new CoreEngine("Pacman Game",physicHeight, physicWidth);
         coreEngine.setGame(this);
         initPlayers();
-        initEvents();
+        //initEvents();
         initSounds();
         initMap();
     }
@@ -70,6 +70,7 @@ public class PacmanGame implements Game {
     /*
     Fonction qui crée et lie les événements d'entrée/sorties au clavier
      */
+    /*
     private void initEvents(){
         coreEngine.addEvent("pacmanGoUp", () -> movePacmanTo(Direction.UP));
         coreEngine.addEvent("pacmanGoDown", () ->movePacmanTo(Direction.DOWN));
@@ -83,6 +84,8 @@ public class PacmanGame implements Game {
         // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
 
     }
+
+     */
 
     /*
     Fonction qui se charge de charger les sons
