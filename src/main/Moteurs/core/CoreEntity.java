@@ -11,6 +11,13 @@ public class CoreEntity {
     private PhysicEntity physicEntity;
     private JLabel graphicEntity;
 
+   // public CoreEntity(PhysicEntity physicEntity, JLabel graphicEntity){
+   //     this.physicEntity = physicEntity;
+   //     this.graphicEntity = graphicEntity;
+   // }
+
+
+
     // Getters
 
     public PhysicEntity getPhysicEntity() {

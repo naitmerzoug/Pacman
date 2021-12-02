@@ -1,9 +1,11 @@
 package Moteurs.physic;
 
+import Moteurs.core.CoreEntity;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class PhysicEntity {
+public class PhysicEntity extends CoreEntity {
 
     private int id;
     private double posX;

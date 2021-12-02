@@ -2,6 +2,7 @@ package Moteurs.core;
 
 import Moteurs.Game;
 import Moteurs.graphic.GraphicEngine;
+import Moteurs.physic.DIRECTION;
 import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
@@ -59,6 +60,13 @@ public class CoreEngine implements CoreEngineEvent {
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
     }
+
+    public void move (CoreEntity e, DIRECTION direction){
+        physicEngine.move(e.getPhysicEntity(),direction);
+       // graphicEngine.mooveEntity(e.getGraphicEntity(),);
+    }
+
+
 
     public void setGame(Game game){
         this.game = game;
