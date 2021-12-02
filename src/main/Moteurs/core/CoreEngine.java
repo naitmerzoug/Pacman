@@ -53,7 +53,7 @@ public class CoreEngine implements CoreEngineEvent {
         nbEntities = 0;
 
         // Moteurs
-        this.graphicEngine = new GraphicEngine(750,500, Color.BLACK,"name");
+        this.graphicEngine = new GraphicEngine(graphicWidth, graphicHeight, Color.BLACK,"name");
         graphicEngine.setCoreEngine(this);
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();
@@ -71,7 +71,7 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Création d'une entité noyau
      */
-    public CoreEntity createAndAddEntity(Type type, double x, double y, double length, double width, int speed, File file){
+    public CoreEntity createAndAddEntity(Type type, double x, double y, int length, int width, int speed, File file){
 
         CoreEntity e = new CoreEntity();
         if(e.getId()==0 || entities.containsKey(e.getId())){
@@ -85,7 +85,7 @@ public class CoreEngine implements CoreEngineEvent {
         this.getPhysicEngine().createEntity(e.getPhysicEntity());
 
         // Création côté graphique
-        JLabel g = this.getGraphicEngine().createEntity(ConvertPhysictoGraphic(length), ConvertPhysictoGraphic(width), file);
+        JLabel g = this.getGraphicEngine().createEntity( length, width, file);
         this.getGraphicEngine().addEntity(g, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
         e.setGraphicEntity(g);
 

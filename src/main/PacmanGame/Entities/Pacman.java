@@ -25,7 +25,7 @@ public class Pacman {
         this.coreEngine = coreEngine;
         this.currentDirection = null;
 
-        coreEngine.createAndAddEntity(Type.SOLID,x * 1.0, y * 1.0,10,10,1,new File("src/main/Pacman/Images/pacman.png"));
+        coreEngine.createAndAddEntity(Type.SOLID,x * 1.0, y * 1.0,15,15,1,new File("src/main/Pacman/Images/pacman.png"));
     }
 
     public boolean isAlive() {

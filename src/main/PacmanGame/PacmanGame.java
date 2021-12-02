@@ -15,8 +15,8 @@ public class PacmanGame implements Game {
     private InOutPacman inOutPacman;
     private Pacman pacman;
 
-    double physicHeight = 75;
-    double physicWidth = 50;
+    double physicHeight = 100;
+    double physicWidth = 80;
     int graphicHeight = (int) physicHeight * 10 ;
     int graphicWidth  = (int)  physicWidth * 10 ;
 
@@ -25,6 +25,11 @@ public class PacmanGame implements Game {
         coreEngine.setGame(this);
         this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
+        initMap();
+    }
+
+    private void initMap() {
+
     }
 
     @Override
