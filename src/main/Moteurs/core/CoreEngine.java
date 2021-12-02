@@ -93,7 +93,10 @@ public class CoreEngine {
      * Supprime une entité noyau
      */
     public void removeEntity(CoreEntity e){
-        entities.remove(e.getId());
+
+        this.getPhysicEngine().removeEntity(e.getPhysicEntity()); // suppression physique
+        this.getGraphicEngine().getjPanel().remove(e.getGraphicEntity()); // suppression graphique
+        entities.remove(e.getId());  // suppression du noyau
     }
 
     /**
