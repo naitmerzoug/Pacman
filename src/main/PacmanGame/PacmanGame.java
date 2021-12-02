@@ -49,7 +49,7 @@ public class PacmanGame implements Game {
 
     public void run() throws InterruptedException {
         coreEngine.run();
-        coreEngine.getSoundEngine().playSound("PacmanStart");
+        //coreEngine.getSoundEngine().playSound("PacmanStart");
 //        System.out.println("sleep");
 //        Thread.sleep(1000);
 //        System.out.println("up");
