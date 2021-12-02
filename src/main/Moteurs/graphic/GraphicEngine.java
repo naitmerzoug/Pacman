@@ -121,6 +121,8 @@ public class GraphicEngine extends JPanel implements KeyListener {
         return height;
     }
 
+    public JPanel getjPanel() { return jPanel; }
+
     public KeyEvent getLastPressed() {
         return lastPressed;
     }
