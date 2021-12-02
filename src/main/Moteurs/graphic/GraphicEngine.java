@@ -155,6 +155,9 @@ public class GraphicEngine extends JPanel implements KeyListener {
         return resizedImage;
     }
 
+    public JPanel getjPanel() {
+        return jPanel;
+    }
 
     //======================================
     //           Debug

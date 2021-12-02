@@ -88,6 +88,8 @@ public class CoreEngine {
      * Supprime une entité noyau
      */
     public void removeEntity(CoreEntity e){
+        this.getPhysicEngine().removeEntity(e.getPhysicEntity());
+        this.getGraphicEngine().getjPanel().remove(e.getGraphicEntity());
         entities.remove(e.getId());
     }
 
