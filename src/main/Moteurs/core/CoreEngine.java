@@ -162,6 +162,10 @@ public class CoreEngine implements CoreEngineEvent {
 
     public int getGraphicWidth() { return GraphicWidth; }
 
+    public Map<String, Runnable> getEvents() {
+        return events;
+    }
+
     // Setter
 
     public static void setNbEntities(int nbEntities) {
