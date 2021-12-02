@@ -27,7 +27,7 @@ public class PacmanGame implements Game {
     int graphicWidth  = (int)  physicWidth * 10 ;
 
     public PacmanGame(){
-        coreEngine = new CoreEngine("Pacman Game",physicHeight, physicWidth);
+        coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         coreEngine.setGame(this);
         this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
@@ -39,7 +39,7 @@ public class PacmanGame implements Game {
     private void initMap() {
       //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
         // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
-        Wall wall1 = new Wall(367.5,7.6,15,49*5*3, coreEngine);
+        Wall wall1 = new Wall(36.5,-7.6,15,49*5*3, coreEngine);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
      */
     private void initPlayers(){
-        pacman = new Pacman(100, 100, coreEngine);
+        pacman = new Pacman(10, -10, coreEngine);
         this.inOutPacman = new InOutPacman(this.pacman,this);
         coreEngine.createAndAddEntity(Type.SOLID,pacman.getX() * 1.0, pacman.getY() * 1.0,45,45,1,new File("src/main/Pacman/Images/pacman.png"));
         ghosts = new HashMap<>();

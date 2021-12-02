@@ -93,11 +93,11 @@ public class CoreEngine implements CoreEngineEvent {
         physicEngine.createEntity(coreEntity.getPhysicEntity());
 
         // Création côté graphique
-        JPanel entity = graphicEngine.createEntity( height, width, file);
-        graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
+
+        JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), height, width, file);
+        //graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
         System.out.println("new entity add");
         coreEntity.setGraphicEntity(entity);
-
         entities.put(coreEntity.getId(),coreEntity);
 
         return coreEntity;
