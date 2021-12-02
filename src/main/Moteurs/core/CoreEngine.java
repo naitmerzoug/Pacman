@@ -1,7 +1,7 @@
 package Moteurs.core;
 
+import Moteurs.Game;
 import Moteurs.graphic.GraphicEngine;
-import Moteurs.inout.IOEngine;
 import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
@@ -9,7 +9,9 @@ import Moteurs.sound.SoundEngine;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
+import java.lang.module.FindException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,6 +22,7 @@ import java.util.concurrent.ConcurrentMap;
  * Doit contenir un accès à tous les autres moteurs
  */
 public class CoreEngine {
+    private final Game game;
 
     /**
      * Hauteur et largeur de l'espace graphique
@@ -32,14 +35,14 @@ public class CoreEngine {
      * Hauteur et largeur de l'espace physique
      */
     private double PhysicHeight, PhysicWidth;
-    private IOEngine ioEngine;
     private GraphicEngine graphicEngine;
     private PhysicEngine physicEngine;
     private SoundEngine soundEngine;
     private ConcurrentMap<Integer,CoreEntity> entities;
     public static int nbEntities;
+    private volatile boolean pause = false;
 
-    public CoreEngine(double physicHeight, double physicWidth, int graphicHeight, int graphicWidth){
+    public CoreEngine(double physicHeight, double physicWidth, int graphicHeight, int graphicWidth, Game game){
 
         // Tailles des espaces physiques et graphiques
         this.PhysicHeight = physicHeight;
@@ -51,11 +54,13 @@ public class CoreEngine {
         nbEntities = 0;
 
         // Moteurs
-        this.ioEngine = new IOEngine();
         this.graphicEngine = new GraphicEngine(750,500, Color.BLACK,"name");
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
+
+        //Jeu
+        this.game = game;
     }
 
     /**
@@ -125,10 +130,6 @@ public class CoreEngine {
         return graphicEngine;
     }
 
-    public IOEngine getIoEngine() {
-        return ioEngine;
-    }
-
     public PhysicEngine getPhysicEngine() {
         return physicEngine;
     }
@@ -159,4 +160,15 @@ public class CoreEngine {
         CoreEngine.nbEntities = nbEntities;
     }
 
+    public void sendKeyEvent(KeyEvent e) {
+        game.getKeyEvent(e);
+    }
+
+    public boolean getPause() {
+        return pause;
+    }
+
+    public void setPause(boolean pause) {
+        this.pause = pause;
+    }
 }

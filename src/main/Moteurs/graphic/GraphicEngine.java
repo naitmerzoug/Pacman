@@ -25,10 +25,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
     /**
      * Création d'un fond
      *
-     * @param width_bg
-     * @param height_bg
-     * @param color_bg
-     * @param name
      */
     public GraphicEngine(int width_bg, int height_bg, Color color_bg, String name) {
         width = width_bg;
@@ -57,6 +53,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
         this.lastPressed = e;
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println("Spacebutton pressed");
+            coreEngine.sendKeyEvent(e);
         }
     }
 
@@ -133,8 +130,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
      * we want the x and o to be resized when the JFrame is resized
      *
      * @param originalImage an x or an o. Use cross or oh fields.
-     * @param biggerWidth
-     * @param biggerHeight
      */
     public static Image resizeToBig(Image originalImage, int biggerWidth, int biggerHeight) {
         int type = BufferedImage.TYPE_INT_ARGB;

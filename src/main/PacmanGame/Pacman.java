@@ -77,4 +77,8 @@ public class Pacman {
     }
 
     public Direction getCurrentDirections() { return currentDirection; }
+
+    public void setDirection(Direction direction) {
+        currentDirection = direction;
+    }
 }

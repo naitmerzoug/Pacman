@@ -1,16 +1,33 @@
 package PacmanGame;
 
+import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 import PacmanGame.AI.Ghost;
 
+import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Play {
+public class Main implements Game {
 
     private CoreEngine coreEngine;
-
+    private InOutPacman inOutPacman;
     private Pacman pacman;
+
+    @Override
+    public void getKeyEvent(KeyEvent keyEvent) {
+        inOutPacman.receiveKeyEvent(keyEvent);
+    }
+
+    @Override
+    public void run() {
+
+    }
+
+    public void setPause() {
+        coreEngine.setPause( ! coreEngine.getPause());
+    }
+
     public enum GHOSTS {RED, BLUE, ORANGE, PINK}
     private Map<GHOSTS, Ghost> ghosts;
 
@@ -40,8 +57,8 @@ public class Play {
         // TODO: 01/12/2021
         //coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
         //.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
-       // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
-       // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
+        // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
+        // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
 
     }
 
