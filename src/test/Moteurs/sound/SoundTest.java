@@ -23,7 +23,7 @@ public class SoundTest {
     @Test
     public void assertSound1Loaded(){
         SoundEngine soundEngine = new SoundEngine();
-        soundEngine.loadSound("pacman_beginning.wav", "PacmanStart");
+        soundEngine.loadSound("src/assets/sound/pacman_beginning.wav", "PacmanStart");
         assertTrue(soundEngine.getSoundsMap().containsKey("PacmanStart"));
     }
 

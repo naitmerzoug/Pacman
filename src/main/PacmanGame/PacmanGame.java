@@ -88,13 +88,13 @@ public class PacmanGame implements Game {
     Fonction qui se charge de charger les sons
      */
     private void initSounds(){
-        coreEngine.getSoundEngine().loadSound("pacman_beginning.wav", "PacmanStart");
-        coreEngine.getSoundEngine().loadSound("pacman_chomp.wav", "PacmanEatChomp");
-        coreEngine.getSoundEngine().loadSound("pacman_death.wav", "PacmanDeath");
-        coreEngine.getSoundEngine().loadSound("pacman_eatfruit.wav", "PacmanEatFruit");
-        coreEngine.getSoundEngine().loadSound("pacman_eatghost.wav", "PacmanEatGhost");
-        coreEngine.getSoundEngine().loadSound("pacman_extrapac.wav", "PacmanExtra");
-        coreEngine.getSoundEngine().loadSound("pacman_intermission.wav", "PacmanGeneral");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_beginning.wav", "PacmanStart");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_chomp.wav", "PacmanEatChomp");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_death.wav", "PacmanDeath");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_eatfruit.wav", "PacmanEatFruit");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_eatghost.wav", "PacmanEatGhost");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_extrapac.wav", "PacmanExtra");
+        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_intermission.wav", "PacmanGeneral");
     }
 
 
