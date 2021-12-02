@@ -23,8 +23,7 @@ public class PacmanGame implements Game {
     public PacmanGame(){
         coreEngine = new CoreEngine(physicHeight, physicWidth, graphicHeight, graphicWidth);
         coreEngine.setGame(this);
-        this.pacman = new Pacman(100, 100, coreEngine);
-        this.inOutPacman = new InOutPacman(this.pacman,this);
+        this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
         initEvents();
         initSounds();
@@ -42,12 +41,12 @@ public class PacmanGame implements Game {
 
     public void run() {
         coreEngine.run();
-        /*
+        initSounds();
+        coreEngine.getSoundEngine().playSound("PacmanStart");
         while(pacman.isAlive()){
             //Jeu
             //coreEngine.moveAll();
         }
-        */
     }
 
     public void initiliszeEntities(){
@@ -108,7 +107,6 @@ public class PacmanGame implements Game {
     }
 
 
-    public CoreEngine getCoreEngine() {
-        return coreEngine;
-    }
+
+
 }

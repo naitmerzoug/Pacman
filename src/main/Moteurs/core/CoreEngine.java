@@ -53,7 +53,7 @@ public class CoreEngine implements CoreEngineEvent {
         nbEntities = 0;
 
         // Moteurs
-        this.graphicEngine = new GraphicEngine(graphicWidth, graphicHeight, Color.BLACK,"name");
+        this.graphicEngine = new GraphicEngine(graphicWidth, graphicHeight, Color.BLACK,"Pacman");
         graphicEngine.setCoreEngine(this);
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();
