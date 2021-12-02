@@ -16,7 +16,6 @@ public class InOutPacman {
         this.main = main;
     }
 
-
 //    public Direction giveDirection(int keyCode) {
 //        Direction direction = null;
 //        if (keyCode == 38)
