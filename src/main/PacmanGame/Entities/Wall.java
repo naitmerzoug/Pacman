@@ -1,4 +1,4 @@
-package PacmanGame;
+package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 

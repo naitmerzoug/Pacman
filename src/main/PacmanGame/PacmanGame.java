@@ -3,25 +3,46 @@ package PacmanGame;
 import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 import PacmanGame.AI.Ghost;
+import PacmanGame.Entities.Pacman;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main implements Game {
+public class PacmanGame implements Game {
 
     private CoreEngine coreEngine;
     private InOutPacman inOutPacman;
     private Pacman pacman;
+
+    double physicHeight = 75;
+    double physicWidth = 50;
+    int graphicHeight = (int) physicHeight * 10 ;
+    int graphicWidth  = (int)  physicWidth * 10 ;
+
+    public PacmanGame(){
+        coreEngine = new CoreEngine(physicHeight, physicWidth, graphicHeight, graphicWidth);
+        coreEngine.setGame(this);
+        this.inOutPacman = new InOutPacman(pacman,this);
+        initPlayers();
+    }
 
     @Override
     public void getKeyEvent(KeyEvent keyEvent) {
         inOutPacman.receiveKeyEvent(keyEvent);
     }
 
-    @Override
     public void run() {
+        coreEngine.run();
 
+        while(pacman.isAlive()){
+            //Jeu
+            //coreEngine.moveAll();
+        }
+    }
+
+    public void initiliszeEntities(){
+       // coreEngine.createAndAddEntity(Type type, double x, double y, double length, double width, int speed, File file)
     }
 
     public void setPause() {
@@ -76,11 +97,16 @@ public class Main implements Game {
         coreEngine.getSoundEngine().loadSound("pacman_extrapac.wav", "PacmanExtra");
         coreEngine.getSoundEngine().loadSound("pacman_intermission.wav", "PacmanGeneral");
     }
+
+
     /*
     Fonction qui sert à dire à pacman de bouger dans une direction
      */
     private void movePacmanTo(Direction direction){
         pacman.setDirection(direction);
     }
+
+
+
 
 }

@@ -1,8 +1,6 @@
 package Moteurs.core;
 
-import Moteurs.Game;
 import Moteurs.physic.Type;
-import PacmanGame.Main;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -12,17 +10,17 @@ import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoreTest {
-    Game game;
+
 
     /**
      * Test si le nombre d'entités du moteur noyau est correct
      */
     @Test
     public void TestAddEntity(){
-        Moteurs.core.CoreEngine c1 = new Moteurs.core.CoreEngine(2,2,200,200,game);
-        CoreEntity e1 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e3 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        Moteurs.core.CoreEngine c1 = new Moteurs.core.CoreEngine(2,2,200,200);
+        CoreEntity e1 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e2 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e3 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
         assertEquals(3, CoreEngine.getNbEntities());
     }
 
@@ -31,16 +29,16 @@ public class CoreTest {
      */
     @Test
     public void TestEntityId(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(2,2,200,200,game);
-        CoreEntity e1 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(2,2,200,200);
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         assertEquals(2, e2.getId());
     }
 
     @Test
     public void TestRemoveEntity(){
-        CoreEngine coreEngine = new CoreEngine(2,2,200,200, game);
-        CoreEntity e1 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        CoreEngine coreEngine = new CoreEngine(2,2,200,200);
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         coreEngine.removeEntity(e1);
         Assertions.assertAll(
                 () ->  assertTrue(coreEngine.getEntities().isEmpty()),
@@ -55,7 +53,7 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoord(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500,game);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
         assertEquals(200, coreEngine.ConvertPhysictoGraphic(2));
 
     }
@@ -65,7 +63,7 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoordOrd(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500,new Main());
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
         assertEquals(100, coreEngine.ConvertPhysictoGraphicOrd(-1));
 
     }

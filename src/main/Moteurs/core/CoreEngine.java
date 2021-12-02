@@ -11,7 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.lang.module.FindException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,8 +20,8 @@ import java.util.concurrent.ConcurrentMap;
  * Noyau du jeu
  * Doit contenir un accès à tous les autres moteurs
  */
-public class CoreEngine {
-    private final Game game;
+public class CoreEngine implements CoreEngineEvent {
+    private Game game;
 
     /**
      * Hauteur et largeur de l'espace graphique
@@ -42,7 +41,7 @@ public class CoreEngine {
     public static int nbEntities;
     private volatile boolean pause = false;
 
-    public CoreEngine(double physicHeight, double physicWidth, int graphicHeight, int graphicWidth, Game game){
+    public CoreEngine(double physicHeight, double physicWidth, int graphicHeight, int graphicWidth){
 
         // Tailles des espaces physiques et graphiques
         this.PhysicHeight = physicHeight;
@@ -55,18 +54,24 @@ public class CoreEngine {
 
         // Moteurs
         this.graphicEngine = new GraphicEngine(750,500, Color.BLACK,"name");
+        graphicEngine.setCoreEngine(this);
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
+    }
 
-        //Jeu
+    public void setGame(Game game){
         this.game = game;
+    }
+
+    public void run() {
+        graphicEngine.run();
     }
 
     /**
      * Création d'une entité noyau
      */
-    public CoreEntity addEntity(Type type, double x, double y, double length, double width, int speed, File file){
+    public CoreEntity createAndAddEntity(Type type, double x, double y, double length, double width, int speed, File file){
 
         CoreEntity e = new CoreEntity();
         if(e.getId()==0 || entities.containsKey(e.getId())){
@@ -163,9 +168,6 @@ public class CoreEngine {
         CoreEngine.nbEntities = nbEntities;
     }
 
-    public void sendKeyEvent(KeyEvent e) {
-        game.getKeyEvent(e);
-    }
 
     public boolean getPause() {
         return pause;
@@ -173,5 +175,10 @@ public class CoreEngine {
 
     public void setPause(boolean pause) {
         this.pause = pause;
+    }
+
+    @Override
+    public void sendKeyEvent(KeyEvent keyEvent) {
+            game.getKeyEvent(keyEvent);
     }
 }

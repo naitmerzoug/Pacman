@@ -1,7 +1,11 @@
-package PacmanGame;
+package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 import Moteurs.physic.DIRECTION;
+import Moteurs.physic.Type;
+import PacmanGame.Direction;
+
+import java.io.File;
 
 public class Pacman {
     private int x, y;
@@ -20,6 +24,12 @@ public class Pacman {
         this.isInvincible = false;
         this.coreEngine = coreEngine;
         this.currentDirection = null;
+
+        coreEngine.createAndAddEntity(Type.SOLID,x * 1.0, y * 1.0,10,10,1,new File("src/main/Pacman/Images/pacman.png"));
+    }
+
+    public boolean isAlive() {
+        return !isDead;
     }
 
     // Setters

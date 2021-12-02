@@ -18,7 +18,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
     private final int height; // hauteur de la scene
     private final JFrame frame;  // creation de la fenetre
     private final JPanel jPanel;
-    private final CoreEngine coreEngine;
+    private CoreEngine coreEngine;
     private KeyEvent lastPressed = null;
 
 
@@ -36,8 +36,13 @@ public class GraphicEngine extends JPanel implements KeyListener {
         jPanel.setBackground(color_bg);      // couleur du background
         frame.addKeyListener(this);        // écouteur d'évenement clavier
         frame.add(jPanel);
-        coreEngine = null;
     }
+
+    public void setCoreEngine(CoreEngine coreEngine) {
+        this.coreEngine = coreEngine;
+    }
+
+
 
     //======================================
     //           Gestion évènement & Ecouteurs
@@ -53,8 +58,8 @@ public class GraphicEngine extends JPanel implements KeyListener {
         this.lastPressed = e;
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println("Spacebutton pressed");
-            coreEngine.sendKeyEvent(e);
         }
+        coreEngine.sendKeyEvent(e);
     }
 
     @Override
