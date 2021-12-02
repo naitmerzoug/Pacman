@@ -1,21 +1,18 @@
 package Moteurs.physic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import static junit.framework.TestCase.*;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-
-
-class PhysicEngineTest  {
+class PhysicEngineTest {
 
 
-   @Test
-   void TESTcreateEntity() {
-       PhysicEngine physicEngine = new PhysicEngine();
+    @org.junit.jupiter.api.Test
+    void TESTcreateEntity() {
+        PhysicEngine physicEngine = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
         PhysicEntity e3 = new PhysicEntity(Type.SOFT, 2, 2, 1, 1, 1);
@@ -24,7 +21,7 @@ class PhysicEngineTest  {
         physicEngine.createEntity(e2);
         physicEngine.createEntity(e3);
         physicEngine.createEntity(e4);
-       ConcurrentMap<Integer, PhysicEntity> mesentities = new ConcurrentHashMap<>();
+        ConcurrentMap<Integer, PhysicEntity> mesentities = new ConcurrentHashMap<>();
 
         mesentities.put(e1.getId(), e1);
         mesentities.put(e2.getId(), e2);
@@ -34,7 +31,7 @@ class PhysicEngineTest  {
 
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTremoveEntity() {
         PhysicEngine physicEngine1 = new PhysicEngine();
 
@@ -54,13 +51,13 @@ class PhysicEngineTest  {
         assertFalse(physicEngine1.getEntities().containsKey(2));
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTisSomething() {
-       PhysicEngine physicEngine2 = new PhysicEngine();
+        PhysicEngine physicEngine2 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
         PhysicEntity e3 = new PhysicEntity(Type.SOFT, 2, 2, 1, 1, 1);
-       PhysicEntity e4 = new PhysicEntity(Type.SOFT, 3, 3, 1, 1, 1);
+        PhysicEntity e4 = new PhysicEntity(Type.SOFT, 3, 3, 1, 1, 1);
         physicEngine2.createEntity(e1);
         physicEngine2.createEntity(e2);
         physicEngine2.createEntity(e3);
@@ -74,7 +71,7 @@ class PhysicEngineTest  {
 
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTentitiesAtPosition() {
         PhysicEngine physicEngine3 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
@@ -93,7 +90,7 @@ class PhysicEngineTest  {
 
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTtestEntitiesAtPosition() {
         PhysicEngine physicEngine4 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 1);
@@ -111,7 +108,9 @@ class PhysicEngineTest  {
 
     }
 
-    @Test
+
+
+    @org.junit.jupiter.api.Test
     void TESTmoving() {
         PhysicEngine physicEngine4 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
@@ -120,23 +119,24 @@ class PhysicEngineTest  {
 
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTmove() {
-       PhysicEngine physicEngine5 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
+        PhysicEngine physicEngine5 = new PhysicEngine();
+        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 6);
         physicEngine5.move(e1, DIRECTION.UP);
-        assertEquals(7.0, e1.getPosY());
+        assertEquals(8, e1.getPosY());
 
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void TESTsqr() {
         double a = 2;
-        assertEquals(4.0, PhysicEngine.sqr(a));
-   }
+        assertEquals(4, PhysicEngine.sqr(a));
+    }
 
 
-    @Test
+
+    @org.junit.jupiter.api.Test
     void TESTdistanceBetweenTowPoints() {
         PhysicEngine physicEngine6 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);

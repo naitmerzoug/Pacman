@@ -16,7 +16,7 @@ public class CoreTest {
     public void TestAddEntity(){
         Moteurs.core.CoreEngine c1 = new Moteurs.core.CoreEngine(2,2,200,200);
         CoreEntity e1 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src//main//Pacman//Images//pacman.png"));
+        CoreEntity e2 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
         CoreEntity e3 = c1.addEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
         assertEquals(3, c1.getNbEntities());
     }
