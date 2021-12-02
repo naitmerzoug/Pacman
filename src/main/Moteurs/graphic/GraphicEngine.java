@@ -17,7 +17,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
     private final int width;  // largeur de la scene
     private final int height; // hauteur de la scene
     private final JFrame frame;  // creation de la fenetre
-    private final JPanel jPanel;
+    private final JPanel entity = null;
     private CoreEngine coreEngine;
     private KeyEvent lastPressed = null;
 
@@ -29,13 +29,16 @@ public class GraphicEngine extends JPanel implements KeyListener {
     public GraphicEngine(int width_bg, int height_bg, Color color_bg, String name) {
         width = width_bg;
         height = height_bg;
+
         frame = new JFrame(name);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // en cas de fermeture
         frame.setSize(width, height);
-        jPanel = new JPanel();               // taille de la fenetre
-        jPanel.setBackground(color_bg);      // couleur du background
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // en cas de fermeture
+        frame.getContentPane().setBackground(color_bg);
+        frame.setLayout(null);
+//        jPanel = new JPanel();               // taille de la fenetre
+//        jPanel.setBackground(color_bg);      // couleur du background
         frame.addKeyListener(this);        // écouteur d'évenement clavier
-        frame.add(jPanel);
+      //  frame.add(jPanel);
     }
 
     public void setCoreEngine(CoreEngine coreEngine) {
@@ -81,10 +84,16 @@ public class GraphicEngine extends JPanel implements KeyListener {
         });
     }
 
-    public JLabel createEntity(int height, int width, File file) {
+    public JPanel createEntity(int height, int width, File file) {
+
+        //création entité
+        JPanel jPanel = new JPanel();
+        jPanel.setBounds(0,0, width, height);
+        jPanel.setLayout(null);
+        jPanel.setBackground(null);
 
         JLabel jLabel = new JLabel();
-        jLabel.setSize(width,height);
+        jLabel.setBounds(0,0,width,height);
 
         //chargement d'une image
         BufferedImage image = null;
@@ -98,21 +107,51 @@ public class GraphicEngine extends JPanel implements KeyListener {
         //Redimensionnement image
         image = (BufferedImage) resizeToBig(image, width, height);
         ImageIcon imageIcon = new ImageIcon(image);
-
         jLabel.setIcon(imageIcon);
-        jLabel.setLayout(null);
-        return jLabel;
+
+        jPanel.add(jLabel);
+        return jPanel;
+    }
+    public JPanel createAndAddEntity(int x, int y, int height, int width, File file) {
+
+        //création entité
+        JPanel jPanel = new JPanel();
+        jPanel.setBounds(x, y, width, height);
+        jPanel.setLayout(null);
+        jPanel.setBackground(null);
+
+        frame.add(jPanel);
+
+        JLabel jLabel = new JLabel();
+        jLabel.setBounds(0,0,width,height);
+
+        //chargement d'une image
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        //Redimensionnement image
+        image = (BufferedImage) resizeToBig(image, width, height);
+        ImageIcon imageIcon = new ImageIcon(image);
+        jLabel.setIcon(imageIcon);
+
+        jPanel.add(jLabel);
+        return jPanel;
     }
 
-    public void addEntity(JLabel entity, int x, int y) {
-        jPanel.add(entity);
+    public void addEntity(JPanel entity, int x, int y) {
+        frame.add(entity);
         entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
 
-    public void mooveEntity(Component jLabel, int x, int y) {
+    public void mooveEntity(Component entity, int x, int y) {
         //Debug affiche les coordonées du composant pour tester si coordonées de l'objet / Jlabel == coordonées composant
-        //System.out.println(jLabel.getX()+" "+jLabel.getY());
-        jLabel.setBounds(x, y, jLabel.getWidth(), jLabel.getHeight());
+        System.out.println(entity.getX()+" "+entity.getY());
+        entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
 
     //======================================
@@ -126,7 +165,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
         return height;
     }
 
-    public JPanel getjPanel() { return jPanel; }
+    public JFrame getFrame() { return frame; }
 
     public KeyEvent getLastPressed() {
         return lastPressed;
@@ -162,15 +201,15 @@ public class GraphicEngine extends JPanel implements KeyListener {
     //           Debug
     //======================================
     public void printEntities() {
-        for (Component test : jPanel.getComponents())
+        for (Component test : frame.getComponents())
             System.out.println(test.getX() + " " + test.getY());
     }
 
     public Component[] getAll() {
-        return jPanel.getComponents();
+        return frame.getComponents();
     }
 
     public ArrayList<Component> getEntities() {
-        return (ArrayList<Component>) Arrays.asList(jPanel.getComponents());
+        return (ArrayList<Component>) Arrays.asList(frame.getComponents());
     }
 }

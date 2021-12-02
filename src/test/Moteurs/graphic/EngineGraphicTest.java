@@ -1,6 +1,5 @@
 package Moteurs.graphic;
 
-import Moteurs.graphic.GraphicEngine;
 import org.junit.Test;
 import javax.swing.*;
 import java.awt.*;
@@ -15,14 +14,14 @@ public class EngineGraphicTest {
         GraphicEngine engineGraphic = new GraphicEngine(750, 500, Color.BLACK, "PacmanTest");
         engineGraphic.run();
         Thread.sleep(100);
-        JLabel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
+        JPanel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(pacman1, 100, 100);
     }
 
     @Test
     public void createAndAddEntityTest(){
         GraphicEngine engineGraphic = new GraphicEngine(50,40, Color.WHITE,"teste");
-        JLabel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
+        JPanel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(jLabel, 5, 10);
         assertEquals(5, engineGraphic.getAll()[0].getX());
         assertEquals(10, engineGraphic.getAll()[0].getY());
@@ -32,7 +31,7 @@ public class EngineGraphicTest {
     @Test
     public void mooveEntity(){
         GraphicEngine engineGraphic = new GraphicEngine(50,40, Color.WHITE,"teste");
-        JLabel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
+        JPanel jLabel = engineGraphic.createEntity(10,10,new File("src\\main\\Moteurs\\graphic\\pacman.png"));
         engineGraphic.addEntity(jLabel, 5, 10);
         assertEquals(5, engineGraphic.getAll()[0].getX());
         assertEquals(10, engineGraphic.getAll()[0].getY());
@@ -45,8 +44,6 @@ public class EngineGraphicTest {
     /**
      * N'a pas vraiment ça place parmis les tests unitaires mais aide grandement au
      * test global de la class
-     * @param args
-     * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
         //Chargement Fond & execution de la fenetre
@@ -58,18 +55,18 @@ public class EngineGraphicTest {
         System.out.println("wake up 1");
 
         //Création et ajout de l'objet
-        JLabel pacman1 = engineGraphic.createEntity(10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
-        engineGraphic.addEntity(pacman1, 500, 100);
+        JPanel pacman1 = engineGraphic.createAndAddEntity(50,50,10, 10, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
+       // engineGraphic.addEntity(pacman1, 500, 100);
         engineGraphic.printEntities(); // debug affiche les objets présents et leurs coordonées
 
-        JLabel pacman2 = engineGraphic.createEntity(15, 15, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
-        engineGraphic.addEntity(pacman2, 500, 100);
+        JPanel pacman2 = engineGraphic.createAndAddEntity(100,50,15, 15, new File("src\\main\\Moteurs\\graphic\\pacman.png"));
+        //engineGraphic.addEntity(pacman2, 500, 100);
 
         engineGraphic.run();
 
-        JLabel pacman3 = engineGraphic.createEntity(25, 25, new File("src\\main\\Moteurs\\graphic" +
+        JPanel pacman3 = engineGraphic.createAndAddEntity(100,150,25, 25, new File("src\\main\\Moteurs\\graphic" +
                 "\\pacman.png"));
-        engineGraphic.addEntity(pacman3, 100, 100);
+       // engineGraphic.addEntity(pacman3, 100, 100);
 
         System.out.println("p1:"+pacman1.getWidth()+":"+pacman1.getHeight()+" p2:"+pacman2.getWidth()+":"+pacman2.getHeight()+" p3:"+pacman3.getWidth()+":"+pacman3.getHeight());
 

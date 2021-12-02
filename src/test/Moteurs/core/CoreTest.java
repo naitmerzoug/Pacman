@@ -21,7 +21,7 @@ public class CoreTest {
         CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
         CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
         CoreEntity e3 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        assertEquals(3, coreEngine.getNbEntities());
+        assertEquals(3, CoreEngine.getNbEntities());
     }
 
     /**
@@ -43,7 +43,7 @@ public class CoreTest {
         Assertions.assertAll(
                 () ->  assertTrue(coreEngine.getEntities().isEmpty()),
                 () ->  assertTrue(coreEngine.getPhysicEngine().getEntities().isEmpty()),
-                () ->  assertEquals(coreEngine.getGraphicEngine().getjPanel().getComponentCount(), 0)
+                () ->  assertEquals(coreEngine.getGraphicEngine().getFrame().getComponentCount(), 0)
         );
 
     }

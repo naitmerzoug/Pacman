@@ -1,26 +1,31 @@
 package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.physic.Type;
+
+import java.io.File;
 
 public class Wall {
-    private int x, y;
+    private double x, y;
     private CoreEngine coreEngine;
 
-    public Wall(int x, int y, CoreEngine coreEngine)
+    public Wall(double x, double y,int height, int width, CoreEngine coreEngine)
     {
         this.x = x;
         this.y = y;
         this.coreEngine = coreEngine;
+
+        coreEngine.createAndAddEntity(Type.SOLID,x,y,height,width,0,new File("src/main/Pacman/Images/wall.png"));
     }
 
     // Getters
 
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 

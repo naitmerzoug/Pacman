@@ -79,27 +79,28 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Création d'une entité noyau
      */
-    public CoreEntity createAndAddEntity(Type type, double x, double y, int length, int width, int speed, File file){
+    public CoreEntity createAndAddEntity(Type type, double x, double y, int height, int width, int speed, File file){
 
-        CoreEntity e = new CoreEntity();
-        if(e.getId()==0 || entities.containsKey(e.getId())){
+        CoreEntity coreEntity = new CoreEntity();
+        if(coreEntity.getId()==0 || entities.containsKey(coreEntity.getId())){
             nbEntities++;
-            e.setId(nbEntities);
+            coreEntity.setId(nbEntities);
         }
 
         // Création côté physique
-        PhysicEntity p = new PhysicEntity(e.getId(), type, x, y, length, width, speed);
-        e.setPhysicEntity(p);
-        this.getPhysicEngine().createEntity(e.getPhysicEntity());
+        PhysicEntity p = new PhysicEntity(coreEntity.getId(), type, x, y, height, width, speed);
+        coreEntity.setPhysicEntity(p);
+        physicEngine.createEntity(coreEntity.getPhysicEntity());
 
         // Création côté graphique
-        JLabel g = this.getGraphicEngine().createEntity( length, width, file);
-        this.getGraphicEngine().addEntity(g, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
-        e.setGraphicEntity(g);
+        JPanel entity = graphicEngine.createEntity( height, width, file);
+        graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
+        System.out.println("new entity add");
+        coreEntity.setGraphicEntity(entity);
 
-        entities.put(e.getId(),e);
+        entities.put(coreEntity.getId(),coreEntity);
 
-        return e;
+        return coreEntity;
     }
 
     /**
@@ -108,7 +109,7 @@ public class CoreEngine implements CoreEngineEvent {
     public void removeEntity(CoreEntity e){
 
         this.getPhysicEngine().removeEntity(e.getPhysicEntity()); // suppression physique
-        this.getGraphicEngine().getjPanel().remove(e.getGraphicEntity()); // suppression graphique
+        this.getGraphicEngine().getFrame().remove(e.getGraphicEntity()); // suppression graphique
         entities.remove(e.getId());  // suppression du noyau
     }
 
@@ -192,5 +193,12 @@ public class CoreEngine implements CoreEngineEvent {
     @Override
     public void sendKeyEvent(KeyEvent keyEvent) {
             game.getKeyEvent(keyEvent);
+    }
+
+    public void moveAll() {
+        for(CoreEntity entity : entities.values()) {
+            graphicEngine.mooveEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
+            System.out.println("moove "+entity.getGraphicEntity().getX()+":"+entity.getGraphicEntity().getY());
+        }
     }
 }

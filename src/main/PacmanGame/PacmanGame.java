@@ -2,12 +2,18 @@ package PacmanGame;
 
 import Moteurs.Game;
 import Moteurs.core.CoreEngine;
+import Moteurs.core.CoreEntity;
+import Moteurs.physic.Type;
 import PacmanGame.AI.Ghost;
 import PacmanGame.Entities.Pacman;
+import PacmanGame.Entities.Wall;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.JarEntry;
 
 public class PacmanGame implements Game {
 
@@ -15,14 +21,15 @@ public class PacmanGame implements Game {
     private InOutPacman inOutPacman;
     private Pacman pacman;
 
-    double physicHeight = 100;
-    double physicWidth = 80;
+    double physicHeight = 85.5;
+    double physicWidth = 73.5;
     int graphicHeight = (int) physicHeight * 10 ;
     int graphicWidth  = (int)  physicWidth * 10 ;
 
     public PacmanGame(){
         coreEngine = new CoreEngine("Pacman Game",physicHeight, physicWidth);
         coreEngine.setGame(this);
+        this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
         //initEvents();
         initSounds();
@@ -30,7 +37,9 @@ public class PacmanGame implements Game {
     }
 
     private void initMap() {
-
+      //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
+        // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
+        Wall wall1 = new Wall(367.5,7.6,15,49*5*3, coreEngine);
     }
 
     @Override
@@ -38,13 +47,18 @@ public class PacmanGame implements Game {
         inOutPacman.receiveKeyEvent(keyEvent);
     }
 
-    public void run() {
+    public void run() throws InterruptedException {
         coreEngine.run();
         coreEngine.getSoundEngine().playSound("PacmanStart");
-        while(pacman.isAlive()){
-            //Jeu
-            //coreEngine.moveAll();
-        }
+//        System.out.println("sleep");
+//        Thread.sleep(1000);
+//        System.out.println("up");
+//        coreEngine.moveAll();
+
+//        while(pacman.isAlive()){
+//            //Jeu
+//            coreEngine.moveAll();
+//        }
     }
 
     public void initiliszeEntities(){
@@ -58,13 +72,21 @@ public class PacmanGame implements Game {
     public enum GHOSTS {RED, BLUE, ORANGE, PINK}
     private Map<GHOSTS, Ghost> ghosts;
 
+
+    public void initGame(){
+        //coreEngine = new CoreEngine()
+        initPlayers();
+        initSounds();
+    }
+
     /*
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
      */
     private void initPlayers(){
-        this.pacman = new Pacman(100, 100, coreEngine);
+        pacman = new Pacman(100, 100, coreEngine);
         this.inOutPacman = new InOutPacman(this.pacman,this);
-        this.ghosts = new HashMap<>();
+        coreEngine.createAndAddEntity(Type.SOLID,pacman.getX() * 1.0, pacman.getY() * 1.0,45,45,1,new File("src/main/Pacman/Images/pacman.png"));
+        ghosts = new HashMap<>();
     }
 
     /*

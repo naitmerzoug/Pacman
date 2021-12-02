@@ -9,7 +9,7 @@ public class CoreEntity {
 
     private int id = 0;
     private PhysicEntity physicEntity;
-    private JLabel graphicEntity;
+    private JPanel graphicEntity;
 
    // public CoreEntity(PhysicEntity physicEntity, JLabel graphicEntity){
    //     this.physicEntity = physicEntity;
@@ -24,7 +24,7 @@ public class CoreEntity {
         return physicEntity;
     }
 
-    public JLabel getGraphicEntity() { return graphicEntity; }
+    public JPanel getGraphicEntity() { return graphicEntity; }
 
     public int getId() { return id; }
 
@@ -38,7 +38,7 @@ public class CoreEntity {
         this.physicEntity = physicEntity;
     }
 
-    public void setGraphicEntity(JLabel graphicEntity) {
+    public void setGraphicEntity(JPanel graphicEntity) {
         this.graphicEntity = graphicEntity;
     }
 }
