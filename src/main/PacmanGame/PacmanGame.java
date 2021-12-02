@@ -23,7 +23,6 @@ public class PacmanGame implements Game {
     public PacmanGame(){
         coreEngine = new CoreEngine(physicHeight, physicWidth, graphicHeight, graphicWidth);
         coreEngine.setGame(this);
-        this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
         initEvents();
         initSounds();
@@ -63,8 +62,9 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
      */
     private void initPlayers(){
-        pacman = new Pacman(100, 100, coreEngine);
-        ghosts = new HashMap<>();
+        this.pacman = new Pacman(100, 100, coreEngine);
+        this.inOutPacman = new InOutPacman(this.pacman,this);
+        this.ghosts = new HashMap<>();
     }
 
     /*
