@@ -14,23 +14,19 @@ public class InOutPacman {
         this.main = main;
     }
 
-    private enum Status{DOWN, UP, LEFT, RIGHT, PAUSE}
 
-    public Status giveStatus(int keyCode) {
-        Status status = null;
+    public Direction giveDirection(int keyCode) {
+        Direction direction = null;
         if (keyCode == 38)
-            status = Status.UP;
+            direction = direction.UP;
         else if (keyCode == 40)
-            status = Status.DOWN;
+            direction = direction.DOWN;
         else if (keyCode == 39)
-            status = Status.RIGHT;
+            direction = direction.RIGHT;
         else if (keyCode == 37)
-            status = Status.LEFT;
-        else if (keyCode == 80)
-            status = Status.PAUSE;
+            direction = direction.LEFT;
 
-
-        return status;
+        return direction;
     }
 
     public void receiveKeyEvent(KeyEvent k){

@@ -48,8 +48,9 @@ public class Pacman {
         this.coreEngine = coreEngine;
     }
 
-    public void setCurrentDirections(Direction direction) {
-        this.currentDirection = direction;
+
+    public void setDirection(Direction direction) {
+        currentDirection = direction;
     }
 
     //Getters
@@ -78,7 +79,4 @@ public class Pacman {
 
     public Direction getCurrentDirections() { return currentDirection; }
 
-    public void setDirection(Direction direction) {
-        currentDirection = direction;
-    }
 }

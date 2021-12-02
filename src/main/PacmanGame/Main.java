@@ -38,6 +38,7 @@ public class Main implements Game {
         initEvents();
         initSounds();
     }
+
     /*
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
      */
@@ -45,6 +46,7 @@ public class Main implements Game {
         pacman = new Pacman(100, 100, coreEngine);
         ghosts = new HashMap<>();
     }
+
     /*
     Fonction qui crée et lie les événements d'entrée/sorties au clavier
      */
@@ -54,8 +56,8 @@ public class Main implements Game {
         coreEngine.addEvent("pacmanGoLeft", () -> movePacmanTo(Direction.LEFT));
         coreEngine.addEvent("pacmanGoRight", () -> movePacmanTo(Direction.RIGHT));
 
-        // TODO: 01/12/2021
-        //coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
+
+        //coreEngine.getIOEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
         //.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
         // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
         // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
@@ -78,11 +80,7 @@ public class Main implements Game {
     Fonction qui sert à dire à pacman de bouger dans une direction
      */
     private void movePacmanTo(Direction direction){
-        pacman.setCurrentDirections(direction); // souligné en rouge je sais pas pq ??
-        /*/
-        To DO:
-        Faire la liaison entre le graphic et la physic quand on bouge
-         */
+        pacman.setDirection(direction);
     }
 
 }
