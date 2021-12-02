@@ -36,6 +36,11 @@ public class SoundEngine {
         soundToStop.stop();
     }
 
+    public void loopSound(String name){
+        Clip soundToLoop = soundsMap.get(name);
+        soundToLoop.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
     public void stopAllSound(){
         for (String sound: soundsMap.keySet()){
             stopSound(sound);
