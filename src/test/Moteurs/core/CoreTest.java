@@ -4,6 +4,7 @@ import static junit.framework.TestCase.*;
 
 import Moteurs.physic.Type;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.File;
 
@@ -30,6 +31,19 @@ public class CoreTest {
         CoreEntity e1 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         CoreEntity e2 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         assertEquals(2, e2.getId());
+    }
+
+    @Test
+    public void TestRemoveEntity(){
+        CoreEngine coreEngine = new CoreEngine(2,2,200,200);
+        CoreEntity e1 = coreEngine.addEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        coreEngine.removeEntity(e1);
+        Assertions.assertAll(
+                () ->  assertTrue(coreEngine.getEntities().isEmpty()),
+                () ->  assertTrue(coreEngine.getPhysicEngine().getEntities().isEmpty()),
+                () ->  assertEquals(coreEngine.getGraphicEngine().getjPanel().getComponentCount(), 0)
+        );
+
     }
 
     /**

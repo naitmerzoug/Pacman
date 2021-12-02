@@ -1,5 +1,6 @@
 package PacmanGame.AI;
 
+
 import Moteurs.core.CoreEngine;
 
 public class BlueGhost extends Ghost {
