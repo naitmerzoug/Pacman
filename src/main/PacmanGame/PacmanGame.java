@@ -25,6 +25,8 @@ public class PacmanGame implements Game {
         coreEngine.setGame(this);
         this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
+        initEvents();
+        initSounds();
         initMap();
     }
 
@@ -56,14 +58,6 @@ public class PacmanGame implements Game {
 
     public enum GHOSTS {RED, BLUE, ORANGE, PINK}
     private Map<GHOSTS, Ghost> ghosts;
-
-
-    public void initGame(){
-        //coreEngine = new CoreEngine()
-        initPlayers();
-        initEvents();
-        initSounds();
-    }
 
     /*
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes

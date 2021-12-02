@@ -1,8 +1,8 @@
 package Moteurs.sound;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -16,11 +16,12 @@ public class SoundEngine {
         Clip clip = null;
         try {
             clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                    SoundEngine.class.getResourceAsStream(path));
-            clip.open(inputStream);
-        } catch (Exception e){
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(path).getAbsoluteFile());
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e){
             System.err.println(e.getMessage());
+            System.exit(1);
         }
         soundsMap.put(name, clip);
     }

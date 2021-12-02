@@ -6,6 +6,9 @@ import Moteurs.physic.Type;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class SoundTest {
 
 
@@ -25,9 +28,18 @@ public class SoundTest {
     @Test
     public void TestSound1Played(){
         SoundEngine soundEngine = new SoundEngine();
-        soundEngine.loadSound("pacman_beginning.wav", "PacmanStart");
-        assertEquals(0, soundEngine.getSoundsMap().get("PacmanStart").getFramePosition());
-        soundEngine.playSound("PacmanStart");
-        assertEquals(soundEngine.getSoundsMap().get("PacmanStart").getFrameLength(), soundEngine.getSoundsMap().get("PacmanStart").getFramePosition());
+        Path currentRelativePath = Paths.get("");
+        soundEngine.loadSound(currentRelativePath.toAbsolutePath().toString()+ "/src/assets/sound/pacman_beginning.wav", "PacmanMusique");
+        int frames = soundEngine.getSoundsMap().get("PacmanMusique").getFrameLength();
+        assertEquals(0, soundEngine.getSoundsMap().get("PacmanMusique").getFramePosition());
+        soundEngine.playSound("PacmanMusique");
+        try{
+            Thread.sleep(5000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        assertEquals(frames, soundEngine.getSoundsMap().get("PacmanMusique").getFramePosition());
     }
+
+    // Lancer un son
 }
