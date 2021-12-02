@@ -41,7 +41,6 @@ public class PacmanGame implements Game {
 
     public void run() {
         coreEngine.run();
-        initSounds();
         coreEngine.getSoundEngine().playSound("PacmanStart");
         while(pacman.isAlive()){
             //Jeu
