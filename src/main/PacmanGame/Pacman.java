@@ -1,7 +1,7 @@
 package PacmanGame;
 
 import Moteurs.core.CoreEngine;
-import Moteurs.physic.DIRECTION;
+import Moteurs.physic.*;
 
 public class Pacman {
     private int x, y;

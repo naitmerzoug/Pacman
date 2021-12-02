@@ -1,13 +1,16 @@
 package PacmanGame.AI;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.*;
+import Moteurs.physic.DIRECTION;
 
 public abstract class Ghost {
 
 
     public static final double basicSpeed = 1;
     public static final double scaredSpeed = 1.5;
-    public static final double speed= 1.7;
+    public static final double deathSpeed= 3;
+
 
     protected double initialX;
     protected double initialY;
@@ -20,6 +23,8 @@ public abstract class Ghost {
         DEAD,
         NULL
     }
+
+
     protected State state = State.NULL;
 
     public Ghost(int initialX, int initialY, CoreEngine coreEngine)
@@ -71,4 +76,8 @@ public abstract class Ghost {
         this.coreEngine = coreEngine;
     }
 
+
+    public boolean isScared(){
+        return this.state == State.SCARED;
+    }
 }

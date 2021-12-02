@@ -82,6 +82,8 @@ public class CoreEngine {
         return e;
     }
 
+
+
     /**
      * Supprime une entité noyau
      */

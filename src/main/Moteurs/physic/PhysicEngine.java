@@ -142,6 +142,7 @@ public class PhysicEngine {
                 e.setStepY(1);
                 moving(e,e.getStepX(),e.getStepY());
 
+
             case DOWN :
                 e.setDirection(direction);
                 e.setStepX(0);
