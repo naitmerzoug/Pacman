@@ -17,11 +17,11 @@ public class CoreTest {
      */
     @Test
     public void TestAddEntity(){
-        Moteurs.core.CoreEngine c1 = new Moteurs.core.CoreEngine(2,2,200,200);
-        CoreEntity e1 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e3 = c1.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        assertEquals(3, CoreEngine.getNbEntities());
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e3 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        assertEquals(3, coreEngine.getNbEntities());
     }
 
     /**
@@ -29,7 +29,7 @@ public class CoreTest {
      */
     @Test
     public void TestEntityId(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(2,2,200,200);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
         CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         assertEquals(2, e2.getId());
@@ -37,7 +37,7 @@ public class CoreTest {
 
     @Test
     public void TestRemoveEntity(){
-        CoreEngine coreEngine = new CoreEngine(2,2,200,200);
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
         CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         coreEngine.removeEntity(e1);
         Assertions.assertAll(
@@ -53,8 +53,8 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoord(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
-        assertEquals(200, coreEngine.ConvertPhysictoGraphic(2));
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",50,50);
+        assertEquals(200, coreEngine.ConvertPhysictoGraphic(20));
 
     }
 
@@ -63,8 +63,8 @@ public class CoreTest {
      */
     @Test
     public void TestConvertCoordOrd(){
-        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine(5,5,500,500);
-        assertEquals(100, coreEngine.ConvertPhysictoGraphicOrd(-1));
+        Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",50,50);
+        assertEquals(100, coreEngine.ConvertPhysictoGraphicOrd(-10));
 
     }
 }

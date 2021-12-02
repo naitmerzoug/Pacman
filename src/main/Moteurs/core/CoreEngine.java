@@ -41,19 +41,19 @@ public class CoreEngine implements CoreEngineEvent {
     public static int nbEntities;
     private volatile boolean pause = false;
 
-    public CoreEngine(double physicHeight, double physicWidth, int graphicHeight, int graphicWidth){
+    public CoreEngine(String gamename, double physicHeight, double physicWidth){
 
         // Tailles des espaces physiques et graphiques
         this.PhysicHeight = physicHeight;
         this.PhysicWidth = physicWidth;
-        this.GraphicHeight = graphicHeight;
-        this.GraphicWidth = graphicWidth;
+        this.GraphicHeight = (int) physicHeight * 10;
+        this.GraphicWidth = (int) physicWidth * 10;
 
         // Attributs
         nbEntities = 0;
 
         // Moteurs
-        this.graphicEngine = new GraphicEngine(graphicWidth, graphicHeight, Color.BLACK,"Pacman");
+        this.graphicEngine = new GraphicEngine(this.GraphicWidth, this.GraphicHeight, Color.BLACK, gamename);
         graphicEngine.setCoreEngine(this);
         this.physicEngine = new PhysicEngine();
         this.soundEngine = new SoundEngine();

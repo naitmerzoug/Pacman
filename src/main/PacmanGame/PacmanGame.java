@@ -21,7 +21,7 @@ public class PacmanGame implements Game {
     int graphicWidth  = (int)  physicWidth * 10 ;
 
     public PacmanGame(){
-        coreEngine = new CoreEngine(physicHeight, physicWidth, graphicHeight, graphicWidth);
+        coreEngine = new CoreEngine("Pacman Game",physicHeight, physicWidth);
         coreEngine.setGame(this);
         initPlayers();
         initEvents();
