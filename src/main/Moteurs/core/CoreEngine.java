@@ -95,7 +95,7 @@ public class CoreEngine implements CoreEngineEvent {
         }
 
         // Création côté physique
-        enginePhysic.createAndAddEntity(coreEntity.getId(), x+(width/2), y-(height/2), height, width,type, speed);
+        enginePhysic.createAndAddEntity(coreEntity.getId(), x+(width/2), y-(height/2), width, height, type, speed);
 
         // Création côté graphique
 
