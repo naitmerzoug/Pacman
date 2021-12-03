@@ -1,6 +1,11 @@
 package Moteurs.physic;
 
+import java.util.ArrayList;
+
 public class CollisionManage {
+
+    public CollisionManage() {
+    }
 
     /**
      * Si deux objets partagent un point (x,y) en commun
@@ -39,6 +44,8 @@ public class CollisionManage {
         }
     }
 
+
+
     /**
      * Deux objets sont en contact et l'un d'eux est de type "SOLID"
      * @param x
@@ -47,11 +54,40 @@ public class CollisionManage {
      * @param e2
      * @return
      */
-    public static boolean detectCollision(double x, double y, PhysicEntity e1, PhysicEntity e2){
-        if(e1.getType() == e2.getType() &&  e1.getType() == Type.SOFT)
+    public static boolean detectCollision(double x, double y, PhysicEntity e1, PhysicEntity e2) {
+        if (e1.getType() == e2.getType() && e1.getType() == Type.SOFT) {
+            e1.setInCollision(false);
+            e2.setInCollision(false);
             return false;
-        return ( detectContact( x, y, e1, e2));
+        }
+        else {
+            if(detectContact(x, y, e1, e2))
+                e1.setInCollision(true);
+                e2.setInCollision(true);
+                return true;
+
+        }
+
     }
+
+    public static boolean detectCollisionWithEntities(PhysicEntity e, ArrayList<PhysicEntity> entitiesAt) {
+        boolean collision = false;
+        for (PhysicEntity physicEntity: entitiesAt) {
+
+            if (!(e.getType() == physicEntity.getType() && e.getType() == Type.SOFT)) {
+                if(detectCollision(e.getPosX(),e.getPosY(),e,physicEntity)){
+                    collision = true;
+                    addCollision(e,physicEntity);
+                }
+            }
+            deleteCollision(e,physicEntity);
+        }
+        e.setInCollision(collision);
+        return collision;
+
+    }
+
+
 
     public static void addCollision(PhysicEntity e1, PhysicEntity e2){
         e1.getCollisions().add(e2);
@@ -62,4 +98,6 @@ public class CollisionManage {
         e1.getCollisions().remove(e2);
         e2.getCollisions().remove(e1);
     }
+
+
 }

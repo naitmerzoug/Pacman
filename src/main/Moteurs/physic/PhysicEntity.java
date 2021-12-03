@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class PhysicEntity extends CoreEntity {
 
+    private  boolean inCollision;
     private int id;
     private double posX;
     private double posY;
@@ -109,6 +110,9 @@ public class PhysicEntity extends CoreEntity {
         return stepY;
     }
 
+    public boolean isInCollision() {
+        return inCollision;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -160,6 +164,10 @@ public class PhysicEntity extends CoreEntity {
 
     public void setStepY(double stepY) {
         this.stepY = stepY;
+    }
+
+    public void setInCollision(boolean inCollision) {
+        this.inCollision = inCollision;
     }
 
     @Override

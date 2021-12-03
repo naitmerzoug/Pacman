@@ -119,12 +119,18 @@ public class PhysicEngine {
 
 
     public void moving(PhysicEntity e, double stepX, double stepY){
-        for (int i = 0; i < e.getSpeed() ; i++){
+        for (int i = 0; i < e.getSpeed() && !e.isInCollision() ; i++){
             System.out.println(e.getSpeed());
             e.setOldX(e.getPosX());
             e.setOldY(e.getPosY());
             e.setPosX(e.getPosX() + stepX);
             e.setPosY(e.getPosY() + stepY);
+
+            if(CollisionManage.detectCollisionWithEntities(e,entitiesAtPosition(e.getPosX(),e.getPosY(),e.getLength(),e.getWidth()))){
+                e.setPosX(e.getOldX());
+                e.setPosY(e.getOldY());
+            }
+
             System.out.println(e.getPosY()+"test");
         }
     }
