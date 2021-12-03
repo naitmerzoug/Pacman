@@ -188,7 +188,7 @@ public class PacmanGame implements Game {
         Wall wall78 = new Wall(21, -54, 11, 1, coreEngine);
         Wall wall79 = new Wall(21, -54, 1, 4, coreEngine);
         Wall wall80 = new Wall(25, -54, 11, 1, coreEngine);
-        Wall wall81 = new Wall(21, -65, 1, 5, coreEngine);
+        Wall wall81 = new Wall(21, -64, 1, 5, coreEngine);
 
         /**
          * Partie bas droite
@@ -225,16 +225,23 @@ public class PacmanGame implements Game {
         Wall wall57_sym = new Wall(73, -69, 1, 10, coreEngine);
 
         // Petit rectangle
-//        Wall wall58 = new Wall(21, -69, 1, 15, coreEngine);
-//        Wall wall59 = new Wall(21, -69, 3, 1, coreEngine);
-//        Wall wall60 = new Wall(21, -72, 1, 15, coreEngine);
-//        Wall wall61 = new Wall(35, -69, 3, 1, coreEngine);
         Wall wall58_sym = new Wall(52, -69, 1, 14, coreEngine);
         Wall wall59_sym = new Wall(52, -69, 3, 1, coreEngine);
         Wall wall60_sym = new Wall(52, -72, 1, 14, coreEngine);
         Wall wall61_sym = new Wall(65, -69, 3, 1, coreEngine);
 
+        // Petit rectangle horizontal
+        Wall wall78_sym = new Wall(62, -54, 11, 1, coreEngine);
+        Wall wall79_sym = new Wall(62, -54, 1, 4, coreEngine);
+        Wall wall80_sym = new Wall(66, -54, 11, 1, coreEngine);
+        Wall wall81_sym = new Wall(62, -64, 1, 5, coreEngine);
 
+        // Cage à fantôme
+        Wall wall82 = new Wall(32, -55, 1, 23, coreEngine);
+        Wall wall83 = new Wall(32, -38, 17, 1, coreEngine);
+        Wall wall84 = new Wall(32, -38, 1, 8, coreEngine);
+        Wall wall85 = new Wall(48, -38, 1, 7, coreEngine);
+        Wall wall86 = new Wall(54, -38, 17, 1, coreEngine);
     }
 
     @Override
