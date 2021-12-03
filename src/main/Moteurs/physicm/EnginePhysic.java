@@ -19,7 +19,7 @@ public class EnginePhysic {
     // TODO: 03/12/2021
     public ArrayList<EntityPhysic> getCollisionsList(EntityPhysic entityPhysic, double nextX , double nextY){
         for(EntityPhysic entityPhysic1 : entities){
-            if(CollisionPhysic.isCollision(entityPhysic1,entityPhysic,  nextX,  nextY) && entityPhysic!=entityPhysic1)
+            if(CollisionPhysic.isCollision(entityPhysic1, entityPhysic,  nextX,  nextY) && entityPhysic!=entityPhysic1)
                 entityPhysic.addCollisionList(entityPhysic1);
         }
     }
