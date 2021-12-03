@@ -26,7 +26,7 @@ public class PacmanGame implements Game {
     public PacmanGame(){
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
-        this.pacman = new Pacman(60, -20, coreEngine);
+        this.pacman = new Pacman(10, -80, coreEngine);
         this.inOutPacman = new InOutPacman(pacman,this);
         //initPlayers();
         //initEvents();
@@ -117,14 +117,6 @@ public class PacmanGame implements Game {
         Wall wall17_sym = new Wall(51, -14.5, 1, 16, coreEngine);
 
         // T vertical
-//        Wall wall19 = new Wall(22, -20, 1, 3, coreEngine);
-//        Wall wall20 = new Wall(22, -20, 21, 1, coreEngine);
-//        Wall wall21 = new Wall(25, -20, 8, 1, coreEngine);
-//        Wall wall22 = new Wall(25, -28, 1, 12, coreEngine);
-//        Wall wall23 = new Wall(36, -28, 4, 1, coreEngine);
-//        Wall wall24 = new Wall(25, -32, 1, 12, coreEngine);
-//        Wall wall25 = new Wall(25, -32, 9, 1, coreEngine);
-//        Wall wall26 = new Wall(22, -40, 1, 4, coreEngine);
         Wall wall19_sym = new Wall(63, -20, 1, 3, coreEngine);
         Wall wall20_sym = new Wall(66, -20, 21, 1, coreEngine);
         Wall wall21_sym = new Wall(63, -20, 8, 1, coreEngine);
@@ -134,14 +126,43 @@ public class PacmanGame implements Game {
         Wall wall25_sym = new Wall(63, -32, 9, 1, coreEngine);
         Wall wall26_sym = new Wall(63, -40, 1, 4, coreEngine);
 
-
-
         /**
          * Partie bas gauche
+         */
 
-        Wall wall122 = new Wall(0,-95,1,90, coreEngine);
-        Wall wall123 = new Wall(0, -65, 30, 1, coreEngine);
-        */
+        Wall wall35 = new Wall(0,-95,1,90, coreEngine);
+        Wall wall36 = new Wall(0, -81, 14, 1, coreEngine);
+
+        // Petit truc qui sort
+        Wall wall37 = new Wall(0, -81, 1, 6, coreEngine);
+        Wall wall38 = new Wall(6, -78, 4, 1, coreEngine);
+        Wall wall39 = new Wall(0, -78, 1, 6, coreEngine);
+
+        Wall wall40 = new Wall(0, -64, 14, 1, coreEngine);
+        Wall wall41 = new Wall(0, -64, 1, 17, coreEngine);
+        Wall wall42 = new Wall(16, -54, 10, 1, coreEngine);
+        Wall wall43 = new Wall(0, -54, 1, 16, coreEngine);
+
+        // T horizontal décallé
+        Wall wall44 = new Wall(6, -89, 1, 30, coreEngine);
+        Wall wall45 = new Wall(6, -86, 3, 1, coreEngine);
+        Wall wall46 = new Wall(6, -86, 1, 18, coreEngine);
+        Wall wall47 = new Wall(24, -78, 9, 1, coreEngine);
+        Wall wall48 = new Wall(24, -78, 1, 4, coreEngine);
+        Wall wall49 = new Wall(28, -78, 9, 1, coreEngine);
+        Wall wall50 = new Wall(28, -86, 1, 8, coreEngine);
+        Wall wall51 = new Wall(36, -86, 4, 1, coreEngine);
+
+        // Semi T vers la gauche
+        Wall wall52 = new Wall(14, -81, 1, 5, coreEngine); // mur du bas
+        Wall wall53 = new Wall(14, -71, 11, 1, coreEngine);
+        Wall wall54 = new Wall(18, -70, 11, 1, coreEngine);
+        Wall wall55 = new Wall(9, -71, 1, 5, coreEngine);
+        Wall wall56 = new Wall(9, -69, 2, 1, coreEngine);
+        Wall wall57 = new Wall(9, -69, 1, 10, coreEngine);
+
+        // Petit rectangle
+        Wall wall58 = new Wall(24, -69, 1, 8, coreEngine);
 
         /**
          * Partie bas droite
