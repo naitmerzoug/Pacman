@@ -58,4 +58,8 @@ public class EnginePhysic {
     public ArrayList<EntityPhysic> getEntities() {
         return entities;
     }
+
+    public void createEntity(EntityPhysic e1) {
+        entities.add(e1);
+    }
 }

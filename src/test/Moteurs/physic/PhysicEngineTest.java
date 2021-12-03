@@ -31,7 +31,7 @@ class PhysicEngineTest {
         mesentities.put(e2.getId(), e2);
         mesentities.put(e3.getId(), e3);
         mesentities.put(e4.getId(), e4);
-        assertEquals(physicEngine.getEntities(), mesentities);
+        assertEquals(enginePhysic.getEntities(), mesentities);
 
     }
 
@@ -57,7 +57,7 @@ class PhysicEngineTest {
 
     @org.junit.jupiter.api.Test
     void TESTisSomething() {
-        EnginePhysic physicEngine2 = new PhysicEngine();
+        EnginePhysic physicEngine2 = new EnginePhysic();
         EntityPhysic e1 = new EntityPhysic( 1,2, 2, 1, 1,Type.SOLID, 1);
         EntityPhysic e2 = new EntityPhysic( 2,3, 3, 1, 1,Type.SOLID, 1);
         EntityPhysic e3 = new EntityPhysic(3,2, 2, 1, 1, Type.SOFT, 1);
@@ -130,22 +130,5 @@ class PhysicEngineTest {
         physicEngine5.move(e1, DIRECTION.UP);
         assertEquals(8, e1.getPosY());
 
-    }
-
-    @org.junit.jupiter.api.Test
-    void TESTsqr() {
-        double a = 2;
-        assertEquals(4, EnginePhysic.sqr(a));
-    }
-
-
-
-    @org.junit.jupiter.api.Test
-    void TESTdistanceBetweenTowPoints() {
-        EnginePhysic physicEngine6 = new EnginePhysic();
-        EntityPhysic e1 = new EntityPhysic(1, 2, 2, 1, 1,Type.SOLID,  1);
-        EntityPhysic e2 = new EntityPhysic(2, 3, 3, 1, 1, Type.SOLID, 1);
-        assertEquals(Math.sqrt(2), physicEngine6.distanceBetweenTowPoints(e1, e2));
-        assertNotEquals(Math.sqrt(5), physicEngine6.distanceBetweenTowPoints(e1, e2));
     }
 }
