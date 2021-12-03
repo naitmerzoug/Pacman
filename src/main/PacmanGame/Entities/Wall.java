@@ -9,7 +9,7 @@ public class Wall {
     private double x, y;
     private CoreEngine coreEngine;
 
-    public Wall(double x, double y,int height, int width, CoreEngine coreEngine)
+    public Wall(double x, double y, double height, double width, CoreEngine coreEngine)
     {
         this.x = x;
         this.y = y;

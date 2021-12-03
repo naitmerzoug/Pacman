@@ -3,11 +3,11 @@ package PacmanGame.Entities;
 import Moteurs.core.CoreEngine;
 
 public class Coin {
-    private int x, y;
+    private double x, y;
     //boolean canEat = true;
     public CoreEngine coreEngine;
 
-    public Coin(int x, int y, CoreEngine coreEngine)
+    public Coin(double x, double y, CoreEngine coreEngine)
     {
         this.x = x;
         this.y = y;
@@ -15,9 +15,9 @@ public class Coin {
 
     // Getters
 
-    public int getX() { return x; }
+    public double getX() { return x; }
 
-    public int getY() { return y; }
+    public double getY() { return y; }
 
     public CoreEngine getCoreEngine() {
         return coreEngine;

@@ -22,7 +22,7 @@ public abstract class Ghost {
     }
     protected State state = State.NULL;
 
-    public Ghost(int initialX, int initialY, CoreEngine coreEngine)
+    public Ghost(double initialX, double initialY, CoreEngine coreEngine)
     {
         this.initialX = initialX;
         this.initialY = initialY;

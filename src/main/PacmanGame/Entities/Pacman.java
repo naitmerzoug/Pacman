@@ -8,15 +8,15 @@ import PacmanGame.Direction;
 import java.io.File;
 
 public class Pacman {
-    private int x, y;
-    private int speed;
+    private double x, y;
+    private double speed;
     private boolean isDead;
     private boolean isInvincible;
     private CoreEngine coreEngine;
 
     private Direction currentDirection;
 
-    public Pacman(int x, int y, CoreEngine coreEngine)
+    public Pacman(double x, double y, CoreEngine coreEngine)
     {
         this.x = x;
         this.y = y;
@@ -32,15 +32,15 @@ public class Pacman {
 
     // Setters
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
@@ -63,15 +63,15 @@ public class Pacman {
 
     //Getters
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 

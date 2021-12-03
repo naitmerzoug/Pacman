@@ -23,11 +23,9 @@ public class PacmanGame implements Game {
 
     double physicHeight = 85.5;
     double physicWidth = 73.5;
-    int graphicHeight = (int) physicHeight * 10 ;
-    int graphicWidth  = (int)  physicWidth * 10 ;
 
     public PacmanGame(){
-        coreEngine = new CoreEngine("Pacman Game",physicHeight, physicWidth);
+        coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         coreEngine.setGame(this);
         this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
@@ -39,7 +37,7 @@ public class PacmanGame implements Game {
     private void initMap() {
       //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
         // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
-        Wall wall1 = new Wall(367.5,7.6,15,49*5*3, coreEngine);
+        Wall wall1 = new Wall(0,0,1.5,73.5, coreEngine);
     }
 
     @Override
@@ -49,7 +47,7 @@ public class PacmanGame implements Game {
 
     public void run() throws InterruptedException {
         coreEngine.run();
-        coreEngine.getSoundEngine().playSound("PacmanStart");
+        //coreEngine.getSoundEngine().playSound("PacmanStart");
 //        System.out.println("sleep");
 //        Thread.sleep(1000);
 //        System.out.println("up");
@@ -83,7 +81,7 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
      */
     private void initPlayers(){
-        pacman = new Pacman(100, 100, coreEngine);
+        pacman = new Pacman(10, -10, coreEngine);
         this.inOutPacman = new InOutPacman(this.pacman,this);
         coreEngine.createAndAddEntity(Type.SOLID,pacman.getX() * 1.0, pacman.getY() * 1.0,45,45,1,new File("src/main/Pacman/Images/pacman.png"));
         ghosts = new HashMap<>();
