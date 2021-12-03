@@ -7,9 +7,7 @@ import java.util.ArrayList;
 public class CollisionManage {
 
     // TODO: 03/12/2021
-    public static boolean isWallCollision(ArrayList<CoreEntity> coreEntities, CoreEntity entity) {
-
-    }
+    public static boolean isWallCollision(ArrayList<CoreEntity> coreEntities, CoreEntity entity) {return false;}
 
     // TODO: 03/12/2021
     public static boolean isGhostCollision(ArrayList<CoreEntity> coreEntities, CoreEntity entity) {

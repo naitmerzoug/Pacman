@@ -2,13 +2,14 @@ package Moteurs.core;
 
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
+import Moteurs.physicm.EntityPhysic;
 
 import javax.swing.*;
 
 public class CoreEntity {
 
     private int id = 0;
-    private PhysicEntity physicEntity;
+    private EntityPhysic physicEntity;
     private JPanel graphicEntity;
 
    // public CoreEntity(PhysicEntity physicEntity, JLabel graphicEntity){
@@ -20,7 +21,7 @@ public class CoreEntity {
 
     // Getters
 
-    public PhysicEntity getPhysicEntity() {
+    public EntityPhysic getEntityPhysic() {
         return physicEntity;
     }
 
@@ -34,7 +35,7 @@ public class CoreEntity {
         this.id = id;
     }
 
-    public void setPhysicEntity(PhysicEntity physicEntity) {
+    public void setEntityPhysic(EntityPhysic physicEntity) {
         this.physicEntity = physicEntity;
     }
 

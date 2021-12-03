@@ -5,8 +5,8 @@ public class CollisionPhysic {
     // TODO: 03/12/2021  
     /**
      * Si deux entités se touchent
-     * @param entityPhysic1
-     * @param entityPhysic2
+     * @param e1
+     * @param e2
      * @return
      */
     public static boolean isContact(EntityPhysic e1, EntityPhysic e2, double nextX, double nextY) {

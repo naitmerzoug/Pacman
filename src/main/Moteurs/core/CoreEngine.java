@@ -68,7 +68,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     public void move (CoreEntity e, DIRECTION direction){
-        EnginePhysic.move(e.getPhysicEntity(),direction);
+        EnginePhysic.move(e.getPhysicEntity());
        // graphicEngine.mooveEntity(e.getGraphicEntity(),);
     }
 
@@ -100,7 +100,7 @@ public class CoreEngine implements CoreEngineEvent {
         }
 
         // Création côté physique
-        PhysicEntity p = new PhysicEntity(coreEntity.getId(), type, x+(width/2), y-(height/2), height, width, speed);
+        EntityPhysic p = new EntityPhysic(coreEntity.getId(), type, x+(width/2), y-(height/2), height, width, speed);
         coreEntity.setPhysicEntity(p);
         physicEngine.createEntity(coreEntity.getPhysicEntity());
 
@@ -237,7 +237,7 @@ public class CoreEngine implements CoreEngineEvent {
     public void moveAll2(){
         //Pour toute entitité bouger
         for(CoreEntity coreEntity : entities.values())
-            ArrayList<EntityPhysic> coreEntities = physicEngine.getEntities(coreEntity.getPhysicEntity());
+            ArrayList<EntityPhysic> coreEntities = physicEngine.getEntities(coreEntity.getEntityPhysic());
 
     }
 

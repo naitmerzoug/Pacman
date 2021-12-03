@@ -1,5 +1,6 @@
 package PacmanGame;
 
+import Moteurs.physicm.DIRECTION;
 import PacmanGame.Entities.Pacman;
 
 import java.awt.event.KeyEvent;
@@ -32,10 +33,10 @@ public class InOutPacman {
 
     public void receiveKeyEvent(KeyEvent k){
         switch (k.getKeyCode()) {
-            case 38 -> pacman.setDirection(UP);
-            case 40 -> pacman.setDirection(DOWN);
-            case 39 -> pacman.setDirection(RIGHT);
-            case 37 -> pacman.setDirection(LEFT);
+            case 38 -> pacman.getCoreEntity().getEntityPhysic().setDirection(DIRECTION.UP);
+            case 40 -> pacman.getCoreEntity().getEntityPhysic().setDirection(DIRECTION.DOWN);
+            case 39 -> pacman.getCoreEntity().getEntityPhysic().setDirection(DIRECTION.RIGHT);
+            case 37 -> pacman.getCoreEntity().getEntityPhysic().setDirection(DIRECTION.LEFT);
             case 80 -> main.setPause();
             default -> {
             }
