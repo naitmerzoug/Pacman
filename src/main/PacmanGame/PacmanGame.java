@@ -192,7 +192,7 @@ public class PacmanGame implements Game {
             coreEngine.moveAll();
 
 
-        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
+        coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
         Thread.sleep(30);
         }
     }
@@ -209,7 +209,7 @@ public class PacmanGame implements Game {
             coreEngine.moveAll();
 
 
-            coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
+            coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
     }

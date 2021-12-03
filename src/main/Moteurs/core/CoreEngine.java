@@ -216,7 +216,7 @@ public class CoreEngine implements CoreEngineEvent {
      * @param currentDirection
      * @param v
      */
-    public void movePacman(CoreEntity coreEntity, DIRECTION currentDirection, int v) {
+    public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int v) {
         int x = 0, y = 0;
 
         this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
