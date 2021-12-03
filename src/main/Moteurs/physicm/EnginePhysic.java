@@ -55,4 +55,7 @@ public class EnginePhysic {
         entities.remove(entityPhysic);
     }
 
+    public ArrayList<EntityPhysic> getEntities() {
+        return entities;
+    }
 }

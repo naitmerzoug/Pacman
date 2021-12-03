@@ -1,6 +1,6 @@
 package Moteurs.core;
 
-import Moteurs.physic.Type;
+import Moteurs.physicm.Type;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
