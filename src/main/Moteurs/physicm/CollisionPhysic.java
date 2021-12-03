@@ -3,11 +3,14 @@ package Moteurs.physicm;
 public class CollisionPhysic {
 
     // TODO: 03/12/2021  
+
     /**
      * Si deux entités se touchent
-     * @param entityPhysic1
-     * @param entityPhysic2
-     * @return
+     * @param e1 entité qui souhaite bouger
+     * @param e2 enité potentielement rencontré
+     * @param nextX position du prochain déplacement
+     * @param nextY position du prochain déplacement
+     * @return is contact
      */
     public static boolean isContact(EntityPhysic e1, EntityPhysic e2, double nextX, double nextY) {
         return (nextX + e1.getX() + (e1.getWidth()) / 2 >= e2.getX() - (e2.getWidth()) / 2 &&
