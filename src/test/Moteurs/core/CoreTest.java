@@ -40,6 +40,7 @@ public class CoreTest {
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
         CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
         coreEngine.removeEntity(e1);
+        System.out.println(coreEngine.getGraphicEngine().getFrame().getComponents());
         Assertions.assertAll(
                 () ->  assertTrue(coreEngine.getEntities().isEmpty()),
                 () ->  assertTrue(coreEngine.getPhysicEngine().getEntities().isEmpty()),

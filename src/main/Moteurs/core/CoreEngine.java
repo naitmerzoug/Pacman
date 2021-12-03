@@ -83,7 +83,7 @@ public class CoreEngine implements CoreEngineEvent {
         int id = nbEntities;
 
         // Création côté physique
-        PhysicEntity p = new PhysicEntity(type, x+(width/2), y-(height/2), height, width, speed);
+        PhysicEntity p = new PhysicEntity(id, type, x+(width/2), y-(height/2), height, width, speed);
         physicEngine.createEntity(p);
 
         // Création côté graphique
@@ -91,8 +91,10 @@ public class CoreEngine implements CoreEngineEvent {
 
         // Création côté noyau
         CoreEntity coreEntity = new CoreEntity();
+        coreEntity.setId(id);
         coreEntity.setPhysicEntity(p);
         coreEntity.setGraphicEntity(entity);
+
         entities.put(coreEntity.getId(),coreEntity);
 
         return coreEntity;
