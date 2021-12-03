@@ -17,12 +17,27 @@ public class EnginePhysic {
     }
 
     // TODO: 03/12/2021
+    // à tester
+    /**
+     * Cherche à déterminer la liste de collision de l'entité dans le cas où il se dépalcerait aux coordonnées x,y
+     * @param entityPhysic entité qui souahite se déplacer
+     * @param nextX La coordonnée de son prochain centre de l'objet
+     * @param nextY La coordonnée de son prochain centre l'objet
+     * @return Liste de collisions
+     */
     public ArrayList<EntityPhysic> getCollisionsList(EntityPhysic entityPhysic, double nextX , double nextY){
+
+        entityPhysic.resetCollisionList();
+
         for(EntityPhysic entityPhysic1 : entities){
             if(CollisionPhysic.isCollision(entityPhysic1,entityPhysic,  nextX,  nextY) && entityPhysic!=entityPhysic1)
                 entityPhysic.addCollisionList(entityPhysic1);
         }
+        return entityPhysic.getCollisionList();
     }
 
+    public void setEntities(ArrayList<EntityPhysic> entities) {
+        this.entities = entities;
+    }
 
 }
