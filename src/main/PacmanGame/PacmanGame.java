@@ -60,12 +60,23 @@ public class PacmanGame implements Game {
 
         coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
         Thread.sleep(30);
-//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
-//        Thread.sleep(1000);
-//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
-//        Thread.sleep(1000);
-//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
-//        Thread.sleep(1000);
+        }
+    }
+
+    public void runTestMoovePacman() throws InterruptedException {
+        coreEngine.run();
+        //coreEngine.getSoundEngine().playSound("PacmanStart");
+        System.out.println("sleep");
+        Thread.sleep(1000);
+        System.out.println("up");
+
+        while(pacman.isAlive()){
+            //Jeu
+            coreEngine.moveAll();
+
+
+            coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+            Thread.sleep(30);
         }
     }
 
