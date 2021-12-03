@@ -42,7 +42,7 @@ public class CoreTest {
         coreEngine.removeEntity(e1);
         Assertions.assertAll(
                 () ->  assertTrue(coreEngine.getEntities().isEmpty()),
-                () ->  assertTrue(coreEngine.getPhysicEngine().getEntities().isEmpty()),
+                () ->  assertTrue(coreEngine.getEnginePhysic().getEntities().isEmpty()),
                 () ->  assertEquals(coreEngine.getGraphicEngine().getFrame().getComponentCount(), 0)
         );
 

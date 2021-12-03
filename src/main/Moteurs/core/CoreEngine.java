@@ -2,17 +2,11 @@ package Moteurs.core;
 
 import Moteurs.Game;
 import Moteurs.graphic.GraphicEngine;
-import Moteurs.physic.DIRECTION;
-import Moteurs.physic.PhysicEngine;
-import Moteurs.physic.PhysicEntity;
-import Moteurs.physic.Type;
 import Moteurs.physicm.DIRECTION;
 import Moteurs.physicm.EnginePhysic;
 import Moteurs.physicm.EntityPhysic;
 import Moteurs.physicm.Type;
 import Moteurs.sound.SoundEngine;
-import PacmanGame.Direction;
-import PacmanGame.Entities.Pacman;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,12 +57,12 @@ public class CoreEngine implements CoreEngineEvent {
         // Moteurs
         this.graphicEngine = new GraphicEngine(this.GraphicWidth, this.GraphicHeight, Color.BLACK, gamename);
         graphicEngine.setCoreEngine(this);
-        this.enginePhysic = new EnginePhysic();
+        this.enginePhysic = new EnginePhysic(physicWidth, physicHeight);
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
     }
 
-    public void move (CoreEntity e, DIRECTION direction){
+    public void move (CoreEntity e){
         EnginePhysic.move(e.getEntityPhysic(), 1);
        // graphicEngine.mooveEntity(e.getGraphicEntity(),);
     }
@@ -233,13 +227,14 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     // TODO: 03/12/2021
+    /*
     public void moveAll2(){
         //Pour toute entitité bouger
         for(CoreEntity coreEntity : entities.values())
-            ArrayList<EntityPhysic> coreEntities = enginePhysic.getCollisionsList(coreEntity.getEntityPhysic(),);
+            ArrayList<EntityPhysic> coreEntities = enginePhysic.getCollisionsList(coreEntity.getEntityPhysic(),1,1);
 
     }
-
+*/
     // TODO: 03/12/2021
     public void moveEntity(CoreEntity coreEntity){
         //récupérer list collision

@@ -4,6 +4,15 @@ import java.util.ArrayList;
 
 public class EnginePhysic {
 
+    private double width;
+    private double height;
+
+    public EnginePhysic(double width, double height)
+    {
+        this.width = width;
+        this.height = height;
+    }
+
     private ArrayList<EntityPhysic> entities;
 
     public EnginePhysic(){
