@@ -4,7 +4,7 @@ import Moteurs.core.CoreEngine;
 import PacmanGame.AI.Ghost;
 
 public class PinkGhost extends Ghost {
-    public PinkGhost(int x, int y, CoreEngine coreEngine) {
+    public PinkGhost(double x, double y, CoreEngine coreEngine) {
         super(x, y, coreEngine);
     }
 }
