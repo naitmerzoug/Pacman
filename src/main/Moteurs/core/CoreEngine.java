@@ -171,25 +171,15 @@ public class CoreEngine implements CoreEngineEvent {
 
     // Getters
 
-    public GraphicEngine getGraphicEngine() {
-        return graphicEngine;
-    }
+    public GraphicEngine getGraphicEngine() { return graphicEngine;}
 
-    public PhysicEngine getPhysicEngine() {
-        return physicEngine;
-    }
+    public PhysicEngine getPhysicEngine() { return physicEngine; }
 
-    public SoundEngine getSoundEngine() {
-        return soundEngine;
-    }
+    public SoundEngine getSoundEngine() { return soundEngine; }
 
-    public static int getNbEntities() {
-        return nbEntities;
-    }
+    public static int getNbEntities() { return nbEntities;}
 
-    public ConcurrentMap<Integer, CoreEntity> getEntities() {
-        return entities;
-    }
+    public ConcurrentMap<Integer, CoreEntity> getEntities() { return entities; }
 
     public double getPhysicHeight() { return PhysicHeight; }
 
@@ -199,16 +189,11 @@ public class CoreEngine implements CoreEngineEvent {
 
     public int getGraphicWidth() { return GraphicWidth; }
 
-
-    public boolean getPause() {
-        return pause;
-    }
+    public boolean getPause() { return pause; }
 
     // Setter
 
-    public void setPause(boolean pause) {
-        this.pause = pause;
-    }
+    public void setPause(boolean pause) { this.pause = pause; }
 
 
 }
