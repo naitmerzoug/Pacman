@@ -15,12 +15,10 @@ public class Wall {
         this.y = y;
         this.coreEngine = coreEngine;
 
-        coreEngine.createAndAddEntity(Type.SOLID,x,y,height,width,0,new File("src/main/Pacman/Images/wall.png"));
+        coreEngine.createAndAddEntity(Type.SOLID, x, y, height, width,0, new File("src/main/Pacman/Images/wall.png"));
     }
 
     // Getters
-
-
     public double getX() {
         return x;
     }
@@ -34,7 +32,6 @@ public class Wall {
     }
 
     // Setters
-
     public void setCoreEngine(CoreEngine coreEngine) {
         this.coreEngine = coreEngine;
     }

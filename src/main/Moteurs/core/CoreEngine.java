@@ -107,7 +107,7 @@ public class CoreEngine implements CoreEngineEvent {
 
         JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), ConvertPhysictoGraphic(height), ConvertPhysictoGraphic(width), file);
         //graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
-        System.out.println("new entity add");
+        System.out.println("new entity added");
         coreEntity.setGraphicEntity(entity);
         entities.put(coreEntity.getId(),coreEntity);
 
@@ -223,8 +223,8 @@ public class CoreEngine implements CoreEngineEvent {
         int x = 0, y = 0;
         System.out.println("je bouge");
         switch(currentDirections){
-            case UP    -> y= +v;
-            case DOWN  -> y= -v;
+            case UP    -> y= -v;
+            case DOWN  -> y= +v;
             case RIGHT -> x= +v;
             case LEFT  -> x= -v;
             default-> x=y;

@@ -26,9 +26,9 @@ public class Pacman {
         this.isDead = false;
         this.isInvincible = false;
         this.coreEngine = coreEngine;
-        this.currentDirection = null;
+        this.currentDirection = Direction.RIGHT; // évite l'erreur du null dès le début
 
-        coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x, y,7.5,7.5,1,new File("src/main/Pacman/Images/pacman.png"));
+        coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x, y,3,3,1, new File("src/main/Pacman/Images/pacman.png"));
     }
 
     public boolean isAlive() {

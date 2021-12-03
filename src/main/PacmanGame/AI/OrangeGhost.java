@@ -10,7 +10,7 @@ public class OrangeGhost extends Ghost {
     private double initialY;
 
     public OrangeGhost(double initialX, double initialY, CoreEngine coreEngine) {
-        super(initialX, initialY, coreEngine);
+        super(11, initialX, initialY, coreEngine);
     }
 
 }

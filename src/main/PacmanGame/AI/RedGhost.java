@@ -5,6 +5,6 @@ import PacmanGame.AI.Ghost;
 
 public class RedGhost extends Ghost {
     public RedGhost(double x, double y, CoreEngine coreEngine) {
-        super(x, y, coreEngine);
+        super(12, x, y, coreEngine);
     }
 }
