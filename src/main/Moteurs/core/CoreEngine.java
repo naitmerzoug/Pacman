@@ -104,7 +104,6 @@ public class CoreEngine implements CoreEngineEvent {
 
         JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), ConvertPhysictoGraphic(height), ConvertPhysictoGraphic(width), file);
         //graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
-        System.out.println("new entity added");
         coreEntity.setGraphicEntity(entity);
         entities.put(coreEntity.getId(),coreEntity);
 
@@ -206,12 +205,11 @@ public class CoreEngine implements CoreEngineEvent {
     public void moveAll() {
         for(CoreEntity entity : entities.values()) {
             graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
-            System.out.println("moove "+entity.getGraphicEntity().getX()+":"+entity.getGraphicEntity().getY());
         }
     }
 
     /**
-     * Test moove Pacman
+     * Test move entiy
      * @param coreEntity
      * @param currentDirection
      * @param v

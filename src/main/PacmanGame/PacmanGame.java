@@ -285,7 +285,7 @@ public class PacmanGame implements Game {
             }
             if (CollisionManage.isGhostCollision(coreEntities,entity)){
                 if(isStartBonus())
-                    pacman.eatGhost(getGhots(entity));
+                    pacman.eatGhost(getGhosts(entity));
                 else
                     pacman.die();
             }
@@ -300,7 +300,7 @@ public class PacmanGame implements Game {
         }
     }
 
-    private Ghost getGhots(CoreEntity entity) {
+    private Ghost getGhosts(CoreEntity entity) {
         for(Ghost ghost : ghosts){
             if(ghost.getId() == entity.getId())
                 return ghost;
