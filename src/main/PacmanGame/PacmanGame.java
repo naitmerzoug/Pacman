@@ -147,23 +147,47 @@ public class PacmanGame implements Game {
         // T horizontal décallé
         Wall wall44 = new Wall(6, -89, 1, 30, coreEngine);
         Wall wall45 = new Wall(6, -86, 3, 1, coreEngine);
-        Wall wall46 = new Wall(6, -86, 1, 18, coreEngine);
-        Wall wall47 = new Wall(24, -78, 9, 1, coreEngine);
-        Wall wall48 = new Wall(24, -78, 1, 4, coreEngine);
-        Wall wall49 = new Wall(28, -78, 9, 1, coreEngine);
-        Wall wall50 = new Wall(28, -86, 1, 8, coreEngine);
-        Wall wall51 = new Wall(36, -86, 4, 1, coreEngine);
+        Wall wall46 = new Wall(6, -86, 1, 15, coreEngine);
+        Wall wall47 = new Wall(21, -78, 9, 1, coreEngine);
+        Wall wall48 = new Wall(22, -78, 1, 3, coreEngine);
+        Wall wall49 = new Wall(25, -78, 9, 1, coreEngine);
+        Wall wall50 = new Wall(26, -86, 1, 9, coreEngine);
+        Wall wall51 = new Wall(35, -86, 4, 1, coreEngine);
 
         // Semi T vers la gauche
-        Wall wall52 = new Wall(14, -81, 1, 5, coreEngine); // mur du bas
-        Wall wall53 = new Wall(14, -71, 11, 1, coreEngine);
-        Wall wall54 = new Wall(18, -70, 11, 1, coreEngine);
-        Wall wall55 = new Wall(9, -71, 1, 5, coreEngine);
-        Wall wall56 = new Wall(9, -69, 2, 1, coreEngine);
-        Wall wall57 = new Wall(9, -69, 1, 10, coreEngine);
+        Wall wall52 = new Wall(12, -81, 1, 5, coreEngine); // mur du bas
+        Wall wall53 = new Wall(12, -71, 11, 1, coreEngine);
+        Wall wall54 = new Wall(16, -70, 11, 1, coreEngine);
+        Wall wall55 = new Wall(7, -71, 1, 5, coreEngine);
+        Wall wall56 = new Wall(7, -69, 2, 1, coreEngine);
+        Wall wall57 = new Wall(7, -69, 1, 10, coreEngine);
 
         // Petit rectangle
-        Wall wall58 = new Wall(24, -69, 1, 8, coreEngine);
+        Wall wall58 = new Wall(21, -69, 1, 15, coreEngine);
+        Wall wall59 = new Wall(21, -69, 3, 1, coreEngine);
+        Wall wall60 = new Wall(21, -72, 1, 15, coreEngine);
+        Wall wall61 = new Wall(35, -69, 3, 1, coreEngine);
+
+        // T central Bas
+        Wall wall62 = new Wall(32, -78, 1, 23, coreEngine);
+        Wall wall63 = new Wall(32, -78, 2, 1, coreEngine);
+        Wall wall64 = new Wall(32, -80, 1, 10, coreEngine);
+        Wall wall65 = new Wall(42, -80, 9, 1, coreEngine);
+        Wall wall66 = new Wall(42, -89, 1, 4, coreEngine);
+        Wall wall67 = new Wall(45, -80, 9, 1, coreEngine);
+        Wall wall68 = new Wall(45, -80, 1, 10, coreEngine);
+        Wall wall69 = new Wall(54, -78, 2, 1, coreEngine);
+
+        // T central mid
+
+        Wall wall70 = new Wall(32, -78, 1, 23, coreEngine);
+        Wall wall71 = new Wall(32, -78, 2, 1, coreEngine);
+        Wall wall72 = new Wall(32, -80, 1, 10, coreEngine);
+        Wall wall73 = new Wall(42, -80, 9, 1, coreEngine);
+        Wall wall74 = new Wall(42, -89, 1, 4, coreEngine);
+        Wall wall75 = new Wall(45, -80, 9, 1, coreEngine);
+        Wall wall76 = new Wall(45, -80, 1, 10, coreEngine);
+        Wall wall77 = new Wall(54, -78, 2, 1, coreEngine);
 
         /**
          * Partie bas droite
