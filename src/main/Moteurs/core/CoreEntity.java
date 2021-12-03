@@ -11,18 +11,9 @@ public class CoreEntity {
     private PhysicEntity physicEntity;
     private JPanel graphicEntity;
 
-   // public CoreEntity(PhysicEntity physicEntity, JLabel graphicEntity){
-   //     this.physicEntity = physicEntity;
-   //     this.graphicEntity = graphicEntity;
-   // }
-
-
-
     // Getters
 
-    public PhysicEntity getPhysicEntity() {
-        return physicEntity;
-    }
+    public PhysicEntity getPhysicEntity() { return physicEntity; }
 
     public JPanel getGraphicEntity() { return graphicEntity; }
 
@@ -30,13 +21,9 @@ public class CoreEntity {
 
     // Setters
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public void setPhysicEntity(PhysicEntity physicEntity) {
-        this.physicEntity = physicEntity;
-    }
+    public void setPhysicEntity(PhysicEntity physicEntity) { this.physicEntity = physicEntity; }
 
     public void setGraphicEntity(JPanel graphicEntity) {
         this.graphicEntity = graphicEntity;

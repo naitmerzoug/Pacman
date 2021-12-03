@@ -8,9 +8,7 @@ import java.util.concurrent.ConcurrentMap;
 public class PhysicEngine {
 
     private ConcurrentMap<Integer,PhysicEntity> entities;
-
     private final CollisionManage collisionManage;
-
     public static int nbEntities = 0;
 
 
@@ -120,7 +118,6 @@ public class PhysicEngine {
 
     public void moving(PhysicEntity e, double stepX, double stepY){
         for (int i = 0; i < e.getSpeed() && !e.isInCollision() ; i++){
-            System.out.println(e.getSpeed());
             e.setOldX(e.getPosX());
             e.setOldY(e.getPosY());
             e.setPosX(e.getPosX() + stepX);

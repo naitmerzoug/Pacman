@@ -207,36 +207,16 @@ public class PacmanGame implements Game {
     public void run() throws InterruptedException {
         coreEngine.run();
         //coreEngine.getSoundEngine().playSound("PacmanStart");
-        System.out.println("sleep");
         Thread.sleep(1000);
-        System.out.println("up");
 
         while(pacman.isAlive()){
             //Jeu
             coreEngine.moveAll();
-
-
-        coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
-        Thread.sleep(30);
-        }
-    }
-
-    public void runTestMoovePacman() throws InterruptedException {
-        coreEngine.run();
-        //coreEngine.getSoundEngine().playSound("PacmanStart");
-        System.out.println("sleep");
-        Thread.sleep(1000);
-        System.out.println("up");
-
-        while(pacman.isAlive()){
-            //Jeu
-            coreEngine.moveAll();
-
-
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
     }
+
 
     public void initiliszeEntities(){
        // coreEngine.createAndAddEntity(Type type, double x, double y, double length, double width, int speed, File file)
@@ -247,36 +227,15 @@ public class PacmanGame implements Game {
     }
 
     public void initGame(){
-        //coreEngine = new CoreEngine()
         initPlayers();
         initSounds();
     }
 
     /*
-    Fonction qui instancie les différents "joueurs" du jeu: Pacman et les fantômes
+    Fonction qui instancie les différents personnages du jeu
      */
     private void initPlayers(){
     }
-
-    /*
-    Fonction qui crée et lie les événements d'entrée/sorties au clavier
-     */
-    /*
-    private void initEvents(){
-        coreEngine.addEvent("pacmanGoUp", () -> movePacmanTo(Direction.UP));
-        coreEngine.addEvent("pacmanGoDown", () ->movePacmanTo(Direction.DOWN));
-        coreEngine.addEvent("pacmanGoLeft", () -> movePacmanTo(Direction.LEFT));
-        coreEngine.addEvent("pacmanGoRight", () -> movePacmanTo(Direction.RIGHT));
-
-
-        //coreEngine.getIOEngine().bindEventKeyPressed(KeyEvent.VK_UP, "pacmanGoUp");
-        //.getIoEngine().bindEventKeyPressed(KeyEvent.VK_LEFT, "pacmanGoLeft");
-        // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_RIGHT, "pacmanGoRight");
-        // coreEngine.getIoEngine().bindEventKeyPressed(KeyEvent.VK_DOWN, "pacmanGoDown");
-
-    }
-
-     */
 
     /*
     Fonction qui se charge de charger les sons
@@ -291,13 +250,6 @@ public class PacmanGame implements Game {
         coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_intermission.wav", "PacmanGeneral");
     }
 
-
-    /*
-    Fonction qui sert à dire à pacman de bouger dans une direction
-     */
-    private void movePacmanTo(DIRECTION direction){
-        pacman.getCoreEntity().getPhysicEntity().setDirection(direction);
-    }
 
     // TODO: 03/12/2021
     @Override

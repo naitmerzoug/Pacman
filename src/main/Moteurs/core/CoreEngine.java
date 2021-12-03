@@ -12,8 +12,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -28,8 +26,6 @@ public class CoreEngine implements CoreEngineEvent {
      * Hauteur et largeur de l'espace graphique
      */
     private int GraphicHeight, GraphicWidth;
-
-    private final Map<String, Runnable> events = new HashMap<>();
 
     /**
      * Hauteur et largeur de l'espace physique
@@ -61,13 +57,6 @@ public class CoreEngine implements CoreEngineEvent {
         this.entities = new ConcurrentHashMap<>();
     }
 
-    public void move (CoreEntity e, DIRECTION direction){
-        physicEngine.move(e.getPhysicEntity(),direction);
-       // graphicEngine.mooveEntity(e.getGraphicEntity(),);
-    }
-
-
-
     public void setGame(Game game){
         this.game = game;
     }
@@ -85,24 +74,24 @@ public class CoreEngine implements CoreEngineEvent {
      * @param width longueur entité
      * @param speed vitesse entité
      * @param file image entité
-     * @return
+     * @return coreEntity entité noyau
      */
-    public CoreEntity createAndAddEntity(Type type, double x, double y, double height, double width, int speed, File file){
+    public CoreEntity createAndAddEntity(Type type, double x, double y, double height, double width, double speed, File file){
 
-        CoreEntity coreEntity = new CoreEntity();
-        if(coreEntity.getId()==0 || entities.containsKey(coreEntity.getId())){
-            nbEntities++;
-            coreEntity.setId(nbEntities);
-        }
+        // Génération de l'id unique
+        nbEntities++;
+        int id = nbEntities;
 
         // Création côté physique
-        PhysicEntity p = new PhysicEntity(coreEntity.getId(), type, x+(width/2), y-(height/2), height, width, speed);
-        coreEntity.setPhysicEntity(p);
-        physicEngine.createEntity(coreEntity.getPhysicEntity());
+        PhysicEntity p = new PhysicEntity(type, x+(width/2), y-(height/2), height, width, speed);
+        physicEngine.createEntity(p);
 
         // Création côté graphique
-
         JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), ConvertPhysictoGraphic(height), ConvertPhysictoGraphic(width), file);
+
+        // Création côté noyau
+        CoreEntity coreEntity = new CoreEntity();
+        coreEntity.setPhysicEntity(p);
         coreEntity.setGraphicEntity(entity);
         entities.put(coreEntity.getId(),coreEntity);
 
@@ -142,10 +131,41 @@ public class CoreEngine implements CoreEngineEvent {
 
     }
 
-    public void addEvent(String name, Runnable event){
-        events.put(name, event);
+
+    @Override
+    public void sendKeyEvent(KeyEvent keyEvent) {
+        game.getKeyEvent(keyEvent);
     }
 
+    public void moveAll() {
+        for(CoreEntity entity : entities.values()) {
+            graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
+        }
+    }
+
+    /**
+     * Test move entity
+     * @param coreEntity
+     * @param currentDirection
+     * @param step
+     */
+    public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int step) {
+        int x = 0, y = 0;
+
+        this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
+
+        // comme moteur physique, non fonctionnelle, déplacement graphique sinon j'aurai fait :
+        // graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), this.ConvertPhysictoGraphic(x), this.ConvertPhysictoGraphicOrd(y));
+
+        switch(currentDirection){
+            case UP    -> y -= step;
+            case DOWN  -> y += step;
+            case RIGHT -> x += step;
+            case LEFT  -> x -= step;
+            default-> x = y;
+        }
+        graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
+    }
 
     // Getters
 
@@ -177,71 +197,16 @@ public class CoreEngine implements CoreEngineEvent {
 
     public int getGraphicWidth() { return GraphicWidth; }
 
-    public Map<String, Runnable> getEvents() {
-        return events;
-    }
-
-    // Setter
-
-    public static void setNbEntities(int nbEntities) {
-        CoreEngine.nbEntities = nbEntities;
-    }
-
 
     public boolean getPause() {
         return pause;
     }
 
+    // Setter
+
     public void setPause(boolean pause) {
         this.pause = pause;
     }
-
-    @Override
-    public void sendKeyEvent(KeyEvent keyEvent) {
-            game.getKeyEvent(keyEvent);
-    }
-
-    public void moveAll() {
-        for(CoreEntity entity : entities.values()) {
-            graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
-        }
-    }
-
-    /**
-     * Test move entiy
-     * @param coreEntity
-     * @param currentDirection
-     * @param v
-     */
-    public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int v) {
-        int x = 0, y = 0;
-
-        this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
-        System.out.println(coreEntity.getPhysicEntity().getPosX());
-        switch(currentDirection){
-            case UP    -> y= -v;
-            case DOWN  -> y= +v;
-            case RIGHT -> x= +v;
-            case LEFT  -> x= -v;
-            default-> x=y;
-        }
-        graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
-    }
-
-    // TODO: 03/12/2021
-    public void moveAll2(){
-        //Pour toute entitité bouger
-
-    }
-
-    // TODO: 03/12/2021
-    public void moveEntity(CoreEntity coreEntity){
-        //récupérer list collision
-        //tester si vide
-            //bouger entity physic + graphix
-        //envoyer list à pacmanGame
-    }
-
 
 
 }

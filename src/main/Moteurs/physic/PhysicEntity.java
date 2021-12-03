@@ -15,7 +15,7 @@ public class PhysicEntity extends CoreEntity {
     private double oldY;
     private double length;
     private double width;
-    private int speed;
+    private double speed;
     private Type type;
     private DIRECTION direction;
     private Set<PhysicEntity> collisions;
@@ -30,11 +30,11 @@ public class PhysicEntity extends CoreEntity {
      * @param posY double
      * @param length double
      * @param width double
-     * @param speed int
+     * @param speed double
      */
-    public PhysicEntity(int id, Type type, double posX, double posY, double length, double width, int speed){
+    public PhysicEntity(int id, Type type, double posX, double posY, double length, double width, double speed){
         this.type = type;
-        this.direction =DIRECTION.NULL;
+        this.direction = DIRECTION.NULL;
         this.posX = posX;
         this.posY = posY;
         this.oldX = 0;
@@ -45,7 +45,7 @@ public class PhysicEntity extends CoreEntity {
         this.speed = speed;
         this.collisions = new HashSet<>();
     }
-    public PhysicEntity(Type type, double posX, double posY, double length, double width, int speed){
+    public PhysicEntity(Type type, double posX, double posY, double length, double width, double speed){
         this.type = type;
         this.direction =DIRECTION.NULL;
         this.posX = posX;
@@ -87,7 +87,7 @@ public class PhysicEntity extends CoreEntity {
         return width;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 

@@ -151,8 +151,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
     }
 
     public void setPositionEntity(Component entity, int x, int y) {
-        //Debug affiche les coordonées du composant pour tester si coordonées de l'objet / Jlabel == coordonées composant
-        System.out.println(entity.getX()+" "+entity.getY());
         entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
 
