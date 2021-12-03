@@ -47,6 +47,17 @@ public class EntityPhysic {
         direction = newDirection;
     }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
 
     // Getters
 
@@ -61,11 +72,19 @@ public class EntityPhysic {
 
     public double getHeight() { return height; }
 
+    public DIRECTION getDirection() {
+        return direction;
+    }
+
     public ArrayList<EntityPhysic> getCollisionList(){
         return getCollisionList();
     }
 
     public Type getType() {
         return type;
+    }
+
+    public double getSpeed() {
+        return speed;
     }
 }
