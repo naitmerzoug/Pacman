@@ -9,6 +9,7 @@ import Moteurs.physic.Type;
 import Moteurs.physicm.DIRECTION;
 import Moteurs.physicm.EnginePhysic;
 import Moteurs.physicm.EntityPhysic;
+import Moteurs.physicm.Type;
 import Moteurs.sound.SoundEngine;
 import PacmanGame.Direction;
 import PacmanGame.Entities.Pacman;
@@ -100,9 +101,7 @@ public class CoreEngine implements CoreEngineEvent {
         }
 
         // Création côté physique
-        EntityPhysic p = new EntityPhysic(coreEntity.getId(), type, x+(width/2), y-(height/2), height, width, speed);
-        coreEntity.setPhysicEntity(p);
-        physicEngine.createEntity(coreEntity.getPhysicEntity());
+        enginePhysic.createAndAddEntity(coreEntity.getId(), x+(width/2), y-(height/2), height, width,type, speed);
 
         // Création côté graphique
 
@@ -159,8 +158,8 @@ public class CoreEngine implements CoreEngineEvent {
         return graphicEngine;
     }
 
-    public PhysicEngine getPhysicEngine() {
-        return physicEngine;
+    public EnginePhysic getPhysicEngine() {
+        return enginePhysic;
     }
 
     public SoundEngine getSoundEngine() {
@@ -237,7 +236,7 @@ public class CoreEngine implements CoreEngineEvent {
     public void moveAll2(){
         //Pour toute entitité bouger
         for(CoreEntity coreEntity : entities.values())
-            ArrayList<EntityPhysic> coreEntities = physicEngine.getEntities(coreEntity.getEntityPhysic());
+            ArrayList<EntityPhysic> coreEntities = enginePhysic.getCollisionsList(coreEntity.getPhysicEntity(),);
 
     }
 
