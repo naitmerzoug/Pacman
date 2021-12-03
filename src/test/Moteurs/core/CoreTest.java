@@ -9,6 +9,9 @@ import java.io.File;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Tests du moteur noyau
+ */
 public class CoreTest {
 
 

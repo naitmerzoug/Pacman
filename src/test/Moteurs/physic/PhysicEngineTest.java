@@ -7,6 +7,9 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests du moteur physique
+ */
 class PhysicEngineTest {
 
 

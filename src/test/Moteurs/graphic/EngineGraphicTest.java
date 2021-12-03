@@ -7,6 +7,9 @@ import java.io.File;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests du moteur graphique
+ */
 public class EngineGraphicTest {
 
     @Test

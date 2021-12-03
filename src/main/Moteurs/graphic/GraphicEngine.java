@@ -43,6 +43,10 @@ public class GraphicEngine extends JPanel implements KeyListener {
 
     /**
      * Création d'un fond
+     * @param name Nom du jeu
+     * @param color_bg Couleur du fond
+     * @param height_bg Hauteur du fond
+     * @param width_bg Largeur du fond
      */
     public GraphicEngine(int width_bg, int height_bg, Color color_bg, String name) {
         width = width_bg;

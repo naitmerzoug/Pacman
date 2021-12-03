@@ -2,14 +2,14 @@ package Moteurs.sound;
 
 import static junit.framework.TestCase.*;
 
-import Moteurs.physic.Type;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
+/**
+ * Tests du moteur sonore
+ */
 public class SoundTest {
 
 
