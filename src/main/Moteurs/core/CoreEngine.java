@@ -7,14 +7,11 @@ import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
 import Moteurs.sound.SoundEngine;
-import PacmanGame.Direction;
-import PacmanGame.Entities.Pacman;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -216,13 +213,15 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Test moove Pacman
      * @param coreEntity
-     * @param currentDirections
+     * @param currentDirection
      * @param v
      */
-    public void movePacman(CoreEntity coreEntity, Direction currentDirections, int v) {
+    public void movePacman(CoreEntity coreEntity, DIRECTION currentDirection, int v) {
         int x = 0, y = 0;
-        System.out.println("je bouge");
-        switch(currentDirections){
+
+        this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
+        System.out.println(coreEntity.getPhysicEntity().getPosX());
+        switch(currentDirection){
             case UP    -> y= -v;
             case DOWN  -> y= +v;
             case RIGHT -> x= +v;

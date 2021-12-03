@@ -3,6 +3,7 @@ package PacmanGame;
 import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
+import Moteurs.physic.DIRECTION;
 import PacmanGame.AI.Ghost;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
@@ -26,7 +27,7 @@ public class PacmanGame implements Game {
     public PacmanGame(){
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
-        this.pacman = new Pacman(10, -80, coreEngine);
+        this.pacman = new Pacman(1, -8, coreEngine);
         this.inOutPacman = new InOutPacman(pacman,this);
         //initPlayers();
         //initEvents();
@@ -191,7 +192,7 @@ public class PacmanGame implements Game {
             coreEngine.moveAll();
 
 
-        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
         Thread.sleep(30);
         }
     }
@@ -208,7 +209,7 @@ public class PacmanGame implements Game {
             coreEngine.moveAll();
 
 
-            coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+            coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
     }
@@ -270,8 +271,8 @@ public class PacmanGame implements Game {
     /*
     Fonction qui sert à dire à pacman de bouger dans une direction
      */
-    private void movePacmanTo(Direction direction){
-        pacman.setDirection(direction);
+    private void movePacmanTo(DIRECTION direction){
+        pacman.getCoreEntity().getPhysicEntity().setDirection(direction);
     }
 
     // TODO: 03/12/2021

@@ -2,10 +2,9 @@ package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
+import Moteurs.physic.DIRECTION;
 import Moteurs.physic.Type;
 import PacmanGame.AI.Ghost;
-import PacmanGame.Direction;
-import PacmanGame.PacmanGame;
 
 import java.io.File;
 
@@ -17,8 +16,6 @@ public class Pacman {
     private boolean isInvincible;
     private CoreEngine coreEngine;
 
-    private Direction currentDirection;
-
     public Pacman(double x, double y, CoreEngine coreEngine)
     {
         this.x = x;
@@ -26,8 +23,6 @@ public class Pacman {
         this.isDead = false;
         this.isInvincible = false;
         this.coreEngine = coreEngine;
-        this.currentDirection = Direction.NOTHING; // évite l'erreur du null dès le début
-
         coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x, y,3,3,1, new File("src/main/Pacman/Images/pacman.png"));
     }
 
@@ -62,10 +57,6 @@ public class Pacman {
     }
 
 
-    public void setDirection(Direction direction) {
-        currentDirection = direction;
-    }
-
     //Getters
 
     public double getX() {
@@ -89,8 +80,6 @@ public class Pacman {
     public CoreEngine getCoreEngine() {
         return coreEngine;
     }
-
-    public Direction getCurrentDirections() { return currentDirection; }
 
     public CoreEntity getCoreEntity() {
         return coreEntity;
