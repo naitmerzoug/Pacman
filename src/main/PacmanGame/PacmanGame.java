@@ -179,23 +179,65 @@ public class PacmanGame implements Game {
         Wall wall69 = new Wall(54, -78, 2, 1, coreEngine);
 
         // T central mid
+        Wall wall70 = new Wall(32, -61, 1, 23, coreEngine);
+        Wall wall71 = new Wall(32, -61, 2, 1, coreEngine);
+        Wall wall72 = new Wall(32, -63, 1, 10, coreEngine);
+        Wall wall73 = new Wall(42, -63, 9, 1, coreEngine);
+        Wall wall74 = new Wall(42, -72, 1, 4, coreEngine);
+        Wall wall75 = new Wall(45, -63, 9, 1, coreEngine);
+        Wall wall76 = new Wall(45, -63, 1, 10, coreEngine);
+        Wall wall77 = new Wall(54, -61, 2, 1, coreEngine);
 
-        Wall wall70 = new Wall(32, -78, 1, 23, coreEngine);
-        Wall wall71 = new Wall(32, -78, 2, 1, coreEngine);
-        Wall wall72 = new Wall(32, -80, 1, 10, coreEngine);
-        Wall wall73 = new Wall(42, -80, 9, 1, coreEngine);
-        Wall wall74 = new Wall(42, -89, 1, 4, coreEngine);
-        Wall wall75 = new Wall(45, -80, 9, 1, coreEngine);
-        Wall wall76 = new Wall(45, -80, 1, 10, coreEngine);
-        Wall wall77 = new Wall(54, -78, 2, 1, coreEngine);
+        // Petit rectangle horizontal
+        Wall wall78 = new Wall(21, -54, 11, 1, coreEngine);
+        Wall wall79 = new Wall(21, -54, 1, 4, coreEngine);
+        Wall wall80 = new Wall(25, -54, 11, 1, coreEngine);
+        Wall wall81 = new Wall(21, -65, 1, 5, coreEngine);
 
         /**
          * Partie bas droite
          */
-        /*
-        Wall wall2_sym = new Wall(89, -65, 30, 1, coreEngine);
 
-         */
+        Wall wall36_sym = new Wall(89, -81, 14, 1, coreEngine);
+
+        // Petit truc qui sort sym
+        Wall wall37_sym = new Wall(83, -81, 1, 6, coreEngine);
+        Wall wall38_sym = new Wall(83, -78, 4, 1, coreEngine);
+        Wall wall39_sym = new Wall(83, -78, 1, 7, coreEngine);
+
+        Wall wall40_sym = new Wall(89, -64, 14, 1, coreEngine);
+        Wall wall41_sym = new Wall(73, -64, 1, 17, coreEngine);
+        Wall wall42_sym = new Wall(73, -54, 10, 1, coreEngine);
+        Wall wall43_sym = new Wall(73, -54, 1, 17, coreEngine);
+
+        // T horizontal décallé
+        Wall wall44_sym = new Wall(52, -89, 1, 31, coreEngine);
+        Wall wall45_sym = new Wall(52, -86, 3, 1, coreEngine);
+        Wall wall46_sym = new Wall(52, -86, 1, 9, coreEngine);
+        Wall wall47_sym = new Wall(61, -78, 9, 1, coreEngine);
+        Wall wall48_sym = new Wall(62, -78, 1, 3, coreEngine);
+        Wall wall49_sym = new Wall(65, -78, 9, 1, coreEngine);
+        Wall wall50_sym = new Wall(65, -86, 1, 18, coreEngine);
+        Wall wall51_sym = new Wall(83, -86, 4, 1, coreEngine);
+
+        // Semi T vers la gauche
+        Wall wall52_sym = new Wall(73, -81, 1, 5, coreEngine);
+        Wall wall53_sym = new Wall(73, -70, 11, 1, coreEngine);
+        Wall wall54_sym = new Wall(77, -71, 11, 1, coreEngine);
+        Wall wall55_sym = new Wall(77, -71, 1, 6, coreEngine);
+        Wall wall56_sym = new Wall(82, -69, 2, 1, coreEngine);
+        Wall wall57_sym = new Wall(73, -69, 1, 10, coreEngine);
+
+        // Petit rectangle
+//        Wall wall58 = new Wall(21, -69, 1, 15, coreEngine);
+//        Wall wall59 = new Wall(21, -69, 3, 1, coreEngine);
+//        Wall wall60 = new Wall(21, -72, 1, 15, coreEngine);
+//        Wall wall61 = new Wall(35, -69, 3, 1, coreEngine);
+        Wall wall58_sym = new Wall(52, -69, 1, 14, coreEngine);
+        Wall wall59_sym = new Wall(52, -69, 3, 1, coreEngine);
+        Wall wall60_sym = new Wall(52, -72, 1, 14, coreEngine);
+        Wall wall61_sym = new Wall(65, -69, 3, 1, coreEngine);
+
 
     }
 
