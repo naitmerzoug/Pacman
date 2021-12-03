@@ -2,17 +2,33 @@ package PacmanGame.AI;
 
 import Moteurs.core.CoreEngine;
 
+/**
+ * Fantôme
+ */
 public abstract class Ghost {
 
 
-    public static final double basicSpeed = 1;
-    public static final double scaredSpeed = 1.5;
     public static final double speed= 1.7;
 
+    /**
+     * Position X
+     */
     protected double initialX;
+    /**
+     * Position Y
+     */
     protected double initialY;
+    /**
+     * True si le fantôme est vulnérable
+     */
     private boolean isVulnerable;
+    /**
+     * Moteur noyau
+     */
     private CoreEngine coreEngine;
+    /**
+     * Identifiant unique
+     */
     private int id;
 
     public enum State{
@@ -21,8 +37,17 @@ public abstract class Ghost {
         DEAD,
         NULL
     }
+    /**
+     * Etat
+     */
     protected State state = State.NULL;
 
+    /**
+     * Constructeur d'un fantôme
+     * @param initialX Position X
+     * @param initialY Position Y
+     * @param coreEngine Moteur noyau
+     */
     public Ghost(int id, double initialX, double initialY, CoreEngine coreEngine)
     {
         this.initialX = initialX;

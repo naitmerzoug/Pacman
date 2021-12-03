@@ -5,6 +5,9 @@ import Moteurs.core.CoreEntity;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Entité physique
+ */
 public class PhysicEntity extends CoreEntity {
 
     private  boolean inCollision;
@@ -24,13 +27,13 @@ public class PhysicEntity extends CoreEntity {
 
     /**
      *
-     * @param id int
-     * @param type Type
-     * @param posX double
-     * @param posY double
-     * @param length double
-     * @param width double
-     * @param speed double
+     * @param id Identifiant unique
+     * @param type Type (mou ou solide)
+     * @param posX Position en x
+     * @param posY Position en y
+     * @param length Longueur
+     * @param width Largeur
+     * @param speed Vitesse
      */
     public PhysicEntity(int id, Type type, double posX, double posY, double length, double width, double speed){
         this.type = type;
@@ -45,6 +48,16 @@ public class PhysicEntity extends CoreEntity {
         this.speed = speed;
         this.collisions = new HashSet<>();
     }
+
+    /**
+     *
+     * @param type Type (mou ou solide)
+     * @param posX Position en x
+     * @param posY Position en y
+     * @param length Longueur
+     * @param width Largeur
+     * @param speed Vitesse
+     */
     public PhysicEntity(Type type, double posX, double posY, double length, double width, double speed){
         this.type = type;
         this.direction =DIRECTION.NULL;
@@ -168,22 +181,6 @@ public class PhysicEntity extends CoreEntity {
 
     public void setInCollision(boolean inCollision) {
         this.inCollision = inCollision;
-    }
-
-    @Override
-    public String toString() {
-        return "PhysicEntity{" +
-                "id=" + id +
-                ", posX=" + posX +
-                ", posY=" + posY +
-                ", oldX=" + oldX +
-                ", oldY=" + oldY +
-                ", length=" + length +
-                ", width=" + width +
-                ", speed=" + speed +
-                ", type=" + type +
-                ", collisions=" + collisions +
-                '}';
     }
 
 

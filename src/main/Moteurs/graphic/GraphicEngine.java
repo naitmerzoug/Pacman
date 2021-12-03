@@ -9,22 +9,40 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 
+/**
+ * Moteur graphique
+ */
 public class GraphicEngine extends JPanel implements KeyListener {
 
-    private final int width;  // largeur de la scene
-    private final int height; // hauteur de la scene
-    private final JFrame frame;  // creation de la fenetre
-    private final JPanel entity = null;
+    /**
+     * Largeur de la scène
+     */
+    private final int width;
+
+    /**
+     * Hauteur de la scène
+     */
+    private final int height;
+
+    /**
+     * Création de la fenêtre
+     */
+    private final JFrame frame;
+
+    /**
+     * Moteur noyau
+     */
     private CoreEngine coreEngine;
+
+    /**
+     * Contient la dernière touche appuyée
+     */
     private KeyEvent lastPressed = null;
 
 
     /**
      * Création d'un fond
-     *
      */
     public GraphicEngine(int width_bg, int height_bg, Color color_bg, String name) {
         width = width_bg;
@@ -35,10 +53,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // en cas de fermeture
         frame.getContentPane().setBackground(color_bg);
         frame.setLayout(null);
-//        jPanel = new JPanel();               // taille de la fenetre
-//        jPanel.setBackground(color_bg);      // couleur du background
         frame.addKeyListener(this);        // écouteur d'évenement clavier
-      //  frame.add(jPanel);
     }
 
     public void setCoreEngine(CoreEngine coreEngine) {
@@ -75,7 +90,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
     //======================================
 
     /**
-     * Lance la fenetre
+     * Lance la fenêtre
      */
     public void run() {
         SwingUtilities.invokeLater(() -> {
@@ -84,6 +99,13 @@ public class GraphicEngine extends JPanel implements KeyListener {
         });
     }
 
+    /**
+     * Création d'une entité
+     * @param file Chemin du fichier image
+     * @param height Hauteur
+     * @param width Largeur
+     * @return Entité physique
+     */
     public JPanel createEntity(int height, int width, File file) {
 
         //création entité
@@ -114,6 +136,16 @@ public class GraphicEngine extends JPanel implements KeyListener {
                 "");
         return jPanel;
     }
+
+    /**
+     * Création et ajout d'une entité
+     * @param x Position x
+     * @param y Position y
+     * @param height Hauteur
+     * @param width Largeur
+     * @param file Chemin du fichier image
+     * @return Entité physique
+     */
     public JPanel createAndAddEntity(int x, int y, int height, int width, File file) {
 
         //création entité
@@ -145,11 +177,23 @@ public class GraphicEngine extends JPanel implements KeyListener {
         return jPanel;
     }
 
+    /**
+     * Ajout d'une entité
+     * @param entity Entité graphique
+     * @param x Position x
+     * @param y Position y
+     */
     public void addEntity(JPanel entity, int x, int y) {
         frame.add(entity);
         entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
 
+    /**
+     * Déplacer une entité
+     * @param entity Entité graphique
+     * @param x Position x
+     * @param y Position y
+     */
     public void setPositionEntity(Component entity, int x, int y) {
         entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
@@ -200,16 +244,13 @@ public class GraphicEngine extends JPanel implements KeyListener {
     //======================================
     //           Debug
     //======================================
-    public void printEntities() {
-        for (Component test : frame.getComponents())
-            System.out.println(test.getX() + " " + test.getY());
-    }
 
+
+    /**
+     * Fonction debug qui récupère toutes les entités
+     */
     public Component[] getAll() {
         return frame.getComponents();
     }
 
-    public ArrayList<Component> getEntities() {
-        return (ArrayList<Component>) Arrays.asList(frame.getComponents());
-    }
 }

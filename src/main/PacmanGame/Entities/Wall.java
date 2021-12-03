@@ -5,10 +5,32 @@ import Moteurs.physic.Type;
 
 import java.io.File;
 
+/**
+ * Mur du labyrinthe
+ */
 public class Wall {
-    private double x, y;
+
+    /**
+     * Position X
+     */
+    private double x;
+    /**
+     * Position Y
+     */
+    private double y;
+    /**
+     * Moteur noyau
+     */
     private CoreEngine coreEngine;
 
+    /**
+     * Constructeur d'un mur
+     * @param x Position X
+     * @param y Position Y
+     * @param width Largeur du mur
+     * @param height Hauteur du mur
+     * @param coreEngine Moteur noyau
+     */
     public Wall(double x, double y, double height, double width, CoreEngine coreEngine)
     {
         this.x = x;

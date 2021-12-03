@@ -2,42 +2,57 @@ package PacmanGame;
 
 import Moteurs.Game;
 import Moteurs.core.CoreEngine;
-import Moteurs.core.CoreEntity;
-import Moteurs.physic.DIRECTION;
-import Moteurs.physic.Type;
+
 import PacmanGame.AI.*;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
 
 import java.awt.event.KeyEvent;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.util.ArrayList;
 
+
+/**
+ * Moteur spécifique Pacman
+ */
 public class PacmanGame implements Game {
 
+    /**
+     * Moteur noyau
+     */
     private CoreEngine coreEngine;
+
+    /**
+     * Moteur spécifique entrée/sortie Pacman
+     */
     private InOutPacman inOutPacman;
+
+    /**
+     * Personnage Pacman
+     */
     private Pacman pacman;
-    private ArrayList<Ghost> ghosts;
 
-    private Timestamp endBonusTime;
 
+    /**
+     * Constructeur du jeu Pacman
+     * @param physicHeight Hauteur de l'espace physique
+     * @param physicWidth Largeur de l'espace physique
+     */
     public PacmanGame(double physicHeight, double physicWidth){
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
         this.pacman = new Pacman(1, -8, coreEngine);
         this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
-        //initEvents();
         initSounds();
         initMap();
-        this.endBonusTime = Timestamp.from(Instant.now());
+
     }
 
+    /**
+     * Initialise la map (murs)
+     */
     private void initMap() {
 
-        /**
+        /*
          * Partie haute gauche
          */
         Wall wall1 = new Wall(0,0,1,90, coreEngine);
@@ -250,6 +265,10 @@ public class PacmanGame implements Game {
         inOutPacman.receiveKeyEvent(keyEvent);
     }
 
+
+    /**
+     * Permet le démarrage du jeu Pacman
+     */
     public void run() throws InterruptedException {
         coreEngine.run();
         //coreEngine.getSoundEngine().playSound("PacmanStart");
@@ -257,24 +276,14 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
-            coreEngine.moveAll();
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
     }
 
 
-    public void setPause() {
-        coreEngine.setPause( ! coreEngine.getPause());
-    }
-
-    public void initGame(){
-        initPlayers();
-        initSounds();
-    }
-
-    /*
-    Fonction qui instancie les différents personnages du jeu
+    /**
+     * Initialise les personnages du jeu (les fantômes)
      */
     private void initPlayers(){
         BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine);
@@ -283,8 +292,8 @@ public class PacmanGame implements Game {
         RedGhost redGhost = new RedGhost(40,-42,coreEngine);
     }
 
-    /*
-    Fonction qui se charge de charger les sons
+    /**
+     * Charge les sons
      */
     private void initSounds(){
         coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_beginning.wav", "PacmanStart");
@@ -294,49 +303,6 @@ public class PacmanGame implements Game {
         coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_eatghost.wav", "PacmanEatGhost");
         coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_extrapac.wav", "PacmanExtra");
         coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_intermission.wav", "PacmanGeneral");
-    }
-
-
-    // TODO: 03/12/2021
-    @Override
-    public void sendCollisionList(CoreEntity coreEntity, ArrayList<CoreEntity> coreEntities) {
-        //test les collisions pour chaque entities
-        for(CoreEntity entity : coreEntities) {
-            if (CollisionManage.isWallCollision(coreEntities,entity)){
-                return;
-            }
-            if (CollisionManage.isGhostCollision(coreEntities,entity)){
-                if(isStartBonus())
-                    pacman.eatGhost(getGhosts(entity));
-                else
-                    pacman.die();
-            }
-            if (CollisionManage.isCoinCollision(coreEntities,entity)){
-                pacman.eatCoin(entity);
-            }
-            if (CollisionManage.isBonusCollision(coreEntities,entity)){
-                pacman.eatBonus(entity);
-                starBonusTime(Timestamp.from(Instant.now()));
-            }
-
-        }
-    }
-
-    private Ghost getGhosts(CoreEntity entity) {
-        for(Ghost ghost : ghosts){
-            if(ghost.getId() == entity.getId())
-                return ghost;
-        }
-        return null;
-    }
-
-    private void starBonusTime(Timestamp from) {
-        this.endBonusTime = from  /* 10sec*/;
-    }
-
-    // TODO: 03/12/2021
-    private boolean isStartBonus() {
-        return false;
     }
 
 

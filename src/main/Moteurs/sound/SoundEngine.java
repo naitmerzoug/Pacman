@@ -6,12 +6,19 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+/**
+ * Moteur sonore
+ */
 public class SoundEngine {
 
-    public SoundEngine(){}
 
     private final ConcurrentMap<String, Clip> clipConcurrentHashMap = new ConcurrentHashMap<>();
 
+    /**
+     * Charge un son
+     * @param path Chermin vers le son audio
+     * @param name Nom du son
+     */
     public void loadSound(String path, String name){
         Clip clip = null;
         try {
@@ -25,29 +32,34 @@ public class SoundEngine {
         clipConcurrentHashMap.put(name, clip);
     }
 
-    /*
-    Joue un son
+    /**
+     * Joue un son
+     * @param name Nom du son
      */
     public void playSound(String name){
         Clip soundToPlay = clipConcurrentHashMap.get(name);
         soundToPlay.start();
     }
 
-    /*
-    Stop un son
+    /**
+     * Arrête un son
+     * @param name Nom du son
      */
     public void stopSound(String name){
         Clip soundToStop = clipConcurrentHashMap.get(name);
         soundToStop.stop();
     }
 
-    /*
-    Joue un son en continue (notammement pour la musique du jeu)
+    /**
+     * Joue un son en continue
+     * @param name Nom du son
      */
     public void loopSound(String name){
         Clip soundToLoop = clipConcurrentHashMap.get(name);
         soundToLoop.loop(Clip.LOOP_CONTINUOUSLY);
     }
+
+    // Getter
 
     public ConcurrentMap<String, Clip> getClipConcurrentHashMap() {
         return clipConcurrentHashMap;

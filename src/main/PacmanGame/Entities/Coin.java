@@ -2,11 +2,31 @@ package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 
+/**
+ * Pièce du jeu
+ */
 public class Coin {
-    private double x, y;
-    //boolean canEat = true;
+    /**
+     * Position X
+     */
+    private double x;
+
+    /**
+     * Position Y
+     */
+    private double y;
+
+    /**
+     * Moteur noyau
+     */
     public CoreEngine coreEngine;
 
+    /**
+     * Constructeur d'une pièce
+     * @param x Position X
+     * @param y Position Y
+     * @param coreEngine Moteur noyau
+     */
     public Coin(double x, double y, CoreEngine coreEngine)
     {
         this.x = x;

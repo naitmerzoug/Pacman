@@ -17,28 +17,60 @@ import java.util.concurrent.ConcurrentMap;
 
 
 /**
- * Noyau du jeu
- * Doit contenir un accès à tous les autres moteurs
+ * Moteur noyau
  */
 public class CoreEngine implements CoreEngineEvent {
+    /**
+     * Interface de jeu
+     */
     private Game game;
 
     /**
-     * Hauteur et largeur de l'espace graphique
+     * Hauteur de l'espace graphique
      */
-    private int GraphicHeight, GraphicWidth;
+    private final int GraphicHeight;
+    /**
+     * Largeur de l'espace graphique
+     */
+    private final int GraphicWidth;
 
     /**
-     * Hauteur et largeur de l'espace physique
+     * Hauteur de l'espace physique
      */
-    private double PhysicHeight, PhysicWidth;
-    private GraphicEngine graphicEngine;
-    private PhysicEngine physicEngine;
-    private SoundEngine soundEngine;
-    private ConcurrentMap<Integer,CoreEntity> entities;
-    public static int nbEntities;
-    private volatile boolean pause = false;
+    private final double PhysicHeight;
+    /**
+     * Largeur de l'espace physique
+     */
+    private final double PhysicWidth;
 
+    /**
+     * Moteur graphique
+     */
+    private final GraphicEngine graphicEngine;
+    /**
+     * Moteur physique
+     */
+    private final PhysicEngine physicEngine;
+    /**
+     * Moteur sonore
+     */
+    private final SoundEngine soundEngine;
+
+    /**
+     * Liste des entités noyaux
+     */
+    private final ConcurrentMap<Integer,CoreEntity> entities;
+    /**
+     * Nombre d'entités
+     */
+    public static int nbEntities;
+
+    /**
+     * Constructeur du moteur noyau
+     * @param gamename Nom du jeu
+     * @param physicHeight Hauteur de l'espace physique
+     * @param physicWidth Largeur de l'espace physique
+     */
     public CoreEngine(String gamename, double physicHeight, double physicWidth){
 
         // Tailles des espaces physiques et graphiques
@@ -47,7 +79,7 @@ public class CoreEngine implements CoreEngineEvent {
         this.GraphicHeight = (int) physicHeight * 10;
         this.GraphicWidth = (int) physicWidth * 10;
 
-        // Attributs
+        // Attribut
         nbEntities = 0;
 
         // Moteurs
@@ -103,6 +135,7 @@ public class CoreEngine implements CoreEngineEvent {
 
     /**
      * Supprime une entité noyau
+     * @param e Entité noyau
      */
     public void removeEntity(CoreEntity e){
 
@@ -112,8 +145,8 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     /**
-     * Converti des coordonnées de l'espace physique en espace graphique
-     * Valable pour l'axe des abscisses et pour les tailles en général
+     * Converti des coordonnées de l'espace physique en espace graphique (abscisses et pour les tailles en général)
+     * @param x Position en x
      */
     public int ConvertPhysictoGraphic(double x)
     {
@@ -125,6 +158,7 @@ public class CoreEngine implements CoreEngineEvent {
 
     /**
      * Converti des coordonnées de l'espace physique en espace graphique pour l'axe des ordonnées
+     * @param y Position en y
      */
     public int ConvertPhysictoGraphicOrd(double y)
     {
@@ -134,23 +168,20 @@ public class CoreEngine implements CoreEngineEvent {
 
     }
 
-
+    /**
+     * Transmet la touche cliqué
+     */
     @Override
     public void sendKeyEvent(KeyEvent keyEvent) {
         game.getKeyEvent(keyEvent);
     }
 
-    public void moveAll() {
-        for(CoreEntity entity : entities.values()) {
-            graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
-        }
-    }
 
     /**
-     * Test move entity
-     * @param coreEntity
-     * @param currentDirection
-     * @param step
+     * Déplacement d'une entité
+     * @param coreEntity entité noyau
+     * @param currentDirection direction
+     * @param step pas
      */
     public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int step) {
         int x = 0, y = 0;
@@ -165,7 +196,6 @@ public class CoreEngine implements CoreEngineEvent {
             case DOWN  -> y += step;
             case RIGHT -> x += step;
             case LEFT  -> x -= step;
-            default-> x = y;
         }
         graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
     }
@@ -190,11 +220,6 @@ public class CoreEngine implements CoreEngineEvent {
 
     public int getGraphicWidth() { return GraphicWidth; }
 
-    public boolean getPause() { return pause; }
-
-    // Setter
-
-    public void setPause(boolean pause) { this.pause = pause; }
 
 
 }

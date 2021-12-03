@@ -5,10 +5,21 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+/**
+ * Moteur physique
+ */
 public class PhysicEngine {
 
+    /**
+     * Liste d'entités
+     */
     private ConcurrentMap<Integer,PhysicEntity> entities;
+
     private final CollisionManage collisionManage;
+
+    /**
+     * Nombre d'entités
+     */
     public static int nbEntities = 0;
 
 
@@ -18,7 +29,7 @@ public class PhysicEngine {
     }
 
     /**
-     * Donner un id à l'entitée si elle n'en a pas et l'ajouter à entities;
+     * Donner un id à l'entitée si elle n'en a pas et l'ajoute à la liste d'entités;
       * @param e Entité physique.
      */
     public void createEntity(PhysicEntity e){
@@ -42,10 +53,10 @@ public class PhysicEngine {
 
 
     /**
-     * Permet de savoir si'il ya une entitée à un un pas dépendant de la direction.
+     * Permet de savoir s'il y a une entité à cette direction.
       * @param physicEntity Entité physique.
      * @param direction direction de l'Entité physique.
-     * @return True si il y'a bien une entitée, false sinon.
+     * @return True s'il y a une entité, sinon False.
      */
     public boolean isSomething(PhysicEntity physicEntity, DIRECTION direction){
         switch (direction){
@@ -79,7 +90,7 @@ public class PhysicEngine {
     }
 
     /**
-     *
+     * Retourne les entités à une position
      * @param x position x
      * @param y position y
      * @return Liste des entitées ayant comme cooordonées : x et y
@@ -97,12 +108,12 @@ public class PhysicEngine {
     }
 
     /**
-     *
+     * Retourne les entités dans un périmètre
      * @param x position x
      * @param y position y
      * @param length hauteur
      * @param width largeur
-     * @return  Liste des entitées ayant comme cooordonées : se trouvant dans le perimetre ayant comme centre x,y et une hauteur ainsi qu'une largeur.
+     * @return  Liste des entitées se trouvant dans le perimetre ayant comme centre x,y.
      */
     public ArrayList<PhysicEntity> entitiesAtPosition(double x, double y, double length, double width) {
         ArrayList<PhysicEntity> entitiesAt = new ArrayList<>();
@@ -115,7 +126,12 @@ public class PhysicEngine {
         return entitiesAt;
     }
 
-
+    /**
+     * Déplace une entité dans une position;
+     * @param e Entité physique.
+     * @param stepX Pas en fonction de x
+     * @param stepY Pas en fonction de y
+     */
     public void moving(PhysicEntity e, double stepX, double stepY){
         for (int i = 0; i < e.getSpeed() && !e.isInCollision() ; i++){
             e.setOldX(e.getPosX());
@@ -133,7 +149,7 @@ public class PhysicEngine {
     }
 
     /**
-     * Deplacer une entité dans une direction;
+     * Déplace une entité dans une direction;
      * @param e Entité physique.
      * @param direction Direction de l'entitée.
      */
@@ -167,12 +183,17 @@ public class PhysicEngine {
         }
     }
 
+    /**
+     * Calcule de le carré d'un nombre
+     * @param a Nombre
+     * @return Carré de ce nombre
+     */
     public static double sqr(double a){
         return a*a;
     }
 
     /**
-     * Calcule de la ditance entre deux points d'un referentiel orthonormé
+     * Calcule de la distance entre deux points d'un réferentiel orthonormé
      * @param e1 Entité avec deux coordonées; x,y
      * @param e2 Entité avec deux coordonées; x,y
      * @return La distance entre les deux entitées
