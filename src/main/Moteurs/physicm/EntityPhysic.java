@@ -28,6 +28,16 @@ public class EntityPhysic {
         this.collisionList = new ArrayList<>();
     }
 
+    public void addCollisionList(EntityPhysic entityPhysic){
+        collisionList.add(entityPhysic);
+    }
+
+    public void resetCollisionList(){
+        collisionList = new ArrayList<>();
+    }
+
+    // Setters
+
     public void setPosition(double x, double y){
         this.x = x;
         this.y = y;
@@ -37,16 +47,22 @@ public class EntityPhysic {
         direction = newDirection;
     }
 
+
+    // Getters
+
+
+    public int getId() { return id;}
+
+    public double getX() { return x; }
+
+    public double getY() { return y; }
+
+    public double getWidth() { return width; }
+
+    public double getHeight() { return height; }
+
     public ArrayList<EntityPhysic> getCollisionList(){
         return getCollisionList();
-    }
-
-    public void addCollisionList(EntityPhysic entityPhysic){
-        collisionList.add(entityPhysic);
-    }
-
-    public void resetCollisionList(){
-        collisionList = new ArrayList<>();
     }
 
     public Type getType() {

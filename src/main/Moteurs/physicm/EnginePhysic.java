@@ -30,7 +30,7 @@ public class EnginePhysic {
         entityPhysic.resetCollisionList();
 
         for(EntityPhysic entityPhysic1 : entities){
-            if(CollisionPhysic.isCollision(entityPhysic1,entityPhysic,  nextX,  nextY) && entityPhysic!=entityPhysic1)
+            if(CollisionPhysic.isCollision(entityPhysic1, entityPhysic,  nextX,  nextY) && entityPhysic!=entityPhysic1)
                 entityPhysic.addCollisionList(entityPhysic1);
         }
         return entityPhysic.getCollisionList();
