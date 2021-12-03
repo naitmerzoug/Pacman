@@ -35,8 +35,6 @@ public class PacmanGame implements Game {
     }
 
     private void initMap() {
-      //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
-        // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
 
         /**
          * Partie haute gauche
