@@ -6,6 +6,7 @@ import Moteurs.physic.DIRECTION;
 import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
+import Moteurs.physicm.DIRECTION;
 import Moteurs.physicm.EnginePhysic;
 import Moteurs.physicm.EntityPhysic;
 import Moteurs.sound.SoundEngine;
@@ -41,7 +42,6 @@ public class CoreEngine implements CoreEngineEvent {
      */
     private double PhysicHeight, PhysicWidth;
     private GraphicEngine graphicEngine;
-    private PhysicEngine physicEngine;
     private EnginePhysic enginePhysic;
     private SoundEngine soundEngine;
     private ConcurrentMap<Integer,CoreEntity> entities;
@@ -62,14 +62,13 @@ public class CoreEngine implements CoreEngineEvent {
         // Moteurs
         this.graphicEngine = new GraphicEngine(this.GraphicWidth, this.GraphicHeight, Color.BLACK, gamename);
         graphicEngine.setCoreEngine(this);
-        this.physicEngine = new PhysicEngine();
         this.enginePhysic = new EnginePhysic();
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
     }
 
     public void move (CoreEntity e, DIRECTION direction){
-        physicEngine.move(e.getPhysicEntity(),direction);
+        EnginePhysic.move(e.getPhysicEntity(),direction);
        // graphicEngine.mooveEntity(e.getGraphicEntity(),);
     }
 
