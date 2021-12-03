@@ -23,8 +23,6 @@ public class PacmanGame implements Game {
 
     double physicHeight = 85.5;
     double physicWidth = 73.5;
-    int graphicHeight = (int) physicHeight * 10 ;
-    int graphicWidth  = (int)  physicWidth * 10 ;
 
     public PacmanGame(){
         coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
