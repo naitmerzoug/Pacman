@@ -38,6 +38,7 @@ public class PacmanGame implements Game {
       //Wall(int x, int y,int length, int width, CoreEngine coreEngine)
         // taille map = 57 x 5 pixel = 285 sur 49 x 5 = 245
         Wall wall1 = new Wall(0,0,1.5,73.5, coreEngine);
+        Wall wall2 = new Wall(0,-80.5,1.5,73.5,coreEngine);
     }
 
     @Override
@@ -48,15 +49,15 @@ public class PacmanGame implements Game {
     public void run() throws InterruptedException {
         coreEngine.run();
         //coreEngine.getSoundEngine().playSound("PacmanStart");
-//        System.out.println("sleep");
-//        Thread.sleep(1000);
-//        System.out.println("up");
-//        coreEngine.moveAll();
+        System.out.println("sleep");
+        Thread.sleep(1000);
+        System.out.println("up");
 
-//        while(pacman.isAlive()){
-//            //Jeu
-//            coreEngine.moveAll();
-//        }
+        while(pacman.isAlive()){
+            //Jeu
+            //coreEngine.moveAll();
+            //coreEngine.movePacman(pacman,0.1);
+        }
     }
 
     public void initiliszeEntities(){
@@ -83,7 +84,6 @@ public class PacmanGame implements Game {
     private void initPlayers(){
         pacman = new Pacman(10, -10, coreEngine);
         this.inOutPacman = new InOutPacman(this.pacman,this);
-        coreEngine.createAndAddEntity(Type.SOLID,pacman.getX() * 1.0, pacman.getY() * 1.0,45,45,1,new File("src/main/Pacman/Images/pacman.png"));
         ghosts = new HashMap<>();
     }
 

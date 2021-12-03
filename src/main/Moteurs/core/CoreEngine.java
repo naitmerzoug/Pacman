@@ -78,6 +78,14 @@ public class CoreEngine implements CoreEngineEvent {
 
     /**
      * Création d'une entité noyau
+     * @param type soft or solid
+     * @param x position physic origine gauche haut
+     * @param y position physic origine gauche haut
+     * @param height largeur entité
+     * @param width longueur entité
+     * @param speed vitesse entité
+     * @param file image entité
+     * @return
      */
     public CoreEntity createAndAddEntity(Type type, double x, double y, double height, double width, int speed, File file){
 
@@ -88,7 +96,7 @@ public class CoreEngine implements CoreEngineEvent {
         }
 
         // Création côté physique
-        PhysicEntity p = new PhysicEntity(coreEntity.getId(), type, x, y, height, width, speed);
+        PhysicEntity p = new PhysicEntity(coreEntity.getId(), type, x+(width/2), y-(height/2), height, width, speed);
         coreEntity.setPhysicEntity(p);
         physicEngine.createEntity(coreEntity.getPhysicEntity());
 
@@ -197,7 +205,7 @@ public class CoreEngine implements CoreEngineEvent {
 
     public void moveAll() {
         for(CoreEntity entity : entities.values()) {
-            graphicEngine.mooveEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
+            graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
             System.out.println("moove "+entity.getGraphicEntity().getX()+":"+entity.getGraphicEntity().getY());
         }
     }

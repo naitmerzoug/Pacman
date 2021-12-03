@@ -1,6 +1,7 @@
 package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.core.CoreEntity;
 import Moteurs.physic.DIRECTION;
 import Moteurs.physic.Type;
 import PacmanGame.Direction;
@@ -8,6 +9,8 @@ import PacmanGame.Direction;
 import java.io.File;
 
 public class Pacman {
+    private final CoreEntity coreEntity
+            ;
     private double x, y;
     private double speed;
     private boolean isDead;
@@ -24,6 +27,8 @@ public class Pacman {
         this.isInvincible = false;
         this.coreEngine = coreEngine;
         this.currentDirection = null;
+
+        coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x * 1.0, y * 1.0,7.5,7.5,1,new File("src/main/Pacman/Images/pacman.png"));
     }
 
     public boolean isAlive() {
@@ -87,4 +92,7 @@ public class Pacman {
 
     public Direction getCurrentDirections() { return currentDirection; }
 
+    public CoreEntity getCoreEntity() {
+        return coreEntity;
+    }
 }
