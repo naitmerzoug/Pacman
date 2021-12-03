@@ -107,7 +107,7 @@ public class CoreEngine implements CoreEngineEvent {
 
         this.getPhysicEngine().removeEntity(e.getPhysicEntity()); // suppression physique
         this.getGraphicEngine().getFrame().remove(e.getGraphicEntity()); // suppression graphique
-        entities.remove(e.getId());  // suppression du noyau
+        entities.remove(e.getId());  // suppression de l'entité noyau
     }
 
     /**

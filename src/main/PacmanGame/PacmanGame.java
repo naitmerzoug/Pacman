@@ -20,11 +20,9 @@ public class PacmanGame implements Game {
     private Pacman pacman;
     private ArrayList<Ghost> ghosts;
 
-    double physicHeight = 100;
-    double physicWidth = 90;
     private Timestamp endBonusTime;
 
-    public PacmanGame(){
+    public PacmanGame(double physicHeight, double physicWidth){
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
         this.pacman = new Pacman(1, -8, coreEngine);
