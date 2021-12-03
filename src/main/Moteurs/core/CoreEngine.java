@@ -6,6 +6,8 @@ import Moteurs.physic.DIRECTION;
 import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
+import Moteurs.physicm.EnginePhysic;
+import Moteurs.physicm.EntityPhysic;
 import Moteurs.sound.SoundEngine;
 import PacmanGame.Direction;
 import PacmanGame.Entities.Pacman;
@@ -40,6 +42,7 @@ public class CoreEngine implements CoreEngineEvent {
     private double PhysicHeight, PhysicWidth;
     private GraphicEngine graphicEngine;
     private PhysicEngine physicEngine;
+    private EnginePhysic enginePhysic;
     private SoundEngine soundEngine;
     private ConcurrentMap<Integer,CoreEntity> entities;
     public static int nbEntities;
@@ -60,6 +63,7 @@ public class CoreEngine implements CoreEngineEvent {
         this.graphicEngine = new GraphicEngine(this.GraphicWidth, this.GraphicHeight, Color.BLACK, gamename);
         graphicEngine.setCoreEngine(this);
         this.physicEngine = new PhysicEngine();
+        this.enginePhysic = new EnginePhysic();
         this.soundEngine = new SoundEngine();
         this.entities = new ConcurrentHashMap<>();
     }
@@ -68,8 +72,6 @@ public class CoreEngine implements CoreEngineEvent {
         physicEngine.move(e.getPhysicEntity(),direction);
        // graphicEngine.mooveEntity(e.getGraphicEntity(),);
     }
-
-
 
     public void setGame(Game game){
         this.game = game;
@@ -235,6 +237,8 @@ public class CoreEngine implements CoreEngineEvent {
     // TODO: 03/12/2021
     public void moveAll2(){
         //Pour toute entitité bouger
+        for(CoreEntity coreEntity : entities.values())
+            ArrayList<EntityPhysic> coreEntities = physicEngine.getEntities(coreEntity.getPhysicEntity());
 
     }
 
