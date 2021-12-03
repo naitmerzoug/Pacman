@@ -14,7 +14,7 @@ public class BlueGhost extends Ghost {
 
     public BlueGhost(double x, double y, CoreEngine coreEngine) {
         super(11, x, y, coreEngine);
-        coreEngine.createAndAddEntity(Type.SOLID, x, y, 3, 3, 1, new File("src/main/Pacman/Images/blue-ghost.jpg"));
+        coreEngine.createAndAddEntity(Type.SOLID, x, y, 3, 3, 1, new File("src/main/Pacman/Images/blue-ghost.png"));
     }
 
 }
