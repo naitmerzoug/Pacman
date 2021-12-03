@@ -14,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -212,7 +213,12 @@ public class CoreEngine implements CoreEngineEvent {
         }
     }
 
-
+    /**
+     * Test moove Pacman
+     * @param coreEntity
+     * @param currentDirections
+     * @param v
+     */
     public void movePacman(CoreEntity coreEntity, Direction currentDirections, int v) {
         int x = 0, y = 0;
         System.out.println("je bouge");
@@ -225,4 +231,21 @@ public class CoreEngine implements CoreEngineEvent {
         }
         graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
     }
+
+    // TODO: 03/12/2021
+    public void moveAll2(){
+        //Pour toute entitité bouger
+
+    }
+
+    // TODO: 03/12/2021
+    public void moveEntity(CoreEntity coreEntity){
+        //récupérer list collision
+        //tester si vide
+            //bouger entity physic + graphix
+        //envoyer list à pacmanGame
+    }
+
+
+
 }

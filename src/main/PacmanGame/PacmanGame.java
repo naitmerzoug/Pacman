@@ -3,26 +3,25 @@ package PacmanGame;
 import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
-import Moteurs.physic.Type;
 import PacmanGame.AI.Ghost;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
 
-import javax.swing.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.jar.JarEntry;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.ArrayList;
 
 public class PacmanGame implements Game {
 
     private CoreEngine coreEngine;
     private InOutPacman inOutPacman;
     private Pacman pacman;
+    private ArrayList<Ghost> ghosts;
 
     double physicHeight = 85.5;
     double physicWidth = 73.5;
+    private Timestamp endBonusTime;
 
     public PacmanGame(){
         coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
@@ -32,6 +31,7 @@ public class PacmanGame implements Game {
         //initEvents();
         initSounds();
         initMap();
+        this.endBonusTime = Timestamp.from(Instant.now());
     }
 
     private void initMap() {
@@ -88,10 +88,6 @@ public class PacmanGame implements Game {
         coreEngine.setPause( ! coreEngine.getPause());
     }
 
-    public enum GHOSTS {RED, BLUE, ORANGE, PINK}
-    private Map<GHOSTS, Ghost> ghosts;
-
-
     public void initGame(){
         //coreEngine = new CoreEngine()
         initPlayers();
@@ -104,7 +100,6 @@ public class PacmanGame implements Game {
     private void initPlayers(){
         pacman = new Pacman(10, -10, coreEngine);
         this.inOutPacman = new InOutPacman(this.pacman,this);
-        ghosts = new HashMap<>();
     }
 
     /*
@@ -148,7 +143,47 @@ public class PacmanGame implements Game {
         pacman.setDirection(direction);
     }
 
+    // TODO: 03/12/2021
+    @Override
+    public void sendCollisionList(CoreEntity coreEntity, ArrayList<CoreEntity> coreEntities) {
+        //test les collisions pour chaque entities
+        for(CoreEntity entity : coreEntities) {
+            if (CollisionManage.isWallCollision(coreEntities,entity)){
+                return;
+            }
+            if (CollisionManage.isGhostCollision(coreEntities,entity)){
+                if(isStartBonus())
+                    pacman.eatGhost(getGhots(entity));
+                else
+                    pacman.die();
+            }
+            if (CollisionManage.isCoinCollision(coreEntities,entity)){
+                pacman.eatCoin(entity);
+            }
+            if (CollisionManage.isBonusCollision(coreEntities,entity)){
+                pacman.eatBonus(entity);
+                starBonusTime(Timestamp.from(Instant.now()));
+            }
 
+        }
+    }
+
+    private Ghost getGhots(CoreEntity entity) {
+        for(Ghost ghost : ghosts){
+            if(ghost.getId() == entity.getId())
+                return ghost;
+        }
+        return null;
+    }
+
+    private void starBonusTime(Timestamp from) {
+        this.endBonusTime = from  /* 10sec*/;
+    }
+
+    // TODO: 03/12/2021
+    private boolean isStartBonus() {
+        return false;
+    }
 
 
 }

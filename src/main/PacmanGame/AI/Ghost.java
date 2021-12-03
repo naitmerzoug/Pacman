@@ -13,6 +13,7 @@ public abstract class Ghost {
     protected double initialY;
     private boolean isVulnerable;
     private CoreEngine coreEngine;
+    private int id;
 
     public enum State{
         TRACK,
@@ -22,15 +23,18 @@ public abstract class Ghost {
     }
     protected State state = State.NULL;
 
-    public Ghost(double initialX, double initialY, CoreEngine coreEngine)
+    public Ghost(int id, double initialX, double initialY, CoreEngine coreEngine)
     {
         this.initialX = initialX;
         this.initialY = initialY;
         this.isVulnerable = false;
         this.coreEngine = coreEngine;
+        this.id = id;
     }
 
-
+    public int getId() {
+        return this.id;
+    }
 
     //Getters
 

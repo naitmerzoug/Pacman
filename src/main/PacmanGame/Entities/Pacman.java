@@ -2,9 +2,10 @@ package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
-import Moteurs.physic.DIRECTION;
 import Moteurs.physic.Type;
+import PacmanGame.AI.Ghost;
 import PacmanGame.Direction;
+import PacmanGame.PacmanGame;
 
 import java.io.File;
 
@@ -94,4 +95,26 @@ public class Pacman {
     public CoreEntity getCoreEntity() {
         return coreEntity;
     }
+
+    // TODO: 03/12/2021
+    public void eatGhost(Ghost ghosts ){
+
+    }
+
+    // TODO: 03/12/2021
+    public void eatBonus(CoreEntity coreEntity ){
+
+    }
+
+    // TODO: 03/12/2021
+    public void eatCoin(CoreEntity coreEntity ){
+
+    }
+
+    // TODO: 03/12/2021
+    public void die(){
+        isDead = true;
+    }
+
+
 }
