@@ -4,7 +4,8 @@ import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
 import Moteurs.physic.DIRECTION;
-import PacmanGame.AI.Ghost;
+import Moteurs.physic.Type;
+import PacmanGame.AI.*;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
 
@@ -27,7 +28,7 @@ public class PacmanGame implements Game {
         this.coreEngine.setGame(this);
         this.pacman = new Pacman(1, -8, coreEngine);
         this.inOutPacman = new InOutPacman(pacman,this);
-        //initPlayers();
+        initPlayers();
         //initEvents();
         initSounds();
         initMap();
@@ -263,10 +264,6 @@ public class PacmanGame implements Game {
     }
 
 
-    public void initiliszeEntities(){
-       // coreEngine.createAndAddEntity(Type type, double x, double y, double length, double width, int speed, File file)
-    }
-
     public void setPause() {
         coreEngine.setPause( ! coreEngine.getPause());
     }
@@ -280,6 +277,10 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents personnages du jeu
      */
     private void initPlayers(){
+        BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine);
+        OrangeGhost orangeGhost = new OrangeGhost(50,-50,coreEngine);
+        PinkGhost pinkGhost = new PinkGhost(40,-50,coreEngine);
+        RedGhost redGhost = new RedGhost(40,-42,coreEngine);
     }
 
     /*
