@@ -103,7 +103,6 @@ public class CoreEngine implements CoreEngineEvent {
         // Création côté graphique
 
         JPanel entity = graphicEngine.createAndAddEntity(ConvertPhysictoGraphic(x),ConvertPhysictoGraphicOrd(y), ConvertPhysictoGraphic(height), ConvertPhysictoGraphic(width), file);
-        //graphicEngine.addEntity(entity, ConvertPhysictoGraphic(x), ConvertPhysictoGraphicOrd(y));
         coreEntity.setGraphicEntity(entity);
         entities.put(coreEntity.getId(),coreEntity);
 
