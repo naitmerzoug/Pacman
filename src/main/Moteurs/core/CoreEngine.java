@@ -7,6 +7,8 @@ import Moteurs.physic.PhysicEngine;
 import Moteurs.physic.PhysicEntity;
 import Moteurs.physic.Type;
 import Moteurs.sound.SoundEngine;
+import PacmanGame.Direction;
+import PacmanGame.Entities.Pacman;
 
 import javax.swing.*;
 import java.awt.*;
@@ -208,5 +210,19 @@ public class CoreEngine implements CoreEngineEvent {
             graphicEngine.setPositionEntity(entity.getGraphicEntity(), entity.getGraphicEntity().getX(), entity.getGraphicEntity().getY());
             System.out.println("moove "+entity.getGraphicEntity().getX()+":"+entity.getGraphicEntity().getY());
         }
+    }
+
+
+    public void movePacman(CoreEntity coreEntity, Direction currentDirections, int v) {
+        int x = 0, y = 0;
+        System.out.println("je bouge");
+        switch(currentDirections){
+            case UP    -> y= +v;
+            case DOWN  -> y= -v;
+            case RIGHT -> x= +v;
+            case LEFT  -> x= -v;
+            default-> x=y;
+        }
+        graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
     }
 }

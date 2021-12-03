@@ -55,8 +55,17 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
-            //coreEngine.moveAll();
-            //coreEngine.movePacman(pacman,0.1);
+            coreEngine.moveAll();
+
+
+        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+        Thread.sleep(30);
+//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+//        Thread.sleep(1000);
+//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+//        Thread.sleep(1000);
+//        coreEngine.movePacman(pacman.getCoreEntity(), pacman.getCurrentDirections() ,1);
+//        Thread.sleep(1000);
         }
     }
 
