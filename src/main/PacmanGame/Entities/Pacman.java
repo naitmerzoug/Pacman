@@ -2,7 +2,7 @@ package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
 import Moteurs.core.CoreEntity;
-import Moteurs.physic.Type;
+import Moteurs.physicm.Type;
 import PacmanGame.AI.Ghost;
 import PacmanGame.Direction;
 import PacmanGame.PacmanGame;

@@ -1,5 +1,9 @@
 package Moteurs.physic;
 
+import Moteurs.physicm.DIRECTION;
+import Moteurs.physicm.EnginePhysic;
+import Moteurs.physicm.Type;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -121,8 +125,8 @@ class PhysicEngineTest {
 
     @org.junit.jupiter.api.Test
     void TESTmove() {
-        PhysicEngine physicEngine5 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 6);
+        EnginePhysic physicEngine5 = new EnginePhysic();
+        EnginePhysic e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 6);
         physicEngine5.move(e1, DIRECTION.UP);
         assertEquals(8, e1.getPosY());
 

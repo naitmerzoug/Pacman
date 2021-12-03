@@ -1,7 +1,7 @@
 package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
-import Moteurs.physic.Type;
+import Moteurs.physicm.Type;
 
 import java.io.File;
 

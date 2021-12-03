@@ -1,7 +1,5 @@
 package Moteurs.core;
 
-import Moteurs.physic.PhysicEntity;
-import Moteurs.physic.Type;
 import Moteurs.physicm.EntityPhysic;
 
 import javax.swing.*;

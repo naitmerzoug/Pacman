@@ -69,7 +69,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     public void move (CoreEntity e, DIRECTION direction){
-        EnginePhysic.move(e.getPhysicEntity());
+        EnginePhysic.move(e.getEntityPhysic(), 1);
        // graphicEngine.mooveEntity(e.getGraphicEntity(),);
     }
 
@@ -119,7 +119,7 @@ public class CoreEngine implements CoreEngineEvent {
      */
     public void removeEntity(CoreEntity e){
 
-        this.getPhysicEngine().removeEntity(e.getPhysicEntity()); // suppression physique
+        this.getEnginePhysic().removeEntity(e.getEntityPhysic()); // suppression physique
         this.getGraphicEngine().getFrame().remove(e.getGraphicEntity()); // suppression graphique
         entities.remove(e.getId());  // suppression du noyau
     }
@@ -158,7 +158,7 @@ public class CoreEngine implements CoreEngineEvent {
         return graphicEngine;
     }
 
-    public EnginePhysic getPhysicEngine() {
+    public EnginePhysic getEnginePhysic() {
         return enginePhysic;
     }
 
@@ -216,13 +216,13 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Test moove Pacman
      * @param coreEntity
-     * @param currentDirections
+     * @param currentDirection
      * @param v
      */
-    public void movePacman(CoreEntity coreEntity, Direction currentDirections, int v) {
+    public void movePacman(CoreEntity coreEntity, DIRECTION currentDirection, int v) {
         int x = 0, y = 0;
         System.out.println("je bouge");
-        switch(currentDirections){
+        switch(currentDirection){
             case UP    -> y= +v;
             case DOWN  -> y= -v;
             case RIGHT -> x= +v;
@@ -236,7 +236,7 @@ public class CoreEngine implements CoreEngineEvent {
     public void moveAll2(){
         //Pour toute entitité bouger
         for(CoreEntity coreEntity : entities.values())
-            ArrayList<EntityPhysic> coreEntities = enginePhysic.getCollisionsList(coreEntity.getPhysicEntity(),);
+            ArrayList<EntityPhysic> coreEntities = enginePhysic.getCollisionsList(coreEntity.getEntityPhysic(),);
 
     }
 

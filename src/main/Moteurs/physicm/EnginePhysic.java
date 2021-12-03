@@ -40,7 +40,7 @@ public class EnginePhysic {
         this.entities = entities;
     }
 
-    public void move(EntityPhysic entityPhysic, double step)
+    public static void move(EntityPhysic entityPhysic, double step)
     {
         switch(entityPhysic.getDirection()){
             case UP -> entityPhysic.setY(entityPhysic.getY() + entityPhysic.getSpeed() * step);
@@ -48,6 +48,11 @@ public class EnginePhysic {
             case LEFT -> entityPhysic.setX(entityPhysic.getX() - entityPhysic.getSpeed() * step);
             case RIGHT -> entityPhysic.setX(entityPhysic.getX() + entityPhysic.getSpeed() * step);
         }
+    }
+
+    public void removeEntity(EntityPhysic entityPhysic)
+    {
+        entities.remove(entityPhysic);
     }
 
 }
