@@ -265,13 +265,12 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-        coreEngine.getSoundEngine().loopSound("PacmanStart");
+        //coreEngine.getSoundEngine().loopSound("PacmanStart");
 
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
             //Jeu
-            coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
