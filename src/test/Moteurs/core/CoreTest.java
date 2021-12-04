@@ -38,6 +38,9 @@ public class CoreTest {
         assertEquals(2, e2.getId());
     }
 
+    /**
+     * Test si une entité est correctement supprimée
+     */
     @Test
     public void TestRemoveEntity(){
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);

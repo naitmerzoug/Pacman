@@ -53,12 +53,12 @@ public class PhysicEngine {
 
 
     /**
-     * Permet de savoir s'il y a une entité à cette direction.
+     * Permet de savoir si une entité à pris cette direction.
       * @param physicEntity Entité physique.
      * @param direction direction de l'Entité physique.
      * @return True s'il y a une entité, sinon False.
      */
-    public boolean isSomething(PhysicEntity physicEntity, DIRECTION direction){
+    public boolean CheckDirection(PhysicEntity physicEntity, DIRECTION direction){
         switch (direction){
             case UP:
                 return entitiesAtPosition(physicEntity.getPosX(), physicEntity.getPosY() + 1,
@@ -69,7 +69,7 @@ public class PhysicEngine {
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
 
-        case RIGHT:
+            case RIGHT:
                 return entitiesAtPosition(physicEntity.getPosX() + 1, physicEntity.getPosY() + 1,
                         physicEntity.getLength(), physicEntity.getWidth()).size() != 0;
 
@@ -144,7 +144,6 @@ public class PhysicEngine {
                 e.setPosY(e.getOldY());
             }
 
-            System.out.println(e.getPosY()+"test");
         }
     }
 

@@ -60,6 +60,9 @@ public class GraphicEngine extends JPanel implements KeyListener {
         frame.addKeyListener(this);        // écouteur d'évenement clavier
     }
 
+    /**
+     * Attribut le moteur noyau
+     */
     public void setCoreEngine(CoreEngine coreEngine) {
         this.coreEngine = coreEngine;
     }
@@ -75,12 +78,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //debug
-        System.out.println("A key is Pressed: " + e.getKeyCode());
         this.lastPressed = e;
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            System.out.println("Spacebutton pressed");
-        }
         coreEngine.sendKeyEvent(e);
     }
 
@@ -136,8 +134,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
         jLabel.setIcon(imageIcon);
 
         jPanel.add(jLabel);
-        System.out.println("new jpanel create" +
-                "");
+
         return jPanel;
     }
 
@@ -244,17 +241,5 @@ public class GraphicEngine extends JPanel implements KeyListener {
         return resizedImage;
     }
 
-
-    //======================================
-    //           Debug
-    //======================================
-
-
-    /**
-     * Fonction debug qui récupère toutes les entités
-     */
-    public Component[] getAll() {
-        return frame.getComponents();
-    }
 
 }

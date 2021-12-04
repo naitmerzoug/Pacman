@@ -1,38 +1,16 @@
-/*
+
 package Moteurs.physic;
 
 import static junit.framework.TestCase.*;
-
-import Moteurs.physicm.EntityPhysic;
-import Moteurs.physicm.Type;
 import org.junit.Test;
 
 public class CollisionManageTest{
 
-    */
-/**
-     * On test la détection de collision qu'importe le type de l'objet
-     *//*
-
+    /**
+     * Test de la détection de contact (le type de l'objet n'est pas pris en compte)
+     */
     @Test
-    public void detectContactTestV1(){
-        PhysicEntity e1 = new EntityPhysic(10, 1,1,2,2,Type.SOLID,1);
-        PhysicEntity e2 = new PhysicEntity(10,2, Type.SOLID, 0,1,2,2,1);
-        PhysicEntity e3 = new PhysicEntity(3,Type.SOLID,3,4,2,2,1);
-        PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
-
-        assertTrue(CollisionManage.detectContact( e1,  e2));
-        assertTrue(CollisionManage.detectContact( e1,  e3));
-        assertFalse(CollisionManage.detectContact( e1,  e4));
-    }
-
-    */
-/**
-     * On test les déplacements
-     *//*
-
-    @Test
-    public void detectContactTestV2(){
+    public void detectContactTest(){
         PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
         PhysicEntity e4 = new PhysicEntity(4,Type.SOLID,4,2,2,2,1);
 
@@ -40,11 +18,10 @@ public class CollisionManageTest{
         assertFalse(CollisionManage.detectContact( 5,2, e4,  e1));
     }
 
-    */
-/**
-     * Il n'y a plus qu'a tester en fonction des Types
-     *//*
 
+    /**
+     * Test de la collision entre objets selon leur type
+     */
     @Test
     public void detectCollisionTest(){
         PhysicEntity e1 = new PhysicEntity(1, Type.SOLID,1,2,2,2,1);
@@ -62,4 +39,4 @@ public class CollisionManageTest{
 
 
 }
-*/
+

@@ -1,7 +1,6 @@
 package Moteurs.physic;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -12,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PhysicEngineTest {
 
-
+    /**
+     * Test de la création d'une entité
+     */
     @org.junit.jupiter.api.Test
     void TESTcreateEntity() {
         PhysicEngine physicEngine = new PhysicEngine();
@@ -34,6 +35,9 @@ class PhysicEngineTest {
 
     }
 
+    /**
+     * Test de la suppression d'une entité
+     */
     @org.junit.jupiter.api.Test
     void TESTremoveEntity() {
         PhysicEngine physicEngine1 = new PhysicEngine();
@@ -54,8 +58,11 @@ class PhysicEngineTest {
         assertFalse(physicEngine1.getEntities().containsKey(2));
     }
 
+    /**
+     * Test pour savoir si l'entité a pris la bonne direction
+     */
     @org.junit.jupiter.api.Test
-    void TESTisSomething() {
+    void TESTCheckDirection() {
         PhysicEngine physicEngine2 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
@@ -66,14 +73,16 @@ class PhysicEngineTest {
         physicEngine2.createEntity(e3);
         physicEngine2.createEntity(e4);
 
-
-        physicEngine2.isSomething(e3, DIRECTION.UP);
-        assertFalse(physicEngine2.isSomething(e3, DIRECTION.DOWN));
-        assertTrue(physicEngine2.isSomething(e3, DIRECTION.RIGHT));
+        physicEngine2.CheckDirection(e3, DIRECTION.UP);
+        assertFalse(physicEngine2.CheckDirection(e3, DIRECTION.DOWN));
+        assertTrue(physicEngine2.CheckDirection(e3, DIRECTION.RIGHT));
 
 
     }
 
+    /**
+     * Test pour savoir une entité est bien placé
+     */
     @org.junit.jupiter.api.Test
     void TESTentitiesAtPosition() {
         PhysicEngine physicEngine3 = new PhysicEngine();
@@ -93,26 +102,10 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
-    void TESTtestEntitiesAtPosition() {
-        PhysicEngine physicEngine4 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 1);
-        PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3.5, 2, 2, 2, 1);
-        PhysicEntity e3 = new PhysicEntity(Type.SOFT, 10, 10, 1, 1, 1);
-        PhysicEntity e4 = new PhysicEntity(Type.SOFT, 7, 7, 1, 1, 1);
-        physicEngine4.createEntity(e1);
-        physicEngine4.createEntity(e2);
-        physicEngine4.createEntity(e3);
-        physicEngine4.createEntity(e4);
-        ArrayList<PhysicEntity> mesentities = new ArrayList<>();
-        mesentities.add(e1);
-        mesentities.add(e2);
-        assertEquals(mesentities, physicEngine4.entitiesAtPosition(2, 2, 2, 2));
 
-    }
-
-
-
+    /**
+     * Test de déplacement d'une entité
+     */
     @org.junit.jupiter.api.Test
     void TESTmoving() {
         PhysicEngine physicEngine4 = new PhysicEngine();
@@ -122,15 +115,9 @@ class PhysicEngineTest {
 
     }
 
-    @org.junit.jupiter.api.Test
-    void TESTmove() {
-        PhysicEngine physicEngine5 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 6);
-        physicEngine5.move(e1, DIRECTION.UP);
-        assertEquals(8, e1.getPosY());
-
-    }
-
+    /**
+     * Test du carré d'un nombre
+     */
     @org.junit.jupiter.api.Test
     void TESTsqr() {
         double a = 2;
@@ -138,7 +125,9 @@ class PhysicEngineTest {
     }
 
 
-
+    /**
+     * Test de la distance entre deux points
+     */
     @org.junit.jupiter.api.Test
     void TESTdistanceBetweenTowPoints() {
         PhysicEngine physicEngine6 = new PhysicEngine();

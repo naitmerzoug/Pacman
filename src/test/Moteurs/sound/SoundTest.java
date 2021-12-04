@@ -12,8 +12,6 @@ import org.junit.Test;
  */
 public class SoundTest {
 
-
-
     @Test
     public void assertEmptySoundsMap(){
         SoundEngine soundEngine = new SoundEngine();
