@@ -36,18 +36,13 @@ public class PacmanGame implements Game {
      * @param physicHeight Hauteur de l'espace physique
      * @param physicWidth Largeur de l'espace physique
      */
-    public PacmanGame(double physicHeight, double physicWidth){
+    public PacmanGame(double physicHeight, double physicWidth) {
 
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
-        this.pacman = new Pacman(1, -8, coreEngine);
-        this.inOutPacman = new InOutPacman(pacman,this);
         initPlayers();
         initSounds();
         initMap();
-
-
-
     }
 
     /**
@@ -58,7 +53,7 @@ public class PacmanGame implements Game {
         /*
          * Partie haute gauche
          */
-        Wall wall1 = new Wall(0,0,1,90, coreEngine);
+        Wall wall1 = new Wall(0,0,1,90, coreEngine); // id 6
         Wall wall2 = new Wall(0, 0, 30, 1, coreEngine);
         Wall wall3 = new Wall(0, -30, 1, 16, coreEngine);
         Wall wall4 = new Wall(16, -30, 10, 1, coreEngine);
@@ -153,7 +148,7 @@ public class PacmanGame implements Game {
 
         Wall wall40 = new Wall(0, -64, 14, 1, coreEngine);
         Wall wall41 = new Wall(0, -64, 1, 17, coreEngine);
-        Wall wall42 = new Wall(16, -54, 10, 1, coreEngine);
+        Wall wall42 = new Wall(16, -54, 10, 1, coreEngine); // id 71
         Wall wall43 = new Wall(0, -54, 1, 16, coreEngine);
 
         // T horizontal décallé
@@ -253,7 +248,7 @@ public class PacmanGame implements Game {
 
         // Cage à fantôme
         Wall wall82 = new Wall(32, -55, 1, 23, coreEngine);
-        Wall wall83 = new Wall(32, -38, 17, 1, coreEngine);
+        //Wall wall83 = new Wall(32, -38, 17, 1, coreEngine); // id 142
         Wall wall84 = new Wall(32, -38, 1, 8, coreEngine);
         Wall wall85 = new Wall(48, -38, 1, 7, coreEngine);
         Wall wall86 = new Wall(54, -38, 17, 1, coreEngine);
@@ -270,14 +265,16 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-        coreEngine.getSoundEngine().playSound("PacmanStart");
+
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
             //Jeu
+            //coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
         }
+
     }
 
 
@@ -285,7 +282,9 @@ public class PacmanGame implements Game {
      * Initialise les personnages du jeu (les fantômes)
      */
     private void initPlayers(){
-        BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine);
+        this.pacman = new Pacman(2, -45, coreEngine); // id 1
+        this.inOutPacman = new InOutPacman(pacman,this);
+        BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine); // id 2
         OrangeGhost orangeGhost = new OrangeGhost(50,-50,coreEngine);
         PinkGhost pinkGhost = new PinkGhost(40,-50,coreEngine);
         RedGhost redGhost = new RedGhost(40,-42,coreEngine);

@@ -18,13 +18,23 @@ public class CollisionManage {
      * @return Booléen true si contact
      */
     public static boolean detectContact(double x, double y, PhysicEntity e1, PhysicEntity e2){
+        /*
+        if (e1.getPosX() < e2.getPosX() + e2.getWidth() &&
+            e1.getPosX() + e1.getWidth() > e2.getPosX() &&
+            e1.getPosY() < e2.getPosY() + e2.getLength() &&
+            e1.getLength() + e1.getPosY() > e2.getPosY()){
+            return true;
+        }
+         */
+
         if(x + (e1.getWidth())/2 >= e2.getPosX() - (e2.getWidth())/2 &&
                 x - (e1.getWidth())/2 <= e2.getPosX() + (e2.getWidth())/2 &&
                 y + (e1.getLength())/2 >= e2.getPosY() - (e2.getLength())/2 &&
                 y - (e1.getLength())/2 <= e2.getPosY() + (e2.getLength())/2){
-            addCollision(e1,e2);
+            //addCollision(e1,e2);
             return true;
         }
+
         else {
             deleteCollision(e1,e2);
             return false;
@@ -69,6 +79,7 @@ public class CollisionManage {
 
             if (!(e.getType() == physicEntity.getType() && e.getType() == Type.SOFT)) {
                 if(detectCollision(e.getPosX(),e.getPosY(),e,physicEntity)){
+                    System.out.println("collision");
                     collision = true;
                     addCollision(e,physicEntity);
                 }

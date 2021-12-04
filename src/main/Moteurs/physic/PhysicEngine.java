@@ -120,8 +120,10 @@ public class PhysicEngine {
         for (PhysicEntity entity : entities.values()) {
             if (x + width > entity.getPosX() && y + length > entity.getPosY()
                     && x < entity.getPosX() + entity.getWidth()
-                    && y < entity.getPosY() + entity.getLength())
-                entitiesAt.add(entity);
+                    && y < entity.getPosY() + entity.getLength()) {
+                if (entity.getId() != 1)
+                    entitiesAt.add(entity);
+            }
         }
         return entitiesAt;
     }
@@ -140,6 +142,7 @@ public class PhysicEngine {
             e.setPosY(e.getPosY() + stepY);
 
             if(CollisionManage.detectCollisionWithEntities(e,entitiesAtPosition(e.getPosX(),e.getPosY(),e.getLength(),e.getWidth()))){
+
                 e.setPosX(e.getOldX());
                 e.setPosY(e.getOldY());
             }
@@ -159,24 +162,28 @@ public class PhysicEngine {
                 e.setStepX(0);
                 e.setStepY(1);
                 moving(e,e.getStepX(),e.getStepY());
+                break;
 
             case DOWN :
                 e.setDirection(direction);
                 e.setStepX(0);
                 e.setStepY(-1);
                 moving(e,e.getStepX(),e.getStepY());
+                break;
 
             case RIGHT:
                 e.setDirection(direction);
                 e.setStepX(1);
                 e.setStepY(0);
                 moving(e,e.getStepX(),e.getStepY());
+                break;
 
             case LEFT:
                 e.setDirection(direction);
                 e.setStepX(-1);
                 e.setStepY(0);
                 moving(e,e.getStepX(),e.getStepY());
+                break;
 
             case NULL: e.setDirection(direction);
         }

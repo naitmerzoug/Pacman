@@ -119,6 +119,7 @@ public class CoreEngine implements CoreEngineEvent {
         int id = nbEntities;
 
         // Création côté physique
+        //PhysicEntity p = new PhysicEntity(id, type, x, y, height, width, speed);
         PhysicEntity p = new PhysicEntity(id, type, x+(width/2), y-(height/2), height, width, speed);
         physicEngine.createEntity(p);
 
@@ -133,6 +134,10 @@ public class CoreEngine implements CoreEngineEvent {
 
         entities.put(coreEntity.getId(),coreEntity);
 
+        /* Debug */
+        if (id == 142){
+            System.out.println("ID: " + id + " " + x + " " + y + " " + width + " " + height);
+        }
         return coreEntity;
     }
 
