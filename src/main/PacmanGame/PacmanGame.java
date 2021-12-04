@@ -6,6 +6,7 @@ import Moteurs.core.CoreEntity;
 import Moteurs.physic.DIRECTION;
 import Moteurs.physic.Type;
 import PacmanGame.AI.*;
+import PacmanGame.Entities.Coin;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
 
@@ -26,10 +27,9 @@ public class PacmanGame implements Game {
     public PacmanGame(double physicHeight, double physicWidth){
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
-        this.pacman = new Pacman(1, -8, coreEngine);
-        this.inOutPacman = new InOutPacman(pacman,this);
+        this.ghosts = new ArrayList<Ghost>();
         initPlayers();
-        //initEvents();
+        initCoin();
         initSounds();
         initMap();
         this.endBonusTime = Timestamp.from(Instant.now());
@@ -245,6 +245,9 @@ public class PacmanGame implements Game {
         Wall wall86 = new Wall(54, -38, 17, 1, coreEngine);
     }
 
+    private void initCoin(){
+        Coin coin1 = new Coin(1, -12, coreEngine);
+    }
     @Override
     public void getKeyEvent(KeyEvent keyEvent) {
         inOutPacman.receiveKeyEvent(keyEvent);
@@ -257,7 +260,7 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
-            coreEngine.getSoundEngine().loopSound("PacmanStart");
+            //coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveAll();
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
@@ -278,10 +281,16 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents personnages du jeu
      */
     private void initPlayers(){
+        this.pacman = new Pacman(1, -8, coreEngine);
+        this.inOutPacman = new InOutPacman(pacman,this);
         BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine);
+        ghosts.add(blueGhost);
         OrangeGhost orangeGhost = new OrangeGhost(50,-50,coreEngine);
+        ghosts.add(orangeGhost);
         PinkGhost pinkGhost = new PinkGhost(40,-50,coreEngine);
+        ghosts.add(pinkGhost);
         RedGhost redGhost = new RedGhost(40,-42,coreEngine);
+        ghosts.add(redGhost);
     }
 
     /*

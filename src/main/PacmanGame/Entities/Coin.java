@@ -1,6 +1,9 @@
 package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.physic.Type;
+
+import java.io.File;
 
 public class Coin {
     private double x, y;
@@ -11,6 +14,8 @@ public class Coin {
     {
         this.x = x;
         this.y = y;
+        this.coreEngine = coreEngine;
+        coreEngine.createAndAddEntity(Type.SOLID, this.x, this.y, 2, 4, 0, new File("src/main/Pacman/Images/coin.png"));
     }
 
     // Getters
