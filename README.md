@@ -1,2 +1,11 @@
-# PacmanGame
-Dans le cadre de l'UE Génie Logiciel du Master 1 Informatique, ce projet consiste à créer le jeu PacmanGame tout en élaborant différents moteurs génériques qui peuvent être utilisés dans d'autres jeux 2D (Tetris, etc...).
+# Pacman 
+Ceci est un jeu Pacman élaboré avec différents moteurs génériques :
+- Moteur physique
+- Moteur graphique
+- Moteur noyau
+- Moteur sonore
+- Moteur entrée/sortie
+
+Le jeu a été programmé en langage Java.
+Pour le lancer il suffit de faire la commande :
+java -jar pacmanV1.0.jar
