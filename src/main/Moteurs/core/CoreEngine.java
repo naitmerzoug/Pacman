@@ -134,10 +134,6 @@ public class CoreEngine implements CoreEngineEvent {
 
         entities.put(coreEntity.getId(),coreEntity);
 
-        /* Debug */
-        if (id == 142){
-            System.out.println("ID: " + id + " " + x + " " + y + " " + width + " " + height);
-        }
         return coreEntity;
     }
 
