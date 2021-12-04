@@ -257,6 +257,7 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
+            coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveAll();
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
             Thread.sleep(30);
