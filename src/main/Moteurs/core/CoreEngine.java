@@ -94,6 +94,9 @@ public class CoreEngine implements CoreEngineEvent {
         this.game = game;
     }
 
+    /**
+     * Démarre l'interface graphiqe
+     */
     public void run() {
         graphicEngine.run();
     }
@@ -101,9 +104,9 @@ public class CoreEngine implements CoreEngineEvent {
     /**
      * Création d'une entité noyau
      * @param type soft or solid
-     * @param x position physic origine gauche haut
-     * @param y position physic origine gauche haut
-     * @param height largeur entité
+     * @param x position physique en x
+     * @param y position physique en y
+     * @param height hauteur entité
      * @param width longueur entité
      * @param speed vitesse entité
      * @param file image entité
