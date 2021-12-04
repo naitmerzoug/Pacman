@@ -21,9 +21,11 @@ public class SoundEngine {
      */
     public void loadSound(String path, String name){
         Clip clip = null;
+        File file = new File(path);
+
         try {
             clip = AudioSystem.getClip();
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(path).getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource(String.valueOf(file)));
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e){

@@ -7,6 +7,9 @@ import java.awt.event.KeyEvent;
  */
 public interface Game {
 
+    /**
+     * Recupère la touche appuyé
+     */
     void getKeyEvent(KeyEvent keyEvent);
 
 }

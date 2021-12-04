@@ -37,7 +37,7 @@ public class Wall {
         this.y = y;
         this.coreEngine = coreEngine;
 
-        coreEngine.createAndAddEntity(Type.SOLID, x, y, height, width,0, new File("src/main/Pacman/Images/wall.png"));
+        coreEngine.createAndAddEntity(Type.SOLID, x, y, height, width,0, new File("/PacmanGame/Images/wall.png"));
     }
 
     // Getters

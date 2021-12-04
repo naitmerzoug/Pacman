@@ -34,7 +34,7 @@ public class CollisionManage {
 
 
     /**
-     * Deux objets sont en contact et l'un d'eux est de type "SOLID"
+     * Savoir si quand l'un des deux objets en contact est de type "SOLID"
      * @param x Position x
      * @param y Position y
      * @param e1 Entité physique

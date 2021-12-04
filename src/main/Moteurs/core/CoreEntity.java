@@ -1,7 +1,6 @@
 package Moteurs.core;
 
 import Moteurs.physic.PhysicEntity;
-
 import javax.swing.*;
 
 /**

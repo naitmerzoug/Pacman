@@ -37,6 +37,7 @@ public class PacmanGame implements Game {
      * @param physicWidth Largeur de l'espace physique
      */
     public PacmanGame(double physicHeight, double physicWidth){
+
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
         this.pacman = new Pacman(1, -8, coreEngine);
@@ -44,6 +45,8 @@ public class PacmanGame implements Game {
         initPlayers();
         initSounds();
         initMap();
+
+
 
     }
 
@@ -102,9 +105,8 @@ public class PacmanGame implements Game {
         Wall wall33 = new Wall(45, -22, 1, 10, coreEngine);
         Wall wall34 = new Wall(54, -20, 2, 1, coreEngine);
 
-        /**
-         * Partie haute droite
-         */
+        // Partie haute droite
+
 
         Wall wall1_sym = new Wall(89, 0, 30, 1, coreEngine);
         Wall wall3_sym = new Wall(73, -30, 1, 17, coreEngine);
@@ -139,9 +141,7 @@ public class PacmanGame implements Game {
         Wall wall25_sym = new Wall(63, -32, 9, 1, coreEngine);
         Wall wall26_sym = new Wall(63, -40, 1, 4, coreEngine);
 
-        /**
-         * Partie bas gauche
-         */
+        // Partie bas gauche
 
         Wall wall35 = new Wall(0,-95,1,90, coreEngine);
         Wall wall36 = new Wall(0, -81, 14, 1, coreEngine);
@@ -206,9 +206,8 @@ public class PacmanGame implements Game {
         Wall wall80 = new Wall(25, -54, 11, 1, coreEngine);
         Wall wall81 = new Wall(21, -64, 1, 5, coreEngine);
 
-        /**
-         * Partie bas droite
-         */
+        // Partie bas droite
+
 
         Wall wall36_sym = new Wall(89, -81, 14, 1, coreEngine);
 
@@ -271,7 +270,7 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-        //coreEngine.getSoundEngine().playSound("PacmanStart");
+        coreEngine.getSoundEngine().playSound("PacmanStart");
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
@@ -296,13 +295,14 @@ public class PacmanGame implements Game {
      * Charge les sons
      */
     private void initSounds(){
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_beginning.wav", "PacmanStart");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_chomp.wav", "PacmanEatChomp");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_death.wav", "PacmanDeath");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_eatfruit.wav", "PacmanEatFruit");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_eatghost.wav", "PacmanEatGhost");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_extrapac.wav", "PacmanExtra");
-        coreEngine.getSoundEngine().loadSound("src/assets/sound/pacman_intermission.wav", "PacmanGeneral");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_beginning.wav", "PacmanStart");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_chomp.wav", "PacmanEatChomp");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_death.wav", "PacmanDeath");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatfruit.wav", "PacmanEatFruit");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatghost.wav", "PacmanEatGhost");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_extrapac.wav", "PacmanExtra");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_intermission.wav", "PacmanGeneral");
+
     }
 
 

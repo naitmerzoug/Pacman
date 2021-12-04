@@ -163,7 +163,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
         //chargement d'une image
         BufferedImage image = null;
         try {
-            image = ImageIO.read(file);
+            image = ImageIO.read(getClass().getResource(String.valueOf(file)));
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
@@ -217,9 +217,7 @@ public class GraphicEngine extends JPanel implements KeyListener {
     }
 
     /**
-     * Fonction récupérée sur internet.
-     * we want the x and o to be resized when the JFrame is resized
-     *
+     * Redimensionnement d'une image à une taille donnée
      * @param originalImage an x or an o. Use cross or oh fields.
      */
     public static Image resizeToBig(Image originalImage, int biggerWidth, int biggerHeight) {
