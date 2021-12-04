@@ -246,7 +246,9 @@ public class PacmanGame implements Game {
     }
 
     private void initCoin(){
-        Coin coin1 = new Coin(1, -12, coreEngine);
+        for (int i = 0; i < 26; i=i+2){
+            Coin coin = new Coin(1.5, -2-i, coreEngine);
+        }
     }
     @Override
     public void getKeyEvent(KeyEvent keyEvent) {
@@ -281,7 +283,7 @@ public class PacmanGame implements Game {
     Fonction qui instancie les différents personnages du jeu
      */
     private void initPlayers(){
-        this.pacman = new Pacman(1, -8, coreEngine);
+        this.pacman = new Pacman(1, -45, coreEngine);
         this.inOutPacman = new InOutPacman(pacman,this);
         BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine);
         ghosts.add(blueGhost);
