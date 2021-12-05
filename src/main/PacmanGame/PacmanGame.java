@@ -148,7 +148,7 @@ public class PacmanGame implements Game {
 
         Wall wall40 = new Wall(0, -64, 14, 1, coreEngine);
         Wall wall41 = new Wall(0, -64, 1, 17, coreEngine);
-        Wall wall42 = new Wall(16, -54, 10, 1, coreEngine); // id 71
+        //Wall wall42 = new Wall(16, -54, 10, 1, coreEngine); // id 71
         Wall wall43 = new Wall(0, -54, 1, 16, coreEngine);
 
         // T horizontal décallé
@@ -271,7 +271,7 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
-            coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection() ,1);
+            coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
         }
 

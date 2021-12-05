@@ -8,7 +8,7 @@ import Moteurs.core.CoreEngine;
 public abstract class Ghost {
 
 
-    public static final double speed= 1.7;
+    public static final double speed= 0.25;
 
     /**
      * Position X

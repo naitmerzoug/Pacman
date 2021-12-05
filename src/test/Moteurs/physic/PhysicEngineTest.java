@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import static Moteurs.physic.DIRECTION.UP;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -73,7 +74,7 @@ class PhysicEngineTest {
         physicEngine2.createEntity(e3);
         physicEngine2.createEntity(e4);
 
-        physicEngine2.CheckDirection(e3, DIRECTION.UP);
+        physicEngine2.CheckDirection(e3, UP);
         assertFalse(physicEngine2.CheckDirection(e3, DIRECTION.DOWN));
         assertTrue(physicEngine2.CheckDirection(e3, DIRECTION.RIGHT));
 
@@ -109,9 +110,9 @@ class PhysicEngineTest {
     @org.junit.jupiter.api.Test
     void TESTmoving() {
         PhysicEngine physicEngine4 = new PhysicEngine();
-        PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 2, 2, 5);
-        physicEngine4.moving(e1, 1, 0);
-        assertEquals(7, e1.getPosX());
+        PhysicEntity e1 = new PhysicEntity(1, Type.SOLID, 0, 0, 2, 2, 0.25);
+        physicEngine4.move(e1, UP);
+        assertEquals(0.25, e1.getPosY());
 
     }
 

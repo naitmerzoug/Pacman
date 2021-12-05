@@ -119,8 +119,8 @@ public class CoreEngine implements CoreEngineEvent {
         int id = nbEntities;
 
         // Création côté physique
-        //PhysicEntity p = new PhysicEntity(id, type, x, y, height, width, speed);
-        PhysicEntity p = new PhysicEntity(id, type, x+(width/2), y-(height/2), height, width, speed);
+        PhysicEntity p = new PhysicEntity(id, type, x, y, height, width, speed);
+        //PhysicEntity p = new PhysicEntity(id, type, x+(width/2), y-(height/2), height, width, speed);
         physicEngine.createEntity(p);
 
         // Création côté graphique
@@ -185,25 +185,13 @@ public class CoreEngine implements CoreEngineEvent {
      * Déplacement d'une entité
      * @param coreEntity entité noyau
      * @param currentDirection direction
-     * @param step pas
      */
-    public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int step) {
-        //int x = 0, y = 0;
+    public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection) {
 
+        // mouvement physique
         this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
-
-        // comme moteur physique, non fonctionnelle, déplacement graphique sinon j'aurai fait :
+        // repercussion sur le mouvement graphique
         graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), this.ConvertPhysictoGraphic(coreEntity.getPhysicEntity().getPosX()), this.ConvertPhysictoGraphicOrd(coreEntity.getPhysicEntity().getPosY()));
-        /*
-        switch(currentDirection){
-            case UP    -> y -= step;
-            case DOWN  -> y += step;
-            case RIGHT -> x += step;
-            case LEFT  -> x -= step;
-        }
-        graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
-
-        */
 
     }
 

@@ -16,7 +16,7 @@ public class OrangeGhost extends Ghost {
 
     public OrangeGhost(double x, double y, CoreEngine coreEngine) {
         super(11, x, y, coreEngine);
-        coreEngine.createAndAddEntity(Type.SOLID, x, y, 3, 3, 1, new File("/PacmanGame/Images/orange-ghost.png"));
+        coreEngine.createAndAddEntity(Type.SOLID, x, y, 3, 3, 0.25, new File("/PacmanGame/Images/orange-ghost.png"));
 
     }
 
