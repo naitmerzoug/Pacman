@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class EngineGraphicTest {
 
     /**
-     * Test de la création d'une scène
+     * Test de la création d'une scène.
      */
     @Test
     public void creationScene() throws InterruptedException {
