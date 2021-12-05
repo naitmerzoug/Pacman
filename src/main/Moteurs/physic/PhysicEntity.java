@@ -2,8 +2,6 @@ package Moteurs.physic;
 
 import Moteurs.core.CoreEntity;
 
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Entité physique
@@ -14,16 +12,12 @@ public class PhysicEntity extends CoreEntity {
     private int id;
     private double posX;
     private double posY;
-    private double oldX;
-    private double oldY;
     private double length;
     private double width;
     private double speed;
     private Type type;
     private DIRECTION direction;
-    private Set<PhysicEntity> collisions;
-    private double stepX;
-    private double stepY;
+
 
     /**
      *
@@ -40,13 +34,10 @@ public class PhysicEntity extends CoreEntity {
         this.direction = DIRECTION.NULL;
         this.posX = posX;
         this.posY = posY;
-        this.oldX = 0;
-        this.oldY = 0;
         this.length = length;
         this.width = width;
         this.id= id;
         this.speed = speed;
-        this.collisions = new HashSet<>();
     }
 
     /**
@@ -63,12 +54,9 @@ public class PhysicEntity extends CoreEntity {
         this.direction =DIRECTION.NULL;
         this.posX = posX;
         this.posY = posY;
-        this.oldX = 0;
-        this.oldY = 0;
         this.length = length;
         this.width = width;
         this.speed = speed;
-        this.collisions = new HashSet<>();
     }
 
 
@@ -84,13 +72,6 @@ public class PhysicEntity extends CoreEntity {
         return posY;
     }
 
-    public double getOldX() {
-        return oldX;
-    }
-
-    public double getOldY() {
-        return oldY;
-    }
 
     public double getLength() {
         return length;
@@ -112,16 +93,6 @@ public class PhysicEntity extends CoreEntity {
         return direction;
     }
 
-    public Set<PhysicEntity> getCollisions() {
-        return collisions;
-    }
-
-    public double getStepX(){
-        return stepX;
-    }
-    public double getStepY(){
-        return stepY;
-    }
 
     public boolean isInCollision() {
         return inCollision;
@@ -139,25 +110,6 @@ public class PhysicEntity extends CoreEntity {
         this.posY = posY;
     }
 
-    public void setOldX(double oldX) {
-        this.oldX = oldX;
-    }
-
-    public void setOldY(double oldY) {
-        this.oldY = oldY;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
 
     public void setType(Type type) {
         this.type = type;
@@ -165,18 +117,6 @@ public class PhysicEntity extends CoreEntity {
 
     public void setDirection(DIRECTION direction) {
         this.direction = direction;
-    }
-
-    public void setCollisions(Set<PhysicEntity> collisions) {
-        this.collisions = collisions;
-    }
-
-    public void setStepX(double stepX) {
-        this.stepX = stepX;
-    }
-
-    public void setStepY(double stepY) {
-        this.stepY = stepY;
     }
 
     public void setInCollision(boolean inCollision) {
