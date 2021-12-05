@@ -45,6 +45,9 @@ public class PacmanGame implements Game {
         initMap();
     }
 
+    /**
+     * Récupère la touche appuyée
+     */
     @Override
     public void getKeyEvent(KeyEvent keyEvent) {
         inOutPacman.receiveKeyEvent(keyEvent);
