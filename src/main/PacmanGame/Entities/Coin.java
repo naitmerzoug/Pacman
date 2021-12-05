@@ -25,7 +25,7 @@ public class Coin {
      */
     public CoreEngine coreEngine;
 
-    private CoreEntity coreEntity;
+    private final CoreEntity coreEntity;
 
     /**
      * Constructeur d'une pièce
@@ -38,7 +38,7 @@ public class Coin {
         this.x = x;
         this.y = y;
         this.coreEngine = coreEngine;
-        this.coreEntity = coreEngine.createAndAddEntity(Type.SOFT, x, y,2,4,0, new File("/PacmanGame/Images/coin.png"));
+        coreEntity = coreEngine.createAndAddEntity(Type.SOFT, x, y,2,4,0, new File("/PacmanGame/Images/coin.png"));
     }
 
     // Getters
