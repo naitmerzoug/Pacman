@@ -188,13 +188,13 @@ public class CoreEngine implements CoreEngineEvent {
      * @param step pas
      */
     public void moveEntity(CoreEntity coreEntity, DIRECTION currentDirection, int step) {
-        int x = 0, y = 0;
+        //int x = 0, y = 0;
 
         this.getPhysicEngine().move(coreEntity.getPhysicEntity(), currentDirection);
 
         // comme moteur physique, non fonctionnelle, déplacement graphique sinon j'aurai fait :
-        // graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), this.ConvertPhysictoGraphic(x), this.ConvertPhysictoGraphicOrd(y));
-
+        graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), this.ConvertPhysictoGraphic(coreEntity.getPhysicEntity().getPosX()), this.ConvertPhysictoGraphicOrd(coreEntity.getPhysicEntity().getPosY()));
+        /*
         switch(currentDirection){
             case UP    -> y -= step;
             case DOWN  -> y += step;
@@ -202,6 +202,9 @@ public class CoreEngine implements CoreEngineEvent {
             case LEFT  -> x -= step;
         }
         graphicEngine.setPositionEntity(coreEntity.getGraphicEntity(), coreEntity.getGraphicEntity().getX()+x,coreEntity.getGraphicEntity().getY()+y);
+
+        */
+
     }
 
     // Getters

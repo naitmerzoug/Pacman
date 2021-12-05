@@ -248,7 +248,7 @@ public class PacmanGame implements Game {
 
         // Cage à fantôme
         Wall wall82 = new Wall(32, -55, 1, 23, coreEngine);
-        //Wall wall83 = new Wall(32, -38, 17, 1, coreEngine); // id 142
+        Wall wall83 = new Wall(32, -38, 17, 1, coreEngine); // id 142
         Wall wall84 = new Wall(32, -38, 1, 8, coreEngine);
         Wall wall85 = new Wall(48, -38, 1, 7, coreEngine);
         Wall wall86 = new Wall(54, -38, 17, 1, coreEngine);

@@ -47,7 +47,7 @@ public class Pacman {
         this.isDead = false;
         this.isInvincible = false;
         this.coreEngine = coreEngine;
-        coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x, y,3,3,1, new File("/PacmanGame/Images/pacman.png"));
+        coreEntity = coreEngine.createAndAddEntity(Type.SOLID,x, y,3,3,0.25, new File("/PacmanGame/Images/pacman.png"));
     }
 
     /**

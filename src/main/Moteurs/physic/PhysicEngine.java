@@ -155,6 +155,16 @@ public class PhysicEngine {
      * @param e Entité physique.
      * @param direction Direction de l'entitée.
      */
+    public void move(PhysicEntity e, DIRECTION direction)
+    {
+        switch(direction){
+            case UP    -> e.setPosY(e.getPosY()+e.getSpeed());
+            case DOWN  -> e.setPosY(e.getPosY()-e.getSpeed());
+            case RIGHT -> e.setPosX(e.getPosX()+e.getSpeed());
+            case LEFT  -> e.setPosX(e.getPosX()-e.getSpeed());
+        }
+    }
+    /*
     public void move(PhysicEntity e, DIRECTION direction){
         switch (direction){
             case UP :
@@ -188,7 +198,7 @@ public class PhysicEngine {
             case NULL: e.setDirection(direction);
         }
     }
-
+    */
     /**
      * Calcule de le carré d'un nombre
      * @param a Nombre
