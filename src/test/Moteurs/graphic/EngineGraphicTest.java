@@ -20,7 +20,7 @@ public class EngineGraphicTest {
         GraphicEngine engineGraphic = new GraphicEngine(750, 500, Color.BLACK, "PacmanTest");
         engineGraphic.run();
         Thread.sleep(100);
-        JPanel pacman1 = engineGraphic.createEntity(10, 10, new File("src/main/Pacman/Images/pacman.png"));
+        JPanel pacman1 = engineGraphic.createEntity(10, 10, new File("/PacmanGame/Images/pacman.png"));
         engineGraphic.addEntity(pacman1, 100, 100);
     }
 
@@ -30,7 +30,7 @@ public class EngineGraphicTest {
     @Test
     public void moveEntity(){
         GraphicEngine engineGraphic = new GraphicEngine(50,40, Color.WHITE,"PacmanTest");
-        JPanel entity = engineGraphic.createAndAddEntity(10,10,10, 10,new File("src/main/Pacman/Images/pacman.png"));
+        JPanel entity = engineGraphic.createAndAddEntity(10,10,10, 10,new File("/PacmanGame/Images/pacman.png"));
         engineGraphic.setPositionEntity(entity, 20, 20);
         assertEquals(20, entity.getX());
     }

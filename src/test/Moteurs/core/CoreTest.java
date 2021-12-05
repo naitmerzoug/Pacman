@@ -21,9 +21,9 @@ public class CoreTest {
     @Test
     public void TestAddEntity(){
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
-        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e3 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("/PacmanGame/Images/pacman.png"));
+        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("/PacmanGame/Images/pacman.png"));
+        CoreEntity e3 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1,new File("/PacmanGame/Images/pacman.png"));
         assertEquals(3, CoreEngine.getNbEntities());
     }
 
@@ -33,8 +33,8 @@ public class CoreTest {
     @Test
     public void TestEntityId(){
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
-        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
-        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("/PacmanGame/Images/pacman.png"));
+        CoreEntity e2 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("/PacmanGame/Images/pacman.png"));
         assertEquals(2, e2.getId());
     }
 
@@ -44,7 +44,7 @@ public class CoreTest {
     @Test
     public void TestRemoveEntity(){
         Moteurs.core.CoreEngine coreEngine = new Moteurs.core.CoreEngine("Game",20,20);
-        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("src/main/Pacman/Images/pacman.png"));
+        CoreEntity e1 = coreEngine.createAndAddEntity(Type.SOFT, 1,1,10,10, 1, new File("/PacmanGame/Images/pacman.png"));
         coreEngine.removeEntity(e1);
         Assertions.assertAll(
                 () ->  assertTrue(coreEngine.getEntities().isEmpty()),

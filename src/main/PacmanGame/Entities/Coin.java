@@ -13,12 +13,12 @@ public class Coin {
     /**
      * Position X
      */
-    private double x;
+    private final double x;
 
     /**
      * Position Y
      */
-    private double y;
+    private final double y;
 
     /**
      * Moteur noyau

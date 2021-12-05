@@ -148,7 +148,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     /**
-     * Converti des coordonnées de l'espace physique en espace graphique (abscisses et pour les tailles en général)
+     * Convertir des coordonnées de l'espace physique en espace graphique (abscisses et pour les tailles en général)
      * @param x Position en x
      */
     public int ConvertPhysictoGraphic(double x)
@@ -160,7 +160,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     /**
-     * Converti des coordonnées de l'espace physique en espace graphique pour l'axe des ordonnées
+     * Convertir des coordonnées de l'espace physique en espace graphique pour l'axe des ordonnées
      * @param y Position en y
      */
     public int ConvertPhysictoGraphicOrd(double y)
@@ -172,7 +172,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     /**
-     * Transmet la touche cliqué
+     * Transmet la touche cliquée
      */
     @Override
     public void sendKeyEvent(KeyEvent keyEvent) {

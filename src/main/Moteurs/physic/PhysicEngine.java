@@ -25,7 +25,7 @@ public class PhysicEngine {
     }
 
     /**
-     * Donner un id à l'entitée si elle n'en a pas et l'ajoute à la liste d'entités;
+     * Donner un id à l'entitée si elle n'en a pas et l'ajoute à la liste d'entités
       * @param e Entité physique.
      */
     public void addEntity(PhysicEntity e){
@@ -37,7 +37,7 @@ public class PhysicEngine {
     }
 
     /**
-     * Supprime l'entité des listes de collision de chauque entitée et la supprime de entities.
+     * Supprime l'entité de la liste des entités
      * @param e Entité physique.
      */
     public void removeEntity(PhysicEntity e){
@@ -69,9 +69,9 @@ public class PhysicEngine {
     }
 
     /**
-     * Déplace une entité dans une direction;
+     * Déplace une entité dans une direction
      * @param e Entité physique.
-     * @param direction Direction de l'entitée.
+     * @param direction Direction de l'entité
      */
     public void move(PhysicEntity e, DIRECTION direction)
     {
