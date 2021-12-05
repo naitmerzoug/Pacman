@@ -80,40 +80,44 @@ public class PhysicEngine {
         switch (direction)
         {
             case UP -> {
-                // verifie si en montant je n'ai pas de collision
+                // verifie j'ai une collision
                 if (IsCollision(e.getId(),e.getPosX(), e.getPosY()+e.getSpeed(), e.getWidth(),e.getLength())){
-                    break;
+                    e.setInCollision(true);
                 }
                 else
                 {
                     // si ce n'est pas le cas, je monte
+                    e.setInCollision(false);
                     e.setPosY(e.getPosY() + e.getSpeed());
                 }
             }
             case DOWN -> {
                 if (IsCollision(e.getId(),e.getPosX(), e.getPosY()-e.getSpeed(), e.getWidth(),e.getLength())){
-                    break;
+                    e.setInCollision(true);
                 }
                 else
                 {
+                    e.setInCollision(false);
                     e.setPosY(e.getPosY() - e.getSpeed());
                 }
             }
             case RIGHT -> {
                 if (IsCollision(e.getId(),e.getPosX()+e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
-                    break;
+                    e.setInCollision(true);
                 }
                 else
                 {
+                    e.setInCollision(false);
                     e.setPosX(e.getPosX() + e.getSpeed());
                 }
             }
             case LEFT -> {
                 if (IsCollision(e.getId(),e.getPosX()-e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
-                    break;
+                    e.setInCollision(true);
                 }
                 else
                 {
+                    e.setInCollision(false);
                     e.setPosX(e.getPosX() - e.getSpeed());
                 }
             }

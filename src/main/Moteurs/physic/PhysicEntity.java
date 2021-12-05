@@ -8,7 +8,7 @@ import Moteurs.core.CoreEntity;
  */
 public class PhysicEntity extends CoreEntity {
 
-    private  boolean inCollision;
+    private boolean inCollision;
     private int id;
     private double posX;
     private double posY;
@@ -38,6 +38,7 @@ public class PhysicEntity extends CoreEntity {
         this.width = width;
         this.id= id;
         this.speed = speed;
+        this.inCollision = false;
     }
 
     /**
@@ -93,8 +94,7 @@ public class PhysicEntity extends CoreEntity {
         return direction;
     }
 
-
-    public boolean isInCollision() {
+    public boolean getInCollision() {
         return inCollision;
     }
 

@@ -271,6 +271,7 @@ public class PacmanGame implements Game {
 
         while(pacman.isAlive()){
             //Jeu
+            System.out.println(pacman.getCoreEntity().getPhysicEntity().getInCollision());
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
         }
