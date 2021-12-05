@@ -76,7 +76,10 @@ public class PacmanGame implements Game {
             //coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
+            if (coins.isEmpty()) // Victoire
+                break;
         }
+        System.out.println("Gagné!!");
 
     }
 
