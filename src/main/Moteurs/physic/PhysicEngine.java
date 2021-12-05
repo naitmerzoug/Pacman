@@ -53,9 +53,9 @@ public class PhysicEngine {
      * @param length Hauteur
      * @return S'il y a collision
      */
-    public boolean IsCollision(double x, double y, double width, double length) {
+    public boolean IsCollision(int id, double x, double y, double width, double length) {
         for (PhysicEntity entity : entities.values()) {
-            if (entity.getId() != 1) { // si ce n'est pas le perso principal
+            if (entity.getId() != id) { // si ce n'est pas le perso principal
 
                 Rectangle2D r = new Rectangle2D.Double(x, y, width, length);
                 Rectangle2D p = new Rectangle2D.Double(entity.getPosX(), entity.getPosY(), entity.getWidth(), entity.getLength());
@@ -81,7 +81,7 @@ public class PhysicEngine {
         {
             case UP -> {
                 // verifie si en montant je n'ai pas de collision
-                if (IsCollision(e.getPosX(), e.getPosY()+e.getSpeed(), e.getWidth(),e.getLength())){
+                if (IsCollision(e.getId(),e.getPosX(), e.getPosY()+e.getSpeed(), e.getWidth(),e.getLength())){
                     break;
                 }
                 else
@@ -91,7 +91,7 @@ public class PhysicEngine {
                 }
             }
             case DOWN -> {
-                if (IsCollision(e.getPosX(), e.getPosY()-e.getSpeed(), e.getWidth(),e.getLength())){
+                if (IsCollision(e.getId(),e.getPosX(), e.getPosY()-e.getSpeed(), e.getWidth(),e.getLength())){
                     break;
                 }
                 else
@@ -100,7 +100,7 @@ public class PhysicEngine {
                 }
             }
             case RIGHT -> {
-                if (IsCollision(e.getPosX()+e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
+                if (IsCollision(e.getId(),e.getPosX()+e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
                     break;
                 }
                 else
@@ -109,7 +109,7 @@ public class PhysicEngine {
                 }
             }
             case LEFT -> {
-                if (IsCollision(e.getPosX()-e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
+                if (IsCollision(e.getId(),e.getPosX()-e.getSpeed(), e.getPosY(), e.getWidth(),e.getLength())){
                     break;
                 }
                 else

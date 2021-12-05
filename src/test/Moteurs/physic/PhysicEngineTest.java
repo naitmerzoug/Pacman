@@ -77,7 +77,7 @@ class PhysicEngineTest {
         PhysicEngine physicEngine5 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(2, Type.SOLID, 0, 0, 2, 2, 0.25);
         physicEngine5.addEntity(e1);
-        assertTrue(physicEngine5.IsCollision(1,1,2,2));
+        assertTrue(physicEngine5.IsCollision(e1.getId(),1,1,2,2));
 
     }
 
