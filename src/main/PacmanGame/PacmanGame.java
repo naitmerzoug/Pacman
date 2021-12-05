@@ -68,14 +68,14 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-
+        coreEngine.getSoundEngine().loopSound("PacmanGeneral");
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
             //Jeu
-            coreEngine.getSoundEngine().loopSound("PacmanGeneral");
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
+            if(coins.isEmpty()) { break; }
 
         }
     }
@@ -106,6 +106,9 @@ public class PacmanGame implements Game {
 
     }
 
+    /**
+     * Initialise les pièces
+     */
     private void initCoins(){
         for (int i = 2; i < 28; i=i+2) {
             Coin coin = new Coin(1.5, -i, coreEngine);
@@ -148,7 +151,7 @@ public class PacmanGame implements Game {
     }
 
     /**
-     * Initialise la map (murs)
+     * Initialise la map
      */
     private void initMap() {
 

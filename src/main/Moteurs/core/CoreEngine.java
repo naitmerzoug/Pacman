@@ -61,7 +61,7 @@ public class CoreEngine implements CoreEngineEvent {
      */
     private final ConcurrentMap<Integer,CoreEntity> entities;
     /**
-     * Nombre d'entités
+     * Nombre d'entités pour l'attribution de l'ID
      */
     public static int nbEntities;
 
@@ -95,7 +95,7 @@ public class CoreEngine implements CoreEngineEvent {
     }
 
     /**
-     * Démarre l'interface graphiqe
+     * Démarre l'interface graphique
      */
     public void run() {
         graphicEngine.run();

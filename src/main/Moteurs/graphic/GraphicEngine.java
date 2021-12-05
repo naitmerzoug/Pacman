@@ -102,43 +102,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
     }
 
     /**
-     * Création d'une entité
-     * @param file Chemin du fichier image
-     * @param height Hauteur
-     * @param width Largeur
-     * @return Entité physique
-     */
-    public JPanel createEntity(int height, int width, File file) {
-
-        //création entité
-        JPanel jPanel = new JPanel();
-        jPanel.setBounds(0,0, width, height);
-        jPanel.setLayout(null);
-        jPanel.setBackground(null);
-
-        JLabel jLabel = new JLabel();
-        jLabel.setBounds(0,0,width,height);
-
-        //chargement d'une image
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(file);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-
-        //Redimensionnement image
-        image = (BufferedImage) resizeToBig(image, width, height);
-        ImageIcon imageIcon = new ImageIcon(image);
-        jLabel.setIcon(imageIcon);
-
-        jPanel.add(jLabel);
-
-        return jPanel;
-    }
-
-    /**
      * Création et ajout d'une entité
      * @param x Position x
      * @param y Position y
@@ -199,23 +162,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
         entity.setBounds(x, y, entity.getWidth(), entity.getHeight());
     }
 
-    //======================================
-    //           GETTER - SETTER
-    //======================================
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public JFrame getFrame() { return frame; }
-
-    public KeyEvent getLastPressed() {
-        return lastPressed;
-    }
-
     /**
      * Redimensionnement d'une image à une taille donnée
      * @param originalImage an x or an o. Use cross or oh fields.
@@ -236,6 +182,23 @@ public class GraphicEngine extends JPanel implements KeyListener {
 
 
         return resizedImage;
+    }
+
+    //======================================
+    //           GETTER - SETTER
+    //======================================
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public JFrame getFrame() { return frame; }
+
+    public KeyEvent getLastPressed() {
+        return lastPressed;
     }
 
 
