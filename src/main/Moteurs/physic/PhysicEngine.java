@@ -121,17 +121,6 @@ public class PhysicEngine {
 
 
         }
-        /*
-        if (!IsCollision(e)) {
-            switch (direction) {
-                case UP -> e.setPosY(e.getPosY() + e.getSpeed());
-                case DOWN -> e.setPosY(e.getPosY() - e.getSpeed());
-                case RIGHT -> e.setPosX(e.getPosX() + e.getSpeed());
-                case LEFT -> e.setPosX(e.getPosX() - e.getSpeed());
-            }
-        }
-
-         */
 
     }
 
