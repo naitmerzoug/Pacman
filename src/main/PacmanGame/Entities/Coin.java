@@ -1,6 +1,10 @@
 package PacmanGame.Entities;
 
 import Moteurs.core.CoreEngine;
+import Moteurs.core.CoreEntity;
+import Moteurs.physic.Type;
+
+import java.io.File;
 
 /**
  * Pièce du jeu
@@ -21,6 +25,8 @@ public class Coin {
      */
     public CoreEngine coreEngine;
 
+    private CoreEntity coreEntity;
+
     /**
      * Constructeur d'une pièce
      * @param x Position X
@@ -31,6 +37,8 @@ public class Coin {
     {
         this.x = x;
         this.y = y;
+        this.coreEngine = coreEngine;
+        this.coreEntity = coreEngine.createAndAddEntity(Type.SOFT, x, y,2,4,0, new File("/PacmanGame/Images/coin.png"));
     }
 
     // Getters
@@ -43,6 +51,9 @@ public class Coin {
         return coreEngine;
     }
 
+    public CoreEntity getCoreEntity() {
+        return coreEntity;
+    }
 
     // Setters
 

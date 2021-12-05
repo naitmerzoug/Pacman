@@ -4,10 +4,12 @@ import Moteurs.Game;
 import Moteurs.core.CoreEngine;
 
 import PacmanGame.AI.*;
+import PacmanGame.Entities.Coin;
 import PacmanGame.Entities.Pacman;
 import PacmanGame.Entities.Wall;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 
 /**
@@ -30,6 +32,11 @@ public class PacmanGame implements Game {
      */
     private Pacman pacman;
 
+    /**
+     * Liste de pièces. Quand elle est vide, la partie est gagnée.
+     */
+    private ArrayList<Coin> coins;
+
 
     /**
      * Constructeur du jeu Pacman
@@ -40,9 +47,11 @@ public class PacmanGame implements Game {
 
         this.coreEngine = new CoreEngine("Pacman Game", physicHeight, physicWidth);
         this.coreEngine.setGame(this);
+        this.coins = new ArrayList<>();
         initPlayers();
         initSounds();
         initMap();
+        initCoins();
     }
 
     /**
@@ -59,12 +68,12 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-        coreEngine.getSoundEngine().loopSound("PacmanStart");
 
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
             //Jeu
+            //coreEngine.getSoundEngine().loopSound("PacmanStart");
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
         }
@@ -95,6 +104,47 @@ public class PacmanGame implements Game {
         coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_extrapac.wav", "PacmanExtra");
         coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_intermission.wav", "PacmanGeneral");
 
+    }
+
+    private void initCoins(){
+        for (int i = 2; i < 28; i=i+2) {
+            Coin coin = new Coin(1.5, -i, coreEngine);
+            coins.add(coin);
+        }
+        for (int i = 5; i < 28; i=i+3){
+            Coin coin = new Coin(i, -17, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 28; i < 60; i=i+3){
+            Coin coin = new Coin(i, -35, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 28; i < 60; i=i+3){
+            Coin coin = new Coin(i, -57, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 28; i < 60; i=i+3){
+            Coin coin = new Coin(68, -i, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 67; i < 75; i=i+3){
+            Coin coin = new Coin(2, -i, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 67; i < 75; i=i+3){
+            Coin coin = new Coin(85, -i, coreEngine);
+            coins.add(coin);
+        }
+
+        for (int i = 28; i < 75; i=i+3){
+            Coin coin = new Coin(i, -92, coreEngine);
+            coins.add(coin);
+        }
     }
 
     /**
