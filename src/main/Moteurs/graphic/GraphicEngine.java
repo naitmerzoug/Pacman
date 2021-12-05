@@ -226,7 +226,6 @@ public class GraphicEngine extends JPanel implements KeyListener {
 
         BufferedImage resizedImage = new BufferedImage(biggerWidth, biggerHeight, type);
         Graphics2D g = resizedImage.createGraphics();
-
         g.setComposite(AlphaComposite.Src);
         g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);

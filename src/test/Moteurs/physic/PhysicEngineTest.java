@@ -21,10 +21,10 @@ class PhysicEngineTest {
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
         PhysicEntity e3 = new PhysicEntity(Type.SOFT, 2, 2, 1, 1, 1);
         PhysicEntity e4 = new PhysicEntity(Type.SOFT, 3, 3, 1, 1, 1);
-        physicEngine.createEntity(e1);
-        physicEngine.createEntity(e2);
-        physicEngine.createEntity(e3);
-        physicEngine.createEntity(e4);
+        physicEngine.addEntity(e1);
+        physicEngine.addEntity(e2);
+        physicEngine.addEntity(e3);
+        physicEngine.addEntity(e4);
         ConcurrentMap<Integer, PhysicEntity> mesentities = new ConcurrentHashMap<>();
 
         mesentities.put(e1.getId(), e1);
@@ -46,10 +46,10 @@ class PhysicEngineTest {
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
         PhysicEntity e3 = new PhysicEntity(Type.SOFT, 2, 2, 1, 1, 1);
         PhysicEntity e4 = new PhysicEntity(Type.SOFT, 3, 3, 1, 1, 1);
-        physicEngine1.createEntity(e1);
-        physicEngine1.createEntity(e2);
-        physicEngine1.createEntity(e3);
-        physicEngine1.createEntity(e4);
+        physicEngine1.addEntity(e1);
+        physicEngine1.addEntity(e2);
+        physicEngine1.addEntity(e3);
+        physicEngine1.addEntity(e4);
 
         physicEngine1.removeEntity(e2);
 
@@ -76,7 +76,7 @@ class PhysicEngineTest {
     void TestIsCollision() {
         PhysicEngine physicEngine5 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(2, Type.SOLID, 0, 0, 2, 2, 0.25);
-        physicEngine5.createEntity(e1);
+        physicEngine5.addEntity(e1);
         assertTrue(physicEngine5.IsCollision(1,1,2,2));
 
     }
