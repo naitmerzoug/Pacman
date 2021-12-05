@@ -15,7 +15,7 @@ class PhysicEngineTest {
      * Test de la création d'une entité
      */
     @org.junit.jupiter.api.Test
-    void TESTcreateEntity() {
+    void TestCreateEntity() {
         PhysicEngine physicEngine = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
         PhysicEntity e2 = new PhysicEntity(Type.SOLID, 3, 3, 1, 1, 1);
@@ -39,7 +39,7 @@ class PhysicEngineTest {
      * Test de la suppression d'une entité
      */
     @org.junit.jupiter.api.Test
-    void TESTremoveEntity() {
+    void TestRemoveEntity() {
         PhysicEngine physicEngine1 = new PhysicEngine();
 
         PhysicEntity e1 = new PhysicEntity(Type.SOLID, 2, 2, 1, 1, 1);
@@ -77,10 +77,9 @@ class PhysicEngineTest {
         PhysicEngine physicEngine5 = new PhysicEngine();
         PhysicEntity e1 = new PhysicEntity(2, Type.SOLID, 0, 0, 2, 2, 0.25);
         physicEngine5.addEntity(e1);
-        assertTrue(physicEngine5.IsCollision(e1.getId(),1,1,2,2));
+        assertTrue(physicEngine5.IsCollision(3,1,1,2,2));
 
     }
-
 
 
 }

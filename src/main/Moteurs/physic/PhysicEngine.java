@@ -60,8 +60,6 @@ public class PhysicEngine {
                 Rectangle2D r = new Rectangle2D.Double(x, y, width, length);
                 Rectangle2D p = new Rectangle2D.Double(entity.getPosX(), entity.getPosY(), entity.getWidth(), entity.getLength());
                 if (r.intersects(p)) {
-                    System.out.println("Pacman : x= "+x+" y= "+y+" taille en x = "+(x+width)+" taille en y = "+(y+length));
-                    System.out.println("Entité : x= "+entity.getPosX()+" y= "+entity.getPosY()+" taille en x = "+(entity.getPosX()+entity.getWidth())+" taille en y = "+(entity.getPosY()+entity.getLength()));
                     return true;
                 }
             }

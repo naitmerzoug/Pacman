@@ -265,13 +265,12 @@ public class PacmanGame implements Game {
      */
     public void run() throws InterruptedException {
         coreEngine.run();
-        //coreEngine.getSoundEngine().loopSound("PacmanStart");
+        coreEngine.getSoundEngine().playSound("PacmanStart");
 
         Thread.sleep(1000);
 
         while(pacman.isAlive()){
             //Jeu
-            System.out.println(pacman.getCoreEntity().getPhysicEntity().getInCollision());
             coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
             Thread.sleep(30);
         }
@@ -280,7 +279,7 @@ public class PacmanGame implements Game {
 
 
     /**
-     * Initialise les personnages du jeu (les fantômes)
+     * Initialise les personnages du jeu
      */
     private void initPlayers(){
         this.pacman = new Pacman(2, -45, coreEngine); // id 1
