@@ -12,8 +12,8 @@ public class PhysicEntity extends CoreEntity {
     private int id;
     private double posX;
     private double posY;
-    private double length;
-    private double width;
+    private final double length;
+    private final double width;
     private double speed;
     private Type type;
     private DIRECTION direction;
@@ -109,7 +109,6 @@ public class PhysicEntity extends CoreEntity {
     public void setPosY(double posY) {
         this.posY = posY;
     }
-
 
     public void setType(Type type) {
         this.type = type;

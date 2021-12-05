@@ -18,7 +18,7 @@ public class PacmanGame implements Game {
     /**
      * Moteur noyau
      */
-    private CoreEngine coreEngine;
+    private final CoreEngine coreEngine;
 
     /**
      * Moteur spécifique entrée/sortie Pacman

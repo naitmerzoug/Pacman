@@ -15,7 +15,7 @@ public class PhysicEngine {
     private ConcurrentMap<Integer,PhysicEntity> entities;
 
     /**
-     * Nombre d'entités
+     * Nombre d'entités pour l'incrémentation de l'id
      */
     public static int nbEntities = 0;
 
@@ -133,17 +133,4 @@ public class PhysicEngine {
         return entities;
     }
 
-    public static int getNbEntities() {
-        return nbEntities;
-    }
-
-    // Setters
-
-    public void setEntities(ConcurrentMap<Integer, PhysicEntity> entities) {
-        this.entities = entities;
-    }
-
-    public static void setNbEntities(int nbEntities) {
-        PhysicEngine.nbEntities = nbEntities;
-    }
 }
