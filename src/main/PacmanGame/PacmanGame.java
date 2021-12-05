@@ -45,6 +45,55 @@ public class PacmanGame implements Game {
         initMap();
     }
 
+    @Override
+    public void getKeyEvent(KeyEvent keyEvent) {
+        inOutPacman.receiveKeyEvent(keyEvent);
+    }
+
+
+    /**
+     * Permet le démarrage du jeu Pacman
+     */
+    public void run() throws InterruptedException {
+        coreEngine.run();
+        coreEngine.getSoundEngine().loopSound("PacmanStart");
+
+        Thread.sleep(1000);
+
+        while(pacman.isAlive()){
+            //Jeu
+            coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
+            Thread.sleep(30);
+        }
+
+    }
+
+    /**
+     * Initialise les personnages du jeu
+     */
+    private void initPlayers(){
+        this.pacman = new Pacman(2, -45, coreEngine); // id 1
+        this.inOutPacman = new InOutPacman(pacman,this);
+        BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine); // id 2
+        OrangeGhost orangeGhost = new OrangeGhost(50,-50,coreEngine);
+        PinkGhost pinkGhost = new PinkGhost(40,-50,coreEngine);
+        RedGhost redGhost = new RedGhost(40,-42,coreEngine);
+    }
+
+    /**
+     * Charge les sons
+     */
+    private void initSounds(){
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_beginning.wav", "PacmanStart");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_chomp.wav", "PacmanEatChomp");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_death.wav", "PacmanDeath");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatfruit.wav", "PacmanEatFruit");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatghost.wav", "PacmanEatGhost");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_extrapac.wav", "PacmanExtra");
+        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_intermission.wav", "PacmanGeneral");
+
+    }
+
     /**
      * Initialise la map (murs)
      */
@@ -252,56 +301,6 @@ public class PacmanGame implements Game {
         Wall wall84 = new Wall(32, -38, 1, 8, coreEngine);
         Wall wall85 = new Wall(48, -38, 1, 7, coreEngine);
         Wall wall86 = new Wall(54, -38, 17, 1, coreEngine);
-    }
-
-    @Override
-    public void getKeyEvent(KeyEvent keyEvent) {
-        inOutPacman.receiveKeyEvent(keyEvent);
-    }
-
-
-    /**
-     * Permet le démarrage du jeu Pacman
-     */
-    public void run() throws InterruptedException {
-        coreEngine.run();
-        coreEngine.getSoundEngine().playSound("PacmanStart");
-
-        Thread.sleep(1000);
-
-        while(pacman.isAlive()){
-            //Jeu
-            coreEngine.moveEntity(pacman.getCoreEntity(), pacman.getCoreEntity().getPhysicEntity().getDirection());
-            Thread.sleep(30);
-        }
-
-    }
-
-
-    /**
-     * Initialise les personnages du jeu
-     */
-    private void initPlayers(){
-        this.pacman = new Pacman(2, -45, coreEngine); // id 1
-        this.inOutPacman = new InOutPacman(pacman,this);
-        BlueGhost blueGhost = new BlueGhost(45, -45, coreEngine); // id 2
-        OrangeGhost orangeGhost = new OrangeGhost(50,-50,coreEngine);
-        PinkGhost pinkGhost = new PinkGhost(40,-50,coreEngine);
-        RedGhost redGhost = new RedGhost(40,-42,coreEngine);
-    }
-
-    /**
-     * Charge les sons
-     */
-    private void initSounds(){
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_beginning.wav", "PacmanStart");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_chomp.wav", "PacmanEatChomp");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_death.wav", "PacmanDeath");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatfruit.wav", "PacmanEatFruit");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_eatghost.wav", "PacmanEatGhost");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_extrapac.wav", "PacmanExtra");
-        coreEngine.getSoundEngine().loadSound("/PacmanGame/Sounds/pacman_intermission.wav", "PacmanGeneral");
-
     }
 
 
